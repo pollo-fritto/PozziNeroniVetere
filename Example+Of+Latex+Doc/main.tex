@@ -1,28 +1,28 @@
 \input{commandsFile}
 
 \begin{document}
+\sffamily
     
     %TITLE PAGE
     
     \begin{titlepage}
         
-        
+
         %LOGO
         
         {\begin{table}[t!]
                 \centering
                 \begin{tabu} to \textwidth { X[1.3,r,p] X[1.7,l,p] }
                     \textcolor{Blue}
-                    {\textbf{\small{CLup project by Neroni, Pozzi, Vetere}}} & \includegraphics[scale=0.4]{Images/PolimiLogo}
+                    {\textbf{\small{\textsf{CLup project by Neroni, Pozzi, Vetere}}}} & \includegraphics[scale=0.4]{Images/PolimiLogo}
                 \end{tabu}
             \end{table}}~\\ [7cm]
         
-        %TITLE 
-        
+        %TITLE  
         \begin{flushleft}
             
             %Replace the text string with your title
-            {\textcolor{blue}{\textbf{\Huge{Requirement Analysis and Specification Document}}}} \\ [1cm]
+            {\textcolor{blue}{\textrm{\Huge{Requirement Analysis and Specification Document}}}} \\ [1cm]
             
         \end{flushleft}
         
@@ -63,7 +63,7 @@
     
     %------------------------------------------------------------------------------------------------------------------------------------------------
     \clearpage
-    {\color{Blue}{\section{Introduction}}}
+    {\color{Blue}{\section{\textsf{Introduction}}}}
     \label{sect:introduction}
     \input{Files/introduction}
     
@@ -101,5 +101,5 @@
     
     
     
-    
+
 \end{document}
