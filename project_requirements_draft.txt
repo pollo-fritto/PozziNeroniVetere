@@ -1,0 +1,26 @@
+USE CASES
+- simple queue management
+    * mobile application requests 
+        → requires general timings/permanence analysis and/or explicit time slot assignment
+        → ensures customers entrance/exit monitoring & certification
+    * offline requests (kinda problematic)
+        → requires current customers timings estimation 
+        → requires integration with app requests
+        → requires priority assignment w.r.t. app requests
+        → ensures customers entrance/exit monitoring & certification with same accuracy as for app users
+        → ensures service availability for offline customers
+
+- booking
+    → requires user to indicate shopping duration 
+    → requires user to respect submitted duration OR → requires per customer analysis/history of shopping time
+        → may require user tracing inside store (delegate time slots enforcement to humans and assume them to be honored) OR
+        → may require additional consistency checks among subsequent bookings to avoid overlapping
+    → requires user to indicate product categories for booked shopping session
+        → in turn requires to know store physical data, products location etc.
+        → may require user tracing inside store to prevent purchase of non booked product categories (and consequent overlapping)
+    → ensures the max number of people allowed in the store is not exceeded
+
+- smart booking, notifications etc.
+    → requires general timings/permanence stats for both app and offline segments to provide next avail slot forecast
+    → ensures no invalid slot is suggested
+    → ensures suggested slot remains available for booked user and unavailable for any other.
