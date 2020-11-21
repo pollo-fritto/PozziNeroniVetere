@@ -24,3 +24,14 @@ USE CASES
     → requires general timings/permanence stats for both app and offline segments to provide next avail slot forecast
     → ensures no invalid slot is suggested
     → ensures suggested slot remains available for booked user and unavailable for any other.
+
+GOALS
+- CLup should avoid crowd outside supermarket stores
+- CLup should guarantee everyone access to the supermarket in a finite (reasonable) time 
+- CLup should not decrease customer affluence beyond a reasonable level (→ define reasonable)
+- CLup should avoid department overcrowding 
+- CLup should raise max number of concurrent customers by managing shopping sessions by category
+- CLup should not inhibit purchase/access to any product category
+- CLup should guarantee same possibilities to offline users
+- CLup should guarantee finding the best (less crowded, soonest available) alternative among local supermarket stores (of same franchise only?)
+
