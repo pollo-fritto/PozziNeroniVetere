@@ -36,18 +36,16 @@ Finally the application can suggest different slots to visit the store, based on
 \rowcolors{1}{Goldenrod}{white}
 \begin{tabular}{l|l}
 	G1 & Allow users to take a number of the line\\ \hline
-	G2 & Stores know which category users will occupy\\
 	G3 & Users know the least crowded time slots\\
 	G4 & Users can make a reservation to enter in a supermarket\\
-	G5 & Users won't crowd to enter the store\\
 	G6 & Stores can easily monitor fluxes\\
-	G7 & Users know alternative stores\\
+	G7 & Users can see alternative stores\\
 	G8 & Only authorized users can access\\
 	G9 & Anybody is guaranteed possibility to make shopping at the supermarket\\
 	G10 & CLup should avoid crowd outside supermarket stores\\
     G11 & CLup should guarantee everyone access to the supermarket in a finite (reasonable) time \\
     G12 & CLup should not decrease customer affluence beyond a reasonable level (→ define reasonable)\\
-    G13 & CLup should avoid department overcrowding \\
+    G13 & CLup should prevent department overcrowding \\
     G14 & \pbox{13cm}{CLup should raise max number of concurrent customers by managing shopping sessions by category}\\
     G15 & CLup should not inhibit purchase/access to any product category\\
     G16 & CLup should guarantee same possibilities to offline users\\
@@ -62,26 +60,31 @@ Finally the application can suggest different slots to visit the store, based on
 
 \rowcolors{1}{Goldenrod}{white}
 \begin{tabular}{l|l}
-	WP1 & User needs to go to the supermarket\\
-	WP2 & Users gather outside the store\\
-	WP3 & User enters the supermarket\\
-	WP4 & User exits the supermarket\\
-	WP5 & Supermarkets restrict accesses in stores\\ %do we need this?
-	WP6 & User buys products of a non booked category\\
+	WP1 & User leaves home to go to the supermarket\\\hline
+	WP2 & Users crowd outside the store\\\hline
+    WP3 & User arrives at the supermarket\\\hline
+    WP4 & User enters the supermarket \\\hline
+	WP5 & User does the grocery shopping \\\hline
+	WP6 & User exits the supermarket\\\hline
+	WP7 & Supermarkets restrict accesses in stores\\\hline %do we need this?
+	WP8 & User buys products of a non booked category\\\hline %is this a world or shared phenomena?
 \end{tabular}
 
 \subsubsection{Shared Phenomena}
 \rowcolors{1}{Goldenrod}{white}
 \begin{tabular}{l|l}
-	SP1 & User takes lines up using the app\\
-	SP2 & User books a time slot entry\\
-	SP3 & User keeps track of the line\\
-	SP4 & User validates the entrance with a QR code\\
-	SP5 & User receives suggestion for less crowded time slots\\
-	SP6 & User receives suggestion for less crowded stores\\
+	SP1 & User lines up using the application \\
+	SP2 & User makes a reservation \\
+	SP3 & User keeps track of how line evolves \\
+	SP4 & User validates the entrance with a QR code \\
+	SP5 & User receives suggestion for less crowded time slots \\
+	SP6 & User receives suggestion for less crowded stores \\
 	SP7 & CLup assigns a time slot \\
 	SP8 & CLup signals max number of customers inside the store has been reached \\
-	SP9 & CLup signals customer for improper behavior\\
+	SP9 & CLup signals customer for improper behavior \\
+	SP10 & Offline customer interacts with physical totem \\
+	SP11 & User confirms booking \\
+	SP12 & User confirms ticket reservation \\
 	
 \end{tabular}
 
