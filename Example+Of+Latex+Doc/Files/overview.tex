@@ -1,18 +1,6 @@
 \sffamily
 Here you can see how to include an image in your document.
 
-\begin{sidewaysfigure}
-\centering
-\includegraphics[width=\textwidth]{Images/11.png}
-\caption{\label{fig:metamodel}DICE DPIM metamodel.}
-\end{sidewaysfigure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Images/11.png}
-\caption{\label{fig:metamodel2}DICE DPIM metamodel in portrait form.}
-\end{figure}
-
 Here is the command to refer to another element (section, figure, table, ...) in the document: \emph{As discussed in Section~\ref{sect:overview} and as shown in Figure~\ref{fig:metamodel}, ...}. Here is how to introduce a bibliographic citation~\cite{DAM}. Bibliographic references should be included in a \texttt{.bib} file. 
 
 Table generation is a bit complicated in Latex. You will soon become proficient, but to start you can rely on tools or external services. See for instance this \href{https://www.tablesgenerator.com}{https://www.tablesgenerator.com}. \\
@@ -22,10 +10,75 @@ Table generation is a bit complicated in Latex. You will soon become proficient,
 \paragraph{Scenario 1}
 
 Single user of the CLup platform, Bob, decides it's time to go shopping.
-Bob lives in Milan and this means he's currently in reach of 5 different supermarkets belonging to the CLup network. \newline
-Bob then opens the app, checks the status of the current queue and notices the nearest supermarket has free room, 13 entrances left out of 55 total. It's fine for Bob, he starts walking towards it. \newline
-As soon as he approaches the supermarket (Bob's on foot), he checks the app and start the check-in procedure. It's not rush hours and 8 entrance are still left, so everything goes ok and Bob gets a QR ticket. He approaches the entrance, has is code scanned by an automatic turnstile and gets inside the supermarket.\newline
-In 36' time, Bob completes his shopping. He proceeds towards the exit, where another turnstile scans his QR code once again to confirm exit. He's now free to get home.
+Bob lives in Milan and this means he's currently in reach of \textbf{5 different supermarkets} belonging to the CLup network. \newline
+Bob then opens the app, checks the status of the current queue and notices the nearest supermarket has free room, 13 entrances left out of 55 total. It's fine for Bob, he starts walking towards it.
+
+As soon as he approaches the supermarket (Bob's on foot), he checks the app and start the \textbf{check-in procedure}. It's not rush hours and 8 entrance are still left, so everything goes ok and Bob gets a \textbf{QR ticket}. He approaches the entrance, has his code \textbf{scanned by an automatic turnstile} and gets inside the supermarket.\newline
+In 36' time, Bob completes his shopping. He proceeds towards the exit, where another turnstile \textbf{scans his QR code once again to confirm exit}. He's now free to get home.
+
+\paragraph{Scenario 2}
+
+Clara, mother of three children, now needs to go shopping. She's just downloaded CLup and has not figured out how to use it yet.
+
+Clara decides to have a try right now, on the fly, and opens the app to check for local available supermarkets. 
+\newline Unfortunately it's now \textbf{rush hours}, hence 2 of the 3 local supermarket show no currently available entrances and an \textbf{e.w.t. of 35 minutes}. Young mother decides to click on ``Reserve entrance'' and notices she has \textbf{15 minutes left to enter the store}. This is done in order to minimize false reservations impact on the service's availability.
+
+Clara has to travel a 4 Km distance in her home town which seems reasonable, but since it's rush hours, \textbf{actually requires 25 minutes of time} to be travelled by car: her QR code has expired.\newline
+Fortunately, she checks CLup and can now see new free accesses in the other 2 CLup powered supermarkets, the nearest of which is only a kilometer away. She then reserves an access, reaches the supermarket in 10' time and is now free to do her shopping.
+
+\paragraph{Scenario 3}
+James is a young unemployed man, living in the west, outer side of Rome. His \textbf{not particularly wealthy} condition does not overcome his strong medical conceptions, so that he's \textbf{particularly committed in avoiding queues} and other possible ways of contracting Covid-19 in general.
+
+His fridge is starting to starve, so James - who still relies on a well aged Nokia 3310 for its calls and messaging - decides to go shopping. Despite being \guillemotleft less tech-ready\guillemotright \space than average, James has nonetheless heard about a new app (a new way) of shopping and decides to give CLup powered supermarkets a try. Those with the lit CLup mark outside.
+\newline The nearest of the two eligible supermarkets in James' reach is 900m away and he's on foot. \textbf{Owning no smartphone}, James considers a reasonably not crowded time to go, 3 p.m., and walks towards the store. 
+
+Unfortunately James' guessing is wrong and the supermarket is \textbf{full}: a \textbf{big screen notifies no entrance is allowed for now}, and everybody has to stay clear of the entrance. He knows no alternative store as he owns no smartphone, but notices the big screen at the entrance has advices for him: next to the entrance, there's a \textbf{self service area} - enclosed by barriers and accessed by automated turnstiles - where James can have a ticket printed. \textbf{Only one person at a time} is allowed in, so that James and anybody else has nothing to worry about.
+\newline Right after printing its QR, James can notice the big screen now shows information about it, giving him (better, its ticket number, which reads AX625RQ) advice to \textbf{come back in 20 minutes} for entrance. He then goes for a walk.
+
+25 minutes later James approaches the supermarket and a \textbf{\textcolor{green} {green line}} on the big screen says the owner of ticket AX625RQ is allowed to enter the store for another 10 minutes. 
+\newline James happily heads towards the entrance door, has its paper ticket scanned at the turnstiles and enjoys its queue-less shopping.
+
+\paragraph{Scenario 4}
+Sara is another young, unemployed woman who lives in an outer borough of Naples. She does own a smartphone, even though it's a bit \textbf{old and sometimes sluggish} in the use. She uses it primarily for texting even though CLup is installed and seems to work.
+
+It's 10 am and Sara needs to go shopping, so opens up CLup and reserves an entrance to the nearest store. She reaches the entrance, looks for her QR code and notices \textbf{her smartphone is suddenly misbehaving}, randomly rebooting and not letting her accomplish the task. \newline
+She could have memorized her \textit{presto code} but she actually did not, and asking for a manual check-in is not an option since human interactions have to be avoided - the staff would not let her in.
+
+Sara feels annoyed, and decides she has no time to spend waiting for her smartphone to get back to normal, so she will try and access \textbf{like an offline customer}. The store is almost empty but some other offline customers are to get their tickets. \newline
+She looks at the big screen over the entrance, someone is currently occupying the self area but that particular store has room for 5 consecutive offline customers, so she enters the fenced area, stopping at \guillemotleft one turnstile distance\guillemotright \space from the guy currently occupying the self area. In 2 minutes approximately, Sara is able to reach the self machine, have a new ticket printed and get back out.
+
+The big screen announces both the offline tickets are allowed in (there's few persons inside), hence Sara heads towards the turnstiles and gets inside the supermarket, on her way to buying her next smartphone.
+
+
+\paragraph{Scenario 5}
+
+Michael's family lives outside Messina, in a nice cottage by the sea. Panorama is beautiful, going shopping though requires some effort. \newline
+Either Michael or his wife, Laura, have to take the car and travel 25 kilometers of state road to the city. This typically requires up to 1 hour in rush hours, and 35 minutes on average.
+
+This is the type of situation in which the possibility of \textbf{booking} an entrance comes in handy. It's 11.30 a.m.: Laura opens CLup and books an entrance at 5 p.m., providing an estimated shopping time of 1 hour. \newline
+CLup's \textbf{alternative stores functionality} also plays a fundamental role for Laura and her family, as they often head towards Ganzirri - another city on Sicily's east coast, opposite direction than Messina - to do their shopping. There are other shopping districts down there, typically less crowded and easier to reach. Today's best alternative happens to be a supermarket in Messina city though.
+
+At 4.10 pm, Laura gets in the car and heads towards the booked store. She arrives at 5.05 p.m, has her QR booking code scanned and gets in. \newline
+However, children are usually hungry and Laura's three kids make no exception to this. She hurries getting the job done quickly, but she inevitably ends up \textbf{exceeding the 1 hour slot she had booked.} \newline
+Right now the store is full, and this apparently concerning problem leads CLup system to \textbf{alert with reasonable notice one user}, whose entrance would have been right after Laura's exit, that he will have to wait an additional 15 minutes before entering the store. \newline
+In the end, Laura manages to get outside the supermarket 65 minutes after she got in. 
+
+
+Had she required more than that, at 71st minute CLup would have warned the aforementioned user to add another 15 minutes delay to his entrance, and so forth. So that everybody stays safe and \textbf{no overcrowding} takes place.\newline
+Straightforwardly enough, Laura's \textbf{delay inevitably becomes root of possible discomfort.} Nonetheless, CLup engine makes note of Laura's behaviour and adds her last shopping time to her personal data: this is going to be taken into account the next time she books a visit, and over time the system will become able to \textbf{forecast her actual shopping time}, thus reducing consequent discomforts.\newline
+It is worth noting that this really unfortunate situation generates a problem since Laura's delay occurs specifically when the store is full, condition without which the problem would not have been so concerning.\newline
+Also, comparing CLup management of the situation with standard management indicates a \underline{fairly good improvement}: without CLup, the next customer could not have booked its visit (much less, being warned about delays), but instead he would simply have reached the store at 7 p.m and crowded to wait an indeterminate amount of time outside the store.
+
+\paragraph{Scenario 6}
+Valerio is a tech oriented grandfather, whose grandson is committed about technology and pushes him towards the use of electronic devices.\newline
+Everything tends to go well, except sometimes Valerio \textit{mis-taps} something on its smartphone. Today Valerio is trying to get used to the new shopping app his grandson has provided him with, and accidentally makes a booking for late afternoon, at 6 o'clock, at a superstore near his house.\newline
+Valerio seems not to notice his mistake, and simply closes the app. Hence the booking remains valid.
+
+We again find ourselves in the very unfortunate situation in which, at 6 o'clock the superstore is full and Valerio's booking means one less entrance for someone who needed it. This actually represents a problem for the very next 15 minutes after 6 p.m., since at 6.16 the booking is automatically cancelled and the next user in current queue is notified he can proceed. 
+
+Also, system makes note of Valerio's mistake and reports it to the superstore's Staff. They will be presented a comprehensive report, reading which they will be able to decide whether to contact Valerio for explanations or simply ignore the incident, taking into account factors only humans can evaluate (like Valerio's age).\newline
+
+Vivere fuori citt\`a
 
 \subsection{Product Functions}
 
