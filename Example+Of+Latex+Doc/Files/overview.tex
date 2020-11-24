@@ -64,7 +64,7 @@ Right now the store is full, and this apparently concerning problem leads CLup s
 In the end, Laura manages to get outside the supermarket 65 minutes after she got in. 
 
 
-Had she required more than that, at 71st minute CLup would have warned the aforementioned user to add another 15 minutes delay to his entrance, and so forth. So that everybody stays safe and \textbf{no overcrowding} takes place.\newline
+Had she required more than that, at 71st minute CLup would have warned the aforementioned user to add another 10 minutes delay to his entrance, and so forth. So that everybody stays safe and \textbf{no overcrowding} takes place.\newline
 Straightforwardly enough, Laura's \textbf{delay inevitably becomes root of possible discomfort.} Nonetheless, CLup engine makes note of Laura's behaviour and adds her last shopping time to her personal data: this is going to be taken into account the next time she books a visit, and over time the system will become able to \textbf{forecast her actual shopping time}, thus reducing consequent discomforts.\newline
 It is worth noting that this really unfortunate situation generates a problem since Laura's delay occurs specifically when the store is full, condition without which the problem would not have been so concerning.\newline
 Also, comparing CLup management of the situation with standard management indicates a \underline{fairly good improvement}: without CLup, the next customer could not have booked its visit (much less, being warned about delays), but instead he would simply have reached the store at 7 p.m and crowded to wait an indeterminate amount of time outside the store.
@@ -78,7 +78,8 @@ We again find ourselves in the very unfortunate situation in which, at 6 o'clock
 
 Also, system makes note of Valerio's mistake and reports it to the superstore's Staff. They will be presented a comprehensive report, reading which they will be able to decide whether to contact Valerio for explanations or simply ignore the incident, taking into account factors only humans can evaluate (like Valerio's age).\newline
 
-Vivere fuori citt\`a
+However, CLup's reservation procedure includes an explicit confirmation dialogue, which is aimed at reducing this type of inconvenience.
+
 
 \subsection{Product Functions}
 
@@ -91,5 +92,11 @@ Follows a list of assumptions made about the domain CLup focuses on.\newline\new
 	D1 & Entrance checking is possible and guaranteed by the Staff\\
 	D2 & Exit checking is possible and guaranteed by the Staff\\
 	D3 & One customer per authorization given is allowed in by the Staff\\
+	D4 & Users are reasonably able to manage their time while following the queue evolution\\
+    D5 & Users can estimate the time required to arrive to the store\\
+    D6 & Users who arrives too early at the supermarket don't wait in front of the entrance\\
+    D7 & Customers keep the safe distance\\
+    D8 & Malicious users are not enough in number or coordination to prevent Clup to work\\
+
 	
 \end{tabular}
