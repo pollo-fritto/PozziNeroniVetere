@@ -21,8 +21,9 @@ sig Store{
     commercialName: one String,
     longName: lone String,
     Location: Location,
-    opensAt: one RelativeTime,
-    closesAt: one RelativeTime,
+    opensAt: lone RelativeTime,
+    closesAt: lone RelativeTime,
+    twentyfour: one Bool,
 
 }
 
@@ -53,8 +54,23 @@ sig StaffMember extends Person{
 sig BookingReservation {
     applicant: one Person,
     time: one Time,
-    at: one Store
-    duration: one Int
+    at: one Store,
+    duration: one Int,
+    id: one String,
+}
+
+sig Ticket{
+
+}
+
+sig Queue{
+    members: set Person,
+    store: one Store,
+    id: one String
+}
+
+sig Queues{
+    queuesList: set Queue
 }
 
 one sig CustomerDB{
@@ -79,6 +95,10 @@ fact fiscalCodeIsUnique{
 
 fact noReservationInPast{
     all reservation : BookingReservation | reservation.time>Now.now -- how do we define time> time? TODO
+}
+
+fact noDuplicatedCustomers{
+    all disj cust,cust1: Person | cust,cust1 in Queues.queuesList.members | cust!=cust1
 }
 --predicates ----------------------------------
 pred isCustomer(p:Person){
