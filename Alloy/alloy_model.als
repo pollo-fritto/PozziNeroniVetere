@@ -1,4 +1,5 @@
 --define time as POSIX or date, time, hours etc.?
+
 sig Time{}
 
 sig RelativeTime{
@@ -88,6 +89,7 @@ one sig Bookings{
 one sig StoresDB{
     storesList: set Store
 }
+
 --facts----------------------------------------
 fact fiscalCodeIsUnique{
     all disj pers,pers1 : Person | pers.fc != pers1.fc
@@ -100,6 +102,7 @@ fact noReservationInPast{
 fact noDuplicatedCustomers{
     all disj cust,cust1: Person | cust,cust1 in Queues.queuesList.members | cust!=cust1
 }
+
 --predicates ----------------------------------
 pred isCustomer(p:Person){
     p in CustomerDB.customers
@@ -115,5 +118,5 @@ assert delUndoAdd {
 }
 
 
-
+--checks---------------------------------------
 check delUndoAdd for 3
