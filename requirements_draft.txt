@@ -1,0 +1,11 @@
+R1 & Whenever user makes initiates a booking procedure, CLup must be able to compute a suggested least crowded time slot based on historical data (G2, D1, D8, D11)\\
+R2 & Whenever user makes initiates a reservation procedure, CLup must be able to compute a suggested least crowded time slot based on historical data (G2, D1, D8, D11)\\
+R3 & CLup must elaborate and upload data about current global customer affluence to the store during use (G4, D1, D2, D3, D11)\\
+R4 & CLup must admit only valid QR codes for entrance (G6, D1, D11)
+R5 & CLup must allow users to know current queue status (G7, D6, D4)
+R6 & CLup must update user on tickets' validity change (G7, D11)
+R7 & CLup must inform offline users about new tickets (un)availability (G7, D11, D6)
+R8 & CLup must allow users to indicate which product category they are going to purchase while booking (G9, G10 CHECK!!)
+R9 & CLup must suggest alternative stores when the combination of selected store|product category|time gives no results (G11, D8, D10, D11)
+R10 & CLup must reserve a non null number of paper tickets at any time for offline customers use (G12, D1, D2, D11)
+R11 & CLup must gather all stores' data about entrance fluxes and use them to sort every store by crowdedness (G13, D1, D2, D3, D10, D11)
