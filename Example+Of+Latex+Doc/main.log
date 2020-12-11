@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.11)  11 DEC 2020 17:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.11)  11 DEC 2020 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1001,17 +1001,12 @@ LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
             Default family used instead on input line 45.
 
-Overfull \hbox (116.41844pt too wide) in paragraph at lines 37--52
-[] 
- []
-
-
 Underfull \vbox (badness 1817) has occurred while \output is active []
 
  [5
 
 ]
-Underfull \vbox (badness 7522) has occurred while \output is active []
+Underfull \vbox (badness 5331) has occurred while \output is active []
 
  [6])
 [7] (./Files/overview.tex
@@ -1097,7 +1092,7 @@ ic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (16 pages, 226644 bytes).
+Output written on main.pdf (16 pages, 226687 bytes).
 PDF statistics:
  487 PDF objects out of 1000 (max. 8388607)
  447 compressed objects within 5 object streams
