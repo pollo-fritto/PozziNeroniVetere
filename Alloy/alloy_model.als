@@ -1,6 +1,27 @@
---define time as POSIX or date, time, hours etc.?
+--define time as POSIX or date, time, hours etc.? Ok, I've chosen the "yyyy-mm-dd hh:mm" way.
 
-sig Time{}
+enum Day{Monday, Tuesday, Wednesday, Thrusday, Friday, Saturday, Sunday}
+
+sig Date{
+    year: Int,
+    month: Int,
+    day: Int,
+}{
+    year>0 && year<=3000,
+    month>0 && month<13,
+    day>0 && day<32
+}
+
+sig Time{
+    date: Date
+    hour: Int, 
+    minutes: Int
+    seconds: Int
+}{
+    hour<25 && hour >=0,
+    minutes<60 && minutes>=0,
+    seconds<60 && seconds>=0
+}
 
 sig RelativeTime{
     validDays: set Day,
@@ -28,7 +49,7 @@ sig Store{
 
 }
 
-sig Person {
+abstract sig Person {
     name: one String,
     surname: one String,
     fc: lone String,
@@ -40,9 +61,11 @@ sig Person {
     fc.length=11
 }
 
-sig Now{
+one sig Now{
     now: one Time
 }
+
+sig Customer extends Person{}
 
 sig StaffMember extends Person{
     cardID: one String,
@@ -96,27 +119,56 @@ fact fiscalCodeIsUnique{
 }
 
 fact noReservationInPast{
-    all reservation : BookingReservation | reservation.time>Now.now -- how do we define time> time? TODO
+    all reservation : BookingReservation | aTimeBeforeB(Now.now, reservation.time)
 }
 
 fact noDuplicatedCustomers{
     all disj cust,cust1: Person | cust,cust1 in Queues.queuesList.members | cust!=cust1
 }
 
---predicates ----------------------------------
-pred isCustomer(p:Person){
-    p in CustomerDB.customers
+fact dayConsistency{ --we should also handle leap years...
+    all date : Date | (date.month=11 ||date.month=4 || date.month=6 || date.month=9) implies date.day<31 && 
+    (date.month=2) implies date.day<30   
 }
 
-pred isStaff(p:Person){
+fact noDBMismatch{-- fact that a person must either be Customer or Staff should be guaranteed by abstract Person (omitting: &&(isCustomer(p)||isStaff(p)) )
+    all p : Person | (isCustomer(p) implies !isStaff(p)) && (isStaff(p) implies !isCustomer(p))
+}
+
+
+--predicates ----------------------------------
+pred isCustomer[p:Person]{
+    p in CustomerDB.customers 
+}
+
+pred isStaff[p:Person]{
     p in StaffDB.staffMembers
 }
 
+pred aDateBeforeB[a, b: Date]{
+    a.year<b.year||(a.year=b.year && a.month< b.month)||(a.year=b.year && a.month= b.month&&a.day<b.day)
+}
+
+
+pred aTimeBeforeB[a, b : Time]{
+    aDateBeforeB(a.date, b.date)|| (a.dateb=b.date && a.hour<b.hour) || (a.date=b.date && a.hour=b.hour && a.minutes<b.minutes) || 
+    (a.date=b.date && a.hour=b.hour && a.minutes=b.minutes&&a.seconds<b.seconds)
+
+}
+
+pred userHasBooked[p: Person]{
+    some r: BookingReservation in bookings | r.applicant=p
+}
+
 --assertions-----------------------------------
-assert delUndoAdd {
-  all b,b',b'': Book, n: Name , a:Addr | add[b,b',n,a] and del[b',b'',n] implies b.addr = b''.addr
+assert customersInCustomersDB(c:Customer){
+    isCustomer(c) 
+}
+
+assert StaffMembersInStaffDB(s:StaffMember){
+    isStaff(s)
 }
 
 
 --checks---------------------------------------
-check delUndoAdd for 3
+check 
