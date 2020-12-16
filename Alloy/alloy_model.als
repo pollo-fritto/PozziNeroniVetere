@@ -1,4 +1,9 @@
 --define time as POSIX or date, time, hours etc.? Ok, I've chosen the "yyyy-mm-dd hh:mm" way.
+abstract sig Bool{}
+one sig True extends Bool{}
+one sig False extends Bool{}
+sig Char{} -- using this to be able to write constraints on strings length
+sig a{}
 
 enum Day{Monday, Tuesday, Wednesday, Thrusday, Friday, Saturday, Sunday}
 
@@ -7,35 +12,35 @@ sig Date{
     month: Int,
     day: Int,
 }{
-    year>0 && year<=3000,
-    month>0 && month<13,
+    year>0 && year<=3000
+    month>0 && month<13
     day>0 && day<32
 }
 
 sig Time{
-    date: Date
+    date: Date,
     hour: Int, 
-    minutes: Int
-    seconds: Int
+    minutes: Int,
+    seconds: Int,
 }{
-    hour<25 && hour >=0,
-    minutes<60 && minutes>=0,
+    hour<25 && hour >=0
+    minutes<60 && minutes>=0
     seconds<60 && seconds>=0
 }
 
 sig RelativeTime{
     validDays: set Day,
-    hour: one Int
-    minutes: one Int
-    seconds: one Int
+    hour: one Int,
+    minutes: one Int,
+    seconds: one Int,
 }{
-    hour<25 && hour >=0,
-    minutes<60 && minutes>=0,
+    hour<25 && hour >=0
+    minutes<60 && minutes>=0
     seconds<60 && seconds>=0
 }
 
 sig Location{
-    latitude: one Int
+    latitude: one Int,
     longitude: one Int
 }
 
@@ -50,15 +55,15 @@ sig Store{
 }
 
 abstract sig Person {
-    name: one String,
-    surname: one String,
-    fc: lone String,
-    customerId: one String
+    name: seq Char,
+    surname: seq Char,
+    fc: seq Char,
+    customerId: seq Char
 }
 {
-    name.length>2,
-    surname.length>2,
-    fc.length=11
+    #name>2
+    #surname>2
+    #fc=11
 }
 
 one sig Now{
@@ -80,7 +85,7 @@ sig BookingReservation {
     time: one Time,
     at: one Store,
     duration: one Int,
-    id: one String,
+    id: one String
 }
 
 sig Ticket{
@@ -106,7 +111,7 @@ one sig StaffDB{
 }
 
 one sig Bookings{
-    bookings: set BookingReservation
+    bookingsList: set BookingReservation
 }
 
 one sig StoresDB{
@@ -119,11 +124,11 @@ fact fiscalCodeIsUnique{
 }
 
 fact noReservationInPast{
-    all reservation : BookingReservation | aTimeBeforeB(Now.now, reservation.time)
+    all reservation : BookingReservation | aTimeBeforeB[Now.now, reservation.time]
 }
 
 fact noDuplicatedCustomers{
-    all disj cust,cust1: Person | cust,cust1 in Queues.queuesList.members | cust!=cust1
+    all disj cust,cust1: Person | cust.customerId !=cust1.customerId
 }
 
 fact dayConsistency{ --we should also handle leap years...
@@ -132,8 +137,10 @@ fact dayConsistency{ --we should also handle leap years...
 }
 
 fact noDBMismatch{-- fact that a person must either be Customer or Staff should be guaranteed by abstract Person (omitting: &&(isCustomer(p)||isStaff(p)) )
-    all p : Person | (isCustomer(p) implies !isStaff(p)) && (isStaff(p) implies !isCustomer(p))
+    all p : Person | (isCustomer[p] implies !isStaff[p]) && (isStaff[p] implies !isCustomer[p])
 }
+
+fact {no a}
 
 
 --predicates ----------------------------------
@@ -145,30 +152,30 @@ pred isStaff[p:Person]{
     p in StaffDB.staffMembers
 }
 
-pred aDateBeforeB[a, b: Date]{
+pred aDateBeforeB[a:Date , b: Date]{
     a.year<b.year||(a.year=b.year && a.month< b.month)||(a.year=b.year && a.month= b.month&&a.day<b.day)
 }
 
 
-pred aTimeBeforeB[a, b : Time]{
-    aDateBeforeB(a.date, b.date)|| (a.dateb=b.date && a.hour<b.hour) || (a.date=b.date && a.hour=b.hour && a.minutes<b.minutes) || 
+pred aTimeBeforeB[a: Time, b: Time]{
+    aDateBeforeB[a.date, b.date]|| (a.date=b.date && a.hour<b.hour) || (a.date=b.date && a.hour=b.hour && a.minutes<b.minutes) || 
     (a.date=b.date && a.hour=b.hour && a.minutes=b.minutes&&a.seconds<b.seconds)
 
 }
 
 pred userHasBooked[p: Person]{
-    some r: BookingReservation in bookings | r.applicant=p
+    some r: BookingReservation | r in Bookings.bookingsList && r.applicant=p
 }
 
 --assertions-----------------------------------
-assert customersInCustomersDB(c:Customer){
-    isCustomer(c) 
+assert customersInCustomersDB{
+    all c: Customer | isCustomer[c]
 }
 
-assert StaffMembersInStaffDB(s:StaffMember){
-    isStaff(s)
+assert StaffMembersInStaffDB{
+    all s: StaffMember | isStaff[s]
 }
 
 
 --checks---------------------------------------
-check 
+check {no a}
