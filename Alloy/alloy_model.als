@@ -164,7 +164,7 @@ pred aTimeBeforeB[a: Time, b: Time]{
 }
 
 pred userHasBooked[p: Person]{
-    some r: BookingReservation | r in Bookings.bookingsList && r.applicant=p
+    some r: BookingReservation | r in Bookings.bookingsList --&& r.applicant=p
 }
 
 --assertions-----------------------------------
@@ -172,10 +172,14 @@ assert customersInCustomersDB{
     all c: Customer | isCustomer[c]
 }
 
-assert StaffMembersInStaffDB{
+assert staffMembersInStaffDB{
     all s: StaffMember | isStaff[s]
 }
 
+assert no_a{ no a}
 
 --checks---------------------------------------
-check {no a}
+check customersInCustomersDB 
+check staffMembersInStaffDB 
+run userHasBooked for 5
+run isCustomer
