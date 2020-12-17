@@ -128,10 +128,10 @@ one sig StoresDB{
 }
 
 --facts----------------------------------------
-/*fact fiscalCodeIsUnique{
+fact fiscalCodeIsUnique{
     all disj pers,pers1 : Person | pers.fc != pers1.fc
 }
-/*
+
 fact noReservationInPast{
     all reservation : BookingReservation | aTimeBeforeB[Now.now, reservation.time]
 }
@@ -149,7 +149,7 @@ fact noDBMismatch{-- fact that a person must either be Customer or Staff should 
     all p : Person | (isCustomer[p] implies !isStaff[p]) && (isStaff[p] implies !isCustomer[p])
 }
 
-*/
+
 --predicates ----------------------------------
 pred isCustomer[p:Person]{
     p in CustomerDB.customers
