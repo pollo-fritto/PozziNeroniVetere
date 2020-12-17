@@ -3,7 +3,6 @@ abstract sig Bool{}
 one sig True extends Bool{}
 one sig False extends Bool{}
 sig Char{} -- using this to be able to write constraints on strings length
-sig a{}
 
 enum Day{Monday, Tuesday, Wednesday, Thrusday, Friday, Saturday, Sunday}
 
@@ -12,9 +11,12 @@ sig Date{
     month: Int,
     day: Int,
 }{
-    year>0 && year<=3000
-    month>0 && month<13
-    day>0 && day<32
+    year>0 
+    --year<=3000
+    month>0 
+    month<13
+    day>0 
+    day<32
 }
 
 sig Time{
@@ -23,9 +25,12 @@ sig Time{
     minutes: Int,
     seconds: Int,
 }{
-    hour<25 && hour >=0
-    minutes<60 && minutes>=0
-    seconds<60 && seconds>=0
+    hour<24 
+    hour>=0
+    minutes<60 
+    minutes>=0
+    seconds<60 
+    seconds>=0
 }
 
 sig RelativeTime{
@@ -34,9 +39,12 @@ sig RelativeTime{
     minutes: one Int,
     seconds: one Int,
 }{
-    hour<25 && hour >=0
-    minutes<60 && minutes>=0
-    seconds<60 && seconds>=0
+    hour<24 
+    hour>=0
+    minutes<60 
+    minutes>=0
+    seconds<60 
+    seconds>=0
 }
 
 sig Location{
@@ -45,13 +53,12 @@ sig Location{
 }
 
 sig Store{
-    commercialName: one String,
-    longName: lone String,
-    Location: Location,
+    commercialName: seq Char,
+    longName: seq Char,
+    Location: one Location,
     opensAt: lone RelativeTime,
     closesAt: lone RelativeTime,
-    twentyfour: one Bool,
-
+    twentyfour: one Bool
 }
 
 abstract sig Person {
@@ -59,11 +66,11 @@ abstract sig Person {
     surname: seq Char,
     fc: seq Char,
     customerId: seq Char
-}
-{
+}{
     #name>2
     #surname>2
-    #fc=11
+    //#fc>=11
+    //#customerId=12
 }
 
 one sig Now{
@@ -73,11 +80,13 @@ one sig Now{
 sig Customer extends Person{}
 
 sig StaffMember extends Person{
-    cardID: one String,
+    cardID: seq Char,
     nowWorkingAt: one Store,
     active: one Bool,
     level: one Int
-
+}{
+    #cardID>3
+    level>0
 }
 
 sig BookingReservation {
@@ -85,7 +94,7 @@ sig BookingReservation {
     time: one Time,
     at: one Store,
     duration: one Int,
-    id: one String
+    id: seq Char
 }
 
 sig Ticket{
@@ -103,7 +112,7 @@ sig Queues{
 }
 
 one sig CustomerDB{
-    customers: set Person
+    customers: set Customer
 }
 
 one sig StaffDB{
@@ -119,10 +128,10 @@ one sig StoresDB{
 }
 
 --facts----------------------------------------
-fact fiscalCodeIsUnique{
+/*fact fiscalCodeIsUnique{
     all disj pers,pers1 : Person | pers.fc != pers1.fc
 }
-
+/*
 fact noReservationInPast{
     all reservation : BookingReservation | aTimeBeforeB[Now.now, reservation.time]
 }
@@ -140,12 +149,10 @@ fact noDBMismatch{-- fact that a person must either be Customer or Staff should 
     all p : Person | (isCustomer[p] implies !isStaff[p]) && (isStaff[p] implies !isCustomer[p])
 }
 
-fact {no a}
-
-
+*/
 --predicates ----------------------------------
 pred isCustomer[p:Person]{
-    p in CustomerDB.customers 
+    p in CustomerDB.customers
 }
 
 pred isStaff[p:Person]{
@@ -167,6 +174,10 @@ pred userHasBooked[p: Person]{
     some r: BookingReservation | r in Bookings.bookingsList --&& r.applicant=p
 }
 
+pred test1{
+    #StaffDB.staffMembers>0
+}
+
 --assertions-----------------------------------
 assert customersInCustomersDB{
     all c: Customer | isCustomer[c]
@@ -176,10 +187,11 @@ assert staffMembersInStaffDB{
     all s: StaffMember | isStaff[s]
 }
 
-assert no_a{ no a}
-
 --checks---------------------------------------
 check customersInCustomersDB 
 check staffMembersInStaffDB 
-run userHasBooked for 5
-run isCustomer
+run userHasBooked for 7 Int
+run isCustomer for 7 Int
+run isStaff for 7 Int
+run test1 for 7 Int
+run aDateBeforeB for 7 Int
