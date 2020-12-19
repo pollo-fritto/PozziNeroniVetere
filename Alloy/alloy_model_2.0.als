@@ -69,11 +69,11 @@ sig Store{
     location: one Location,
     opensAt: set RelativeTime,
     closesAt: set RelativeTime,
-    twentyfour: one Bool, 
+    twentyfourSeven: one Bool, 
     occupantsMax: one Int
 }{
-    twentyfour=False implies (#opensAt>0 && #closesAt>0 && #opensAt=#closesAt)
-    twentyfour=True implies (#opensAt=0 && #closesAt=0)
+    twentyfourSeven=False implies (#opensAt>0 && #closesAt>0 && #opensAt=#closesAt)
+    twentyfourSeven=True implies (#opensAt=0 && #closesAt=0)
     occupantsMax>0
 }
 
@@ -156,7 +156,7 @@ one sig Queues{
     queuesList: set Queue
 }
 
-one sig CustomerDB{
+one sig CustomersDB{
     customers: set Customer
 }
 
@@ -164,7 +164,7 @@ one sig StaffDB{
     staffMembers: set StaffMember
 }
 
-one sig Bookings{
+one sig BookingsDB{
     bookingsList: set BookingReservation
 }
 
@@ -197,6 +197,18 @@ fact noDBMismatch{
 fact allPeoplesBelongToDB{
     all p: Person | isCustomer[p] || isStaff[p]
 }
+
+fact allStoresBelongToDB{
+    all s: Store | s in StoresDB.storesList
+}
+
+fact allNotificationsBelongToDB{
+    all n: Notification| n in NotificationsDB.notifications
+}
+
+/*fact allQueuesBelongToDB{
+    all q: Queue | q in Queues.queuesList
+}*/
 
 fact eachStoreOneQueueMax{
     all disj q, q1 : Queue | q.store!=q1.store
@@ -241,7 +253,7 @@ fact eachOpeningDayHasAlsoClosing{
 }
 
 fact closingTimeAfterOpening{
-    all s:Store | s.twentyfour=False implies (all o,c: RelativeTime| 
+    all s:Store | s.twentyfourSeven=False implies (all o,c: RelativeTime| 
     (o in s.opensAt && c in s.closesAt && o.validDay=c.validDay) implies aRelativeTimeBeforeB[o, c])
 }
 
@@ -266,7 +278,7 @@ fun computeDisposalTime[ticketTime: Time, userLocation: Location]: one Time{
 
 --predicates ----------------------------------
 pred isCustomer[p:Person]{
-    p in CustomerDB.customers
+    p in CustomersDB.customers
 }
 
 pred isStaff[p:Person]{
@@ -293,7 +305,7 @@ pred sameTime[a, b : Time]{
 }
 
 pred userHasBooked[p: Person]{
-    some r: BookingReservation | r in Bookings.bookingsList && r.applicant=p
+    some r: BookingReservation | r in BookingsDB.bookingsList && r.applicant=p
 }
 
 pred hasTicket[p: Person]{
@@ -327,7 +339,7 @@ pred allowUserIn[p:Person, thisStore: Store]{
 }
 
 //adding a reservation
-pred book[b, b': Bookings, a: Person, start:Time, store: Store, end: Time]{
+pred book[b, b': BookingsDB, a: Person, start:Time, store: Store, end: Time]{
     bookingsNotExceedingMaxOccupants[store, start, end]//ensures we're not going to exceed store's capacity with new bookings
     aTimeBeforeB[Now.time, start] //we don't want reservations in the past
     b'.bookingsList.applicant = b.bookingsList.applicant +a
@@ -396,7 +408,7 @@ assert generateTicketDoesNotExceedMaxOccupants{
 }
 
 assert bookingDoesNotExceedMaxOccupants{
-    all p: Person, s,e :Time, st:Store, disj b,b': Bookings | book[b, b', p, s, st, e] implies bookingsNotExceedingMaxOccupants[st, s, e]
+    all p: Person, s,e :Time, st:Store, disj b,b': BookingsDB | book[b, b', p, s, st, e] implies bookingsNotExceedingMaxOccupants[st, s, e]
 }
 
 assert neverAllowInMoreThanMax{
@@ -433,7 +445,7 @@ run isStaff for 7 Int
 run aDateBeforeB for 7 Int
 run book for 7 Int
 run getQuickTicket for 7 Int
-run {some s, s1: Store | s.twentyfour=True && s1.twentyfour=False} for 7 Int
+run {some s, s1: Store | s.twentyfourSeven=True && s1.twentyfourSeven=False} for 7 Int
 run aTimeBeforeB for 7 Int
 run maxOccupantsNotExceeded for 7 Int
 run temporaryStopStore for 7 Int
