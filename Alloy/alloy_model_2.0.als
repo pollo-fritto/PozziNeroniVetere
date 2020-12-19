@@ -68,10 +68,12 @@ sig Store{
     Location: one Location,
     opensAt: some RelativeTime,
     closesAt: some RelativeTime,
-    twentyfour: one Bool
+    twentyfour: one Bool, 
+    occupantsMax: one Int
 }{
     twentyfour=False implies (#opensAt>0 && #closesAt>0 && #opensAt=#closesAt)
     twentyfour=True implies (#opensAt=0 && #closesAt=0)
+    occupantsMax>0
 }
 
 abstract sig Person {
@@ -80,7 +82,8 @@ abstract sig Person {
     fc: seq Char,
     customerId: seq Char,
     tickets: set Ticket,
-    reservations: set BookingReservation
+    reservations: set BookingReservation,
+    currentLocation: lone Location //used for timed notifications
 }{
     #name>2
     #surname>2
@@ -89,7 +92,7 @@ abstract sig Person {
 }
 
 one sig Now{
-    now: one Time
+    time: one Time
 }
 
 sig Customer extends Person{}
@@ -106,12 +109,12 @@ sig StaffMember extends Person{
 
 sig BookingReservation {
     applicant: one Person,
-    time: one Time,
-    at: one Store,
-    durationMinutes: one Int,
+    startTime: one Time,
+    where: one Store,
+    endTime: one Time,
     id: seq Char
 }{
-    durationMinutes>0
+    //aTimeBeforeB[startTime, endTime]
 }
 
 sig Ticket{
@@ -120,7 +123,10 @@ sig Ticket{
     id: seq Char,
     prestoCode: seq Char,
     entranceTime: one Time,
-    valid: Bool
+    valid: one Bool, 
+    active: one Bool,
+    scannedIn: lone Time,
+    scannedOut: lone Time
 }{
     #this.@id>0
 }
@@ -128,7 +134,7 @@ sig Ticket{
 sig Queue{
     members: seq Ticket,
     store: one Store, -- each queue refers to a specific store, 1 store <--> 1 queue
-    id: seq Char --each queue has an ID
+    id: seq Char, --each queue has an ID
 }{
     #members>0
     #this.@id>0 -- TODO
@@ -159,8 +165,8 @@ fact fiscalCodeIsUnique{
     all disj pers,pers1 : Person | pers.fc != pers1.fc
 }
 
-fact noReservationInPast{
-    all reservation : BookingReservation | aTimeBeforeB[Now.now, reservation.time]
+fact reservationConsistency{
+    all r: BookingReservation | r.startTime.date=r.endTime.date && aTimeBeforeB[r.startTime, r.endTime]
 }
 
 fact noDuplicatedCustomers{
@@ -194,14 +200,27 @@ fact userHasNoMultipleTicketsSameDay{
 }
 
 fact eachTicketHasParentQueue{
-    all t: Ticket | some q: Queue | q=t.parentQueue
+    all t: Ticket | one q: Queue | q=t.parentQueue
 }
-fact twoWayCorrespondanceTicketQueueID{
+
+fact eachReservationHasApplicant{
+    all r: BookingReservation | one p: Person | p=r.applicant
+}
+
+fact twoWayCorrespondanceTicketQueue{
     all t: Ticket | all q: Queue | t.parentQueue=q iff t in q.members.elems
+}
+
+fact twoWayCorrespondanceReservationOwner{
+    all r:BookingReservation | all p: Person | r.applicant=p iff r in p.reservations
 }
 
 fact twoWayCorrespondanceTicketOwner{
     all t:Ticket, p:Person | (t.owner=p implies t in p.tickets) && (t in p.tickets implies t.owner=p)
+}
+
+fact onlyOneBookingPerDayPerUser{
+    all disj b, b1: BookingReservation | !(b.startTime.date=b1.startTime.date && b.applicant=b1.applicant)
 }
 
 fact eachOpeningDayHasAlsoClosing{
@@ -218,6 +237,17 @@ fact closingTimeAfterOpening{
 fun retrieveTicketsStore[t:Ticket]: one Store {
     t.parentQueue.store
 }
+
+fun getCurrOccupants[q: Queue]: one Int {
+    #{t: Ticket | t.active=True && t in q.members.elems}
+}
+
+fun getBookedOccupants[s: Store, start:Time, end:Time] : one Int{
+    #{x: BookingReservation | x.where = s && (sameTime[start, x.startTime]|| aTimeBeforeB[start, x.startTime]) 
+    && (sameTime[x.startTime, end] || aTimeBeforeB[x.endTime, end])}
+    //number of reservations whose start time ≥ start and end time ≤ end
+}
+
 
 --predicates ----------------------------------
 pred isCustomer[p:Person]{
@@ -255,21 +285,42 @@ pred hasTicket[p: Person]{
     some q: Queue | some t: Ticket | t.owner=p && t in q.members.elems
 }
 
+pred maxOccupantsNotExceeded[s: Store]{
+    all q: Queue| q.store = s implies getCurrOccupants[q]+1<s.occupantsMax
+}
+
+pred bookingsNotExceedingMaxOccupants[s: Store, start: Time, end: Time]{
+    getBookedOccupants[s, start, end]+1<=s.occupantsMax
+}
+
 pred hasTicketForThisStore[p: Person, s: Store]{
     some t: Ticket | t in p.tickets && retrieveTicketsStore[t]=s
 }
 
+pred activateTicket[t : Ticket]{
+    t.active=True && t.scannedIn=Now.time
+}
+
+pred expireTicket[t: Ticket]{
+    t.active=False && t.scannedOut=Now.time && t.valid=False
+}
+
 pred allowUserIn[p:Person, thisStore: Store]{
-    some t: Ticket| hasTicketForThisStore[p, thisStore] && t.valid=True
+    maxOccupantsNotExceeded[thisStore] //ensures we're not going to exceed store's capacity with a new ticket
+    some t: Ticket| hasTicketForThisStore[p, thisStore] && t.valid=True 
+    && activateTicket[t] //activates ticket to track user's entrance/exit
 }
 
 //adding a reservation
-pred book[b, b': Bookings, a: Person, t:Time, store: Store, duration: Int]{
+pred book[b, b': Bookings, a: Person, start:Time, store: Store, end: Time]{
+    bookingsNotExceedingMaxOccupants[store, start, end]//ensures we're not going to exceed store's capacity with new bookings
+    aTimeBeforeB[Now.time, start] //we don't want reservations in the past
     b'.bookingsList.applicant = b.bookingsList.applicant +a
-    b'.bookingsList.time= b.bookingsList.time + t
-    b'.bookingsList.at= b.bookingsList.at + store
-    b'.bookingsList.durationMinutes= b.bookingsList.durationMinutes + duration
+    b'.bookingsList.startTime= b.bookingsList.startTime + start
+    b'.bookingsList.where= b.bookingsList.where + store
+    b'.bookingsList.endTime= b.bookingsList.endTime + end
 }
+
 
 pred getQuickTicket[q, q': Queues, a: Person, t:Time, s: Store]{
     q'.queuesList.members.elems.owner = q.queuesList.members.elems.owner + a
@@ -320,5 +371,26 @@ run aDateBeforeB for 7 Int
 run book for 7 Int
 run getQuickTicket for 7 Int
 run {some s: Store | s.twentyfour=False} for 7 Int
+run aTimeBeforeB for 7 Int
+run maxOccupantsNotExceeded for 7 Int
 
 --TODO: finally add constraints for goal-related conditions (no overcrowding, no multiple tickets etc)
+/* v2.0 Useful additions:
+- bookings constraints and 2-way correspondances with applicant ✔️
+- no overcrowding: ✔️
+    - store capacity ✔️
+    - check when creating new ticket ✔️
+    - check when booking ✔️
+- exit from store deactivates ticket
+- delete ticket when deactivated
+- staff:
+    - monitoring queues(?)
+    - adding information about stores (store adder?)
+- notifications:
+    - add position to the customer ✔️
+    - metadata DB about customers 
+        - preferred days based on history
+        - history (it is sufficient to retain past reservations) ✔️
+        - estimated duration for next visit (NOT pertinent)
+    - add queue estimated next entrance
+*/
