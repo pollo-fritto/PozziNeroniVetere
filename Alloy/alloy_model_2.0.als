@@ -1,5 +1,6 @@
---define time as POSIX or date, time, hours etc.? Ok, I've chosen the "yyyy-mm-dd hh:mm" way.
+
 enum Day{Monday, Tuesday, Wednesday, Thrusday, Friday, Saturday, Sunday}
+
 abstract sig Bool{}
 one sig True extends Bool{}
 one sig False extends Bool{}
@@ -65,9 +66,9 @@ sig Location{
 sig Store{
     commercialName: seq Char,
     longName: seq Char,
-    Location: one Location,
-    opensAt: some RelativeTime,
-    closesAt: some RelativeTime,
+    location: one Location,
+    opensAt: set RelativeTime,
+    closesAt: set RelativeTime,
     twentyfour: one Bool, 
     occupantsMax: one Int
 }{
@@ -131,13 +132,24 @@ sig Ticket{
     #this.@id>0
 }
 
+sig Notification{
+    recipient : one Person,
+    message: seq Char,
+    disposal : one Time //when are we sending this notification
+}
+
 sig Queue{
     members: seq Ticket,
     store: one Store, -- each queue refers to a specific store, 1 store <--> 1 queue
     id: seq Char, --each queue has an ID
+    estimatedNextEntrance: lone Time
 }{
     #members>0
     #this.@id>0 -- TODO
+}
+
+one sig NotificationsDB{
+    notifications: set Notification
 }
 
 one sig Queues{
@@ -161,8 +173,8 @@ one sig StoresDB{
 }
 
 --facts----------------------------------------
-fact fiscalCodeIsUnique{
-    all disj pers,pers1 : Person | pers.fc != pers1.fc
+fact userAndFiscalCodesUnique{
+    all disj pers,pers1 : Person | pers.fc != pers1.fc && pers.customerId!=pers1.customerId
 }
 
 fact reservationConsistency{
@@ -245,9 +257,12 @@ fun getCurrOccupants[q: Queue]: one Int {
 fun getBookedOccupants[s: Store, start:Time, end:Time] : one Int{
     #{x: BookingReservation | x.where = s && (sameTime[start, x.startTime]|| aTimeBeforeB[start, x.startTime]) 
     && (sameTime[x.startTime, end] || aTimeBeforeB[x.endTime, end])}
-    //number of reservations whose start time ≥ start and end time ≤ end
+    //number of reservations whose start time >= start and end time <= end
 }
 
+fun computeDisposalTime[ticketTime: Time, userLocation: Location]: one Time{
+    {x: Time}
+}
 
 --predicates ----------------------------------
 pred isCustomer[p:Person]{
@@ -286,7 +301,7 @@ pred hasTicket[p: Person]{
 }
 
 pred maxOccupantsNotExceeded[s: Store]{
-    all q: Queue| q.store = s implies getCurrOccupants[q]+1<s.occupantsMax
+    all q: Queue| q.store = s implies plus[getCurrOccupants[q], 1]<s.occupantsMax
 }
 
 pred bookingsNotExceedingMaxOccupants[s: Store, start: Time, end: Time]{
@@ -306,9 +321,9 @@ pred expireTicket[t: Ticket]{
 }
 
 pred allowUserIn[p:Person, thisStore: Store]{
-    maxOccupantsNotExceeded[thisStore] //ensures we're not going to exceed store's capacity with a new ticket
-    some t: Ticket| hasTicketForThisStore[p, thisStore] && t.valid=True 
-    && activateTicket[t] //activates ticket to track user's entrance/exit
+     //ensures we're not going to exceed store's capacity with a new ticket
+    maxOccupantsNotExceeded[thisStore] && (some t: Ticket| hasTicketForThisStore[p, thisStore] && t.valid=True 
+    && activateTicket[t]) //activates ticket to track user's entrance/exit
 }
 
 //adding a reservation
@@ -327,8 +342,33 @@ pred getQuickTicket[q, q': Queues, a: Person, t:Time, s: Store]{
     q'.queuesList.members.elems.entranceTime= q.queuesList.members.elems.entranceTime+t
     q'.queuesList.store= q.queuesList.store + s
     (all ticket: Ticket | (ticket.owner=a&&ticket.entranceTime=t)implies ticket.valid=True)//new tickets are valid
-
+    (some v1, v2: NotificationsDB | { //generate notifications accordingly
+        v2.notifications.recipient=v1.notifications.recipient + a
+        v2.notifications.disposal=v1.notifications.disposal + computeDisposalTime[t, a.currentLocation]
+    })
 }
+
+pred deleteQuickTicket[q, q': Queues, t: Ticket]{
+    q'.queuesList.members.elems.owner = q.queuesList.members.elems.owner - t.owner
+    q'.queuesList.members.elems.entranceTime= q.queuesList.members.elems.entranceTime - t.entranceTime
+    (#q'.queuesList.members.t>=1) || (q'.queuesList.store= q.queuesList.store - retrieveTicketsStore[t])
+    (all ticket: Ticket | (ticket.owner=t.owner&&ticket.entranceTime=t.entranceTime)implies ticket.valid=False)//old tickets are invalid
+}
+
+pred temporaryStopStore[s: Store]{
+    all q: Queue, t : Ticket | (q.store = s && t in q.members.elems) implies t.valid=False
+}
+
+pred exitStore[t: Ticket]{
+    expireTicket[t] && (some q, q': Queues | deleteQuickTicket[q, q', t])
+}
+
+
+pred notificationDispatch{
+    all n: Notification| aTimeBeforeB[n.disposal, Now.time] implies sendNotification[n]
+}
+
+pred sendNotification[n: Notification]{}
 
 --assertions-----------------------------------
 assert customersInCustomersDB{
@@ -344,14 +384,37 @@ assert noOrphanTicket{
 }
 
 assert noTicketNoEntry{
-    all p: Person, s: Store | !hasTicketForThisStore[p,s] implies !allowUserIn[p, s]
+    no p: Person, s: Store | !hasTicketForThisStore[p,s] && allowUserIn[p, s]
 }
 
 assert getQuickTicketGrantsEnter{
-    all disj p: Person, disj t:Time, disj s:Store, disj q,q': Queues | getQuickTicket[q, q',p, t, s] implies allowUserIn[p,s]
+    all p: Person, t:Time, s:Store, disj q,q': Queues | getQuickTicket[q, q',p, t, s] implies allowUserIn[p,s]
 }
 
---checks---------------------------------------
+assert generateTicketDoesNotExceedMaxOccupants{
+    all p: Person, t:Time, s:Store, disj q,q': Queues | getQuickTicket[q, q',p, t, s] implies maxOccupantsNotExceeded[s]
+}
+
+assert bookingDoesNotExceedMaxOccupants{
+    all p: Person, s,e :Time, st:Store, disj b,b': Bookings | book[b, b', p, s, st, e] implies bookingsNotExceedingMaxOccupants[st, s, e]
+}
+
+assert neverAllowInMoreThanMax{
+    no p:Person, s:Store | allowUserIn[p, s] && !maxOccupantsNotExceeded[s]
+}
+
+assert delUndoesAdd{
+    all disj q, q', q'': Queues, p: Person, t: Time, s: Store, ticket: Ticket | 
+    (ticket.owner=p && ticket.entranceTime=t && getQuickTicket[q, q', p, t, s] && deleteQuickTicket[q', q'', ticket])
+    implies
+    (q.queuesList.members = q''.queuesList.members)
+}
+
+--commands---------------------------------------
+check delUndoesAdd for 7 Int
+check neverAllowInMoreThanMax for 7 Int
+check bookingDoesNotExceedMaxOccupants for 7 Int
+check generateTicketDoesNotExceedMaxOccupants for 7 Int
 check getQuickTicketGrantsEnter for 7 but 7 Int
 check customersInCustomersDB for 7 Int
 check staffMembersInStaffDB for 7 Int
@@ -370,27 +433,26 @@ run isStaff for 7 Int
 run aDateBeforeB for 7 Int
 run book for 7 Int
 run getQuickTicket for 7 Int
-run {some s: Store | s.twentyfour=False} for 7 Int
+run {some s, s1: Store | s.twentyfour=True && s1.twentyfour=False} for 7 Int
 run aTimeBeforeB for 7 Int
 run maxOccupantsNotExceeded for 7 Int
+run temporaryStopStore for 7 Int
+run notificationDispatch for 7 Int
+run exitStore for 7 Int
+run deleteQuickTicket for 7 Int 
 
---TODO: finally add constraints for goal-related conditions (no overcrowding, no multiple tickets etc)
 /* v2.0 Useful additions:
-- bookings constraints and 2-way correspondances with applicant ✔️
-- no overcrowding: ✔️
-    - store capacity ✔️
-    - check when creating new ticket ✔️
-    - check when booking ✔️
-- exit from store deactivates ticket
-- delete ticket when deactivated
+- bookings constraints and 2-way correspondances with applicant [DONE]
+- no overcrowding: [DONE]
+    - store capacity [DONE]
+    - check when creating new ticket [DONE]
+    - check when booking [DONE]
+- exit from store deactivates ticket [DONE]
+- delete ticket when deactivated [DONE]
 - staff:
-    - monitoring queues(?)
-    - adding information about stores (store adder?)
+    - temporary deactivate store [DONE]
 - notifications:
-    - add position to the customer ✔️
-    - metadata DB about customers 
-        - preferred days based on history
-        - history (it is sufficient to retain past reservations) ✔️
-        - estimated duration for next visit (NOT pertinent)
-    - add queue estimated next entrance
+    - add location to the customer [DONE]
+    - add queue estimated next entrance [DONE]
+- goal-related assertions (no overcrowding, no multiple tickets etc) [DONE]
 */
