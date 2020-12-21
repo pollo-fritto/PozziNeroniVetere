@@ -48,339 +48,6 @@ The only type of communication required by CLup is a stable internet connection.
 \end{table}
 
 \subsubsection{Mapping}
-
-
-\subsubsection{Use cases}
-
-\begin{enumerate}
-	
-%TABELLA 1
-\item \textbf{Registration of new account}\\\\
-
-\begin{table}[H]
-{\rowcolors{1}{white}{white}
-\begin{tabular}{|c|p{14cm}|}
-	\hline
-	Name & Registration of new account\\
-	\hline
-	Actors & User\\
-	\hline
-	Entry Condition & User installed and opened the app and doesn’t have an account or wants to register another one\\
-	\hline
-	Event Flow & \begin{enumerate}
-		\item User opens the app.
-		\item Login screen loads.
-		\item User taps “Sign up".
-		\item TODO REGISTRATION WIREFRAME.
-		\end{enumerate}\\
-	\hline
-	Exit Conditions & User now has an account with which he can log in\\
-	\hline
-	Exception & \begin{enumerate}
-		\item There is no internet when the user presses “create account”
-	\end{enumerate}
-	
-	“No internet” popup, the user can either wait for internet to come back or discard the incomplete account creation by going back to main screen\\
-	\hline
-\end{tabular}
-}
-\end{table}	
-
-%TABELLA 2
-\item \textbf{User login}\\\\
-	
-\begin{table}[H]
-{\rowcolors{1}{white}{white}
-	\begin{tabular}{|c|p{14cm}|}
-		\hline
-		Name & User login\\
-		\hline
-		Actors & User\\
-		\hline
-		Entry Condition & User already has an account\\
-		\hline
-		Event Flow & \begin{enumerate}
-			\item User opens the app.
-			\item Login screen loads.
-			\item User already has an account.
-			\item User inputs his credentials and presses “login”
-			\item Main screen loads
-		\end{enumerate}\\
-		\hline
-		Exit Conditions & User logged in and is now in main screen, from where he can virtually access all of the app’s functionalities\\
-		\hline
-		Exception & \begin{enumerate}
-			\item Credentials are wrong\newline
-			wrong credentials popup, user stays in  login screen
-			
-			\item There is no internet connection\newline
-			no internet warning pop up, user still logs in if he used previously inserted and saved credentials so he can still edit settings and filters or look at his history 
-			
-		\end{enumerate}\\
-		
-		\hline
-	\end{tabular}
-}
-\end{table}
-
-%TABELLA 3
-\item \textbf{Quick ticket request}\\\\
-	
-\begin{table}[H]
-{\rowcolors{1}{white}{white}
-	\begin{tabular}{|c|p{14cm}|}
-		\hline
-		Name & ASAP ticket request\\
-		\hline
-		Actors & User\\
-		\hline
-		Entry Condition & User successfully logged in and is in main screen\\
-		\hline
-		
-		Event Flow & \begin{enumerate}
-			\item User taps “Show stores”
-			\item User is taken to “Quick results” screen
-			\item IF LIST MODE (from settings)\newline
-			stores with queue time, size and distance are shown in a list according to setted filters, if show more is pressed more stores are loaded and the list is made scrollable, if location button is pressed a map showing the store’s location is shown (TODO browse stores on map)\newline
-			IF MAP MODE (from settings\newline)
-			stores with queue time, size and distance are shown on a map, if list button is pressed User is taken to the previously descripted “list mode” case
-			\item User taps on a store
-			\item Confirmation pop up is shown
-			\item If user confirms “Ticket screen” is shown, otherwise he is taken back to 3
-		\end{enumerate}\\
-	
-		\hline
-		Exit Conditions & User has a ticket with updating due time to enter the store\\
-		\hline
-		
-		Exception & \begin{enumerate}
-			\item The store blocked ticket requests\newline
-			after 5 user is told that the store is no longer available and remains in list/map to make an eventual different choice
-			
-			\item There is no internet connection\newline
-			after 1 user stays in main screen with a dismissable “no internet” pop up
-			
-			\item User already has an ASAP ticket\newline
-			after 1 user stays in main screen with a dismissable “you can only have one ASAP ticket” 
-			
-		\end{enumerate}\\
-		
-		\hline
-	\end{tabular}
-}
-\end{table}
-
-%TABELLA 4
-\item \textbf{Quick ticket request at physical Totem}\\\\
-
-\begin{table}[H]
-{\rowcolors{1}{white}{white}
-	\begin{tabular}{|c|p{14cm}|}
-		\hline
-		Name & ASAP ticket request at physical Totem\\
-		\hline
-		Actors & User\\
-		\hline
-		Entry Condition & User starts interacting with CLup tablet (?) outside the store\\
-		\hline
-		
-		Event Flow & \begin{enumerate}
-			\item POSSIBLE IDENTIFICATION (fiscal code or ID card)
-			\item User sees current queue for this store and decides whether to confirm or cancel
-			\item A card ticket with remainder and QR is printed
-			\item User leaves the station with his printed ticket
-			
-		\end{enumerate}\\
-		
-		\hline
-		Exit Conditions & User has a ticket that he can scan to enter the store when he comes back at the written date and time\\
-		\hline
-		
-		Exception & \begin{enumerate}
-			\item The store blocked ticket requests\newline
-			User can’t get a ticket and is asked to come back another time
-			
-		\end{enumerate}\\
-		
-		\hline
-	\end{tabular}
-}
-\end{table}
-
-%TABELLA 5
-\item \textbf{Edit filters}\\\\
-
-\begin{table}[H]
-{\rowcolors{1}{white}{white}
-	\begin{tabular}{|c|p{14cm}|}
-		\hline
-		Name & Edit filters\\
-		\hline
-		Actors & User\\
-		\hline
-		Entry Condition & User pressed filter button from main screen\\
-		\hline
-		
-		Event Flow & \begin{enumerate}
-			\item User is in main screen and taps the “filters” button
-			\item User is in filters screen
-			\item User changes the filter parameters he wants to change among:
-			\begin{enumerate}
-				\item distance range
-				\item store type
-				\item default booking time (ignored by ticket request)
-				\item default calendar or stores first when booking (ignored by ticket request)
-				\item default map or list view when booking (ignored by ticket request)
-				\item ???
-			\end{enumerate}
-			
-			\item User presses back to main screen button
-			\item Popup to confirm and save or discard the new filters is shown 
-
-		\end{enumerate}\\
-		
-		\hline
-		Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
-		\hline
-	
-		Exception & \begin{enumerate}
-			\item User closes the app without saving the filters\newline
-			Filter modifications are lost
-			
-		\end{enumerate}\\
-		
-		\hline
-	\end{tabular}
-}
-\end{table}
-
-%TABELLA 6 TODO da copiare/incollare i vari campi!
-\item \textbf{Edit filters}\\\\
-
-\begin{table}[H]
-{\rowcolors{1}{white}{white}
-	\begin{tabular}{|c|p{14cm}|}
-		\hline
-		Name & Edit filters\\
-		\hline
-		Actors & User\\
-		\hline
-		Entry Condition & User pressed filter button from main screen\\
-		\hline
-		
-		Event Flow & \begin{enumerate}
-			\item User is in main screen and taps the “filters” button
-			\item User is in filters screen
-			\item User changes the filter parameters he wants to change among:
-			\begin{enumerate}
-				\item distance range
-				\item store type
-				\item default booking time (ignored by ticket request)
-				\item default calendar or stores first when booking (ignored by ticket request)
-				\item default map or list view when booking (ignored by ticket request)
-				\item ???
-			\end{enumerate}
-			
-			\item User presses back to main screen button
-			\item Popup to confirm and save or discard the new filters is shown 
-			
-		\end{enumerate}\\
-		
-		\hline
-		Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
-		\hline
-		
-		Exception & \begin{enumerate}
-			\item User closes the app without saving the filters\newline
-			Filter modifications are lost
-			
-		\end{enumerate}\\
-		
-		\hline
-	\end{tabular}
-}
-\end{table}
-
-%TABELLA 7
-\item \textbf{Edit filters}\\\\
-
-\begin{table}[H]
-	{\rowcolors{1}{white}{white}
-		\begin{tabular}{|c|p{14cm}|}
-			\hline
-			Name & Edit filters\\
-			\hline
-			Actors & User\\
-			\hline
-			Entry Condition & User pressed filter button from main screen\\
-			\hline
-			
-			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
-				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
-				
-Organize this section according to the rules defined in the project description. \\ 
-
-\subsection{External Interface Requirements}
-
-\subsubsection{User Interfaces}
-Here will go wireframes
-\subsubsection{Hardware Interfaces}
-Both users and store managers can use the application through a mobile phone or a personal computer. Users unable to do so will use totems provided by stores.
-\subsubsection{Software Interfaces}
-map API\\
-send ticket/booking requests to CLup\\
-send turnstile entrances/exits to CLup\\
-query automatically generated reports and obtain their statistics\\
-\subsubsection{Communication Interfaces}
-The only type of communication required by CLup is a stable internet connection.
-\subsection{Functional Requirements}
-
-\subsubsection{List of requirements}
-\begin{table}[H]
-\label{tab: ReqList}
-\begin{tabular}{l|l}
-	R1 & Every user can generate a quick ticket for any store \\
-	R2 & \pbox{13cm}{Whenever user makes initiates a booking procedure, CLup must be able to compute a suggested least crowded time slot based on historical data} \\
-	R3 & \pbox{13cm}{CLup must elaborate and upload data about current global customer affluence to the store during use} \\
-	R4 & CLup must admit only valid QR codes for entrance \\
-	R5 & CLup must allow users to know current queue status \\
-	R6 & CLup must update user on tickets' validity change \\
-	R7 & CLup must inform offline users about new tickets (un)availability \\
-	R8 & CLup must allow users to indicate which product category they are going to purchase while booking \\
-	R9 & CLup must suggest alternative stores when the combination of selected store|time gives no results \\
-	R10 & CLup must reserve a non null number of paper tickets at any time for offline customers use 	\\
-	R11 & CLup must gather all stores' data about entrance fluxes \\
-	R12 & CLup is able to cross affluence data of any supermarket\\
-	R13 & CLup keeps track of people who book an entrance and don’t come\\
-	R14 & CLup allows store managers to stop quick tickets availability \\
-	R15 & CLup is able to generate QR codes\\
-	R16 & CLup is able to authenticate users\\
-	R17 & CLup is able to store users’ data \\
-	R18 & CLup is able to process users' data \\
-	R19 & CLup makes quick ticket invalid after 15 minutes delay\\
-	R20 & CLup can use stores’ data to sort every store by crowdedness \\
-	R21 & Users can see available day/time slots of a supermarket through CLup\\
-	R22 & CLup shows to store managers flux data about their supermarket (forse questo è quello che intendeva R3)\\
-	R23 & CLup must be able to process reservations\\
-	
-\end{tabular}
-\caption{Requirements list}
-\end{table}
-
-\subsubsection{Mapping}
 \begin{table} [H]
 	\begin{tabular}{c|c|c}
 		\textbf{Goals} & \textbf{Requirements} & \textbf{Domain Assumptions}\\
@@ -1433,19 +1100,63 @@ Follows a set of constraints on the system design imposed by external standards,
 limitations.
 
 \subsubsection{Standards compliance}
-The application does not require adhesion to any standard in particular. 
+The application only requires adhesion to the Transport Layer Security standard (TLS) version 1.2 (or higher), \href{https://tools.ietf.org/html/rfc5246}{RFC 5246}
 \subsubsection{Hardware limitations}
+As far as the app version is concerned, CLup \textbf{requires} a device with the following hardware to be operational:\newline
+\begin{itemize}
+    \item GNSS (any)
+    \item screen
+    \item pointing input device, such as touchscreens or mice
+    \item internet connectivity
+    \item audio output device
+\end{itemize}
+
+\bigskip \noindent Concerning the \textbf{reduced version} to be run on totems outside the stores, the following hardware is \textbf{requested}:\newline
+\begin{itemize}
+    \item screen
+    \item pointing input device, such as touchscreens or mice
+    \item internet connectivity
+    \item printer device
+\end{itemize}
+
+\bigskip \noindent Finally, the web application for internal use requires: \newline
+\begin{itemize}
+    \item screen
+    \item pointing input device, such as touchscreens or mice
+    \item internet connectivity
+\end{itemize}
+
 
 \subsubsection{Any other constraint}
-
+There are no other constraints.
 
 \subsection{Software System Attributes}
 
 \subsubsection{Reliability}
-
+Given the presence of 24/7 stores, as additionally specified inside the Alloy Specification sect. (\ref{sect:alloy}), the system must have a guaranteed uptime of 24 hours a day, 7 days a week.
 \subsubsection{Availability}
+CLup targets the broadest group of individuals possible, given it's aimed at use for everyone as in depth explained in the previous sections. This indeed strains the availability constraints over the application which must be:\newline
+\begin{itemize}
+    \item available to people living inside slow connection areas, thus requiring a minimum 100Kb/s bandwidth to be operational
+    \item available to old and/or low-end devices, being operational on a minimum configuration of:
+    \begin{itemize}
+        \item Android version 5.0 and higher
+        \item 1.5 GHz dual core CPUs for Android devices
+        \item 100 MBytes of minimum available storage memory for Android devices
+        \item 512 MBytes of system memory for Android devices
+        \item iOS version 8.0 or higher
+    \end{itemize}
+\end{itemize}
 
 \subsubsection{Security}
+CLup does not require best-in-class security measures given the mainstream nature of its main objectives, yet requires standard security measures to guarantee the following requirements:\newline
+\begin{itemize}
+    \item User data encryption inside the main Database
+    \item Connection encryption between clients and servers to guarantee authentication and integrity 
+    \begin{itemize}
+        \item Transport Layer Security version 1.2 or higher
+    \end{itemize}
+\end{itemize}
 
 \subsubsection{Maintainability}
 
