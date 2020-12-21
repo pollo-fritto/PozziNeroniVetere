@@ -37,7 +37,7 @@ Customers which, for any reason, don’t use the app will still be able to queue
 The tickets consist of a QR code and an easy to remember alphanumeric code alternative to enter the store. There will also be monitors that show the numbers allowed to enter and, eventually, delays.\\
 The second component of CLup targets store managers: when the store decides to join the CLup network, the credentials to access the web app will be given. In this way the application will have a dedicated section to display flux data of the store selected (Che dati nello specifico? Interazione con i dati???Visualizzazione dati e possibilità di sospendere il servizio)
 
-\subsubsection{\sffamily Scenarios}
+\subsubsection{\sffamily \sffamily Scenarios}
 \paragraph{Scenario 1}
 
 Single user of the CLup platform, Bob, decides it's time to go shopping.
@@ -132,24 +132,24 @@ Again, this kind of situation can be avoided. CLup integrates a customizable pol
 Between a minimum of 3 and a maximum of 10 fake bookings will result in CLup \textbf{shutting off user's ability to make bookings}, leaving only the ``line up'' functionality available for use. The booking feature may then be restored after manual intervention or a preset amount of time. \newline
 \textbf{Note how this is not going to prevent anyone from shopping} - since lining up is always allowed, just like normal - thus guaranteeing goals \texttt{G7}, \texttt{G9} and \texttt{G10}; at the same time though, it helps the booking feature works at its best by reducing disruptions, possibly increasing the overall stores' throughput.
 
-\subsection{Product Functions}
+\subsection{\sffamily Product Functions}
 CLup has NNNN main functionalities, each one of them is essential to reach the goals of the application.\\
 
-\subsubsection{Virtually queue in stores}
+\subsubsection{\sffamily Virtually queue in stores}
 This is the core of CLup, this function allows the user to virtually queue with a ticket to enter, as soon as possible, the supermarket he chooses. To do this the user needs to set his starting location, his preferred store chains and the distance range in which the application should look for stores, then CLup will present the stores located inside that range in form of a sorted list or a map with supermarkets highlighted. The list specifies for each store the distance from the starting location, the EWT to enter based on the size of the store and the number of people who already have a ticket for it, the number of people who are already inside and the maximum occupancy. The alternatives sorting system will be discussed later. The information displayed in the list is also visible from the map if the user selects a supermarket. When the user selects a store the application will show him the current EWT to enter and remind him that he has 15 minutes after his turn has come before the ticket definitely expires. Finally it will ask him if he is sure to reserve the entrance. This confirmation dialog is mainly useful to make sure that the user is aware of the timings and he can organize his commitments to go shopping in time. On the other hand, having a confirmation dialog is useful to prevent unintentional reservations by distracted or non-techy users. After the reservation is done, the user can follow the evolution of the line from the application which will give him real time information: the numbers of the tickets that are supposed to enter, the number of people ahead of the user and the estimated wait time. At this point the user should have enough information to arrive at the supermarket neither too early nor too late: in the first case he must wait in the car or away from the store, in the second one his ticket could expire and he would have to get a new one and wait again for his turn. When the time comes, CLup notifies the user that he should enter within 15 minutes. At the entrance the customer scans his QR code, or inserts the code of his ticket, and the turnstile lets him in. Obviously, if the store is not full and it is the turn of many customers to enter CLup allows them to access in any order, if a customer tries to scan the QR at the wrong time, ticket expired or that ticket has not been called yet, the turnstile won’t let him pass. When the shopping is finished the customer scans again his QR code, or inserts the code, notifying the CLup system that there is one more entrance available in that store.
 People who do not have the app can still virtually queue by getting a ticket printed from the physical totems near CLup powered stores where there is also a big screen showing the entering ticket numbers. On the printed ticket it is specified the EWT but of course they will miss the possibility to be updated on the queue status because it is forbidden to wait in front of the store, also the totems give tickets only for the store where they are located.
 To get more accurate estimations, through the entering and exiting turnstiles, the system stores the shopping time of each user in order to build statistics. 
 To avoid abuses of this function, it is not possible to reserve more than one entrance at the same time, the user will be able to reserve another entrance on the same day only after he left the first store. For the same reasons it will be later described that the store managers can prevent users from making new reservations if they let too many tickets expire..
 
 
-\subsubsection{Book entrance}
+\subsubsection{\sffamily Book entrance}
 This feature allows the user to book a ticket to enter in a specific time slot of a specific day, it is available in the mobile app and targets users who want to schedule their shopping time instead of just going as soon as possible. Just as for the previous function, the user needs a little setup for the starting location and eventually other filters, then he can visualize the matching solutions starting either from a list or a map, or starting from a calendar., Either of the starting views then takes the user to the other one (general calendar -> map/list for that day,  general map/list -> calendar for that store) and after selecting both the store and the day a list of time slots for that day will be shown. Once the user decides the combination of store, day and time he can go on with the booking procedure and book his slot by giving confirmation. The application will process his request and, when the time comes, the application will generate the QR code (and notify the user) one hour in advance, from there the user will have 1:15 hours to enter the store before the ticket expires. If the user arrives early, even if the store is empty, the QR will only be valid for the chosen time. From this point on, the functioning is just as in the previous feature.\\
 Also in this case abuses are discouraged: it is not possible to book more than an entrance per day and a ban mechanism is implemented, Clup counts the number of times a user reserves an entrance and then does not go to the store, if this value exceeds a threshold selected by the supermarket the user can not book an entrance to that supermarket until the number of booking absence is reset two weeks after  .
 
-\subsubsection{Suggestions among different stores and times}
+\subsubsection{\sffamily Suggestions among different stores and times}
 This function was actually anticipated in the previous ones and aims at balancing the flux of people between stores and between different hours but, while the previous ones had a dedicated interface button, this one works in background: when the user wants to book or reserve an entrance, if he chooses to visualize stores in list mode, the list is accurately sorted with the purpose of putting in first place the least crowded stores and those with fewer probability of being chosen by other customers based on the statistics. If the user chooses the map visualization each store will have associated a color that indicates its crowdedness. In any case CLup will notify the user if there is a better solution outside of the set filters. 
 
-\subsubsection{Store management} 
+\subsubsection{\sffamily Store management} 
 This function is only for the store managers, it allows them to:
 \begin{itemize}
 	\item
@@ -165,7 +165,7 @@ This function is only for the store managers, it allows them to:
 \end{itemize}
 
 
-\subsection{User Characteristics}
+\subsection{\sffamily User Characteristics}
 The application targets two different entities: users and store managers.
 \begin{itemize}
 	\item
@@ -176,8 +176,8 @@ The application targets two different entities: users and store managers.
 
 
 
-\subsection{Assumptions, Dependencies and Constraints}
-\subsubsection{Domain Assumptions}
+\subsection{\sffamily Assumptions, Dependencies and Constraints}
+\subsubsection{\sffamily Domain Assumptions}
 Follows a list of assumptions made about the domain CLup focuses on.\newline\newline
 \begin{tabular}{l|l}
 	D1 & Accesses to the store can be monitored\\
@@ -257,24 +257,24 @@ Again, this kind of situation can be avoided. CLup integrates a customizable pol
 Between a minimum of 3 and a maximum of 10 fake bookings will result in CLup \textbf{shutting off user's ability to make bookings}, leaving only the ``line up'' functionality available for use. The booking feature may then be restored after manual intervention or a preset amount of time. \newline
 \textbf{Note how this is not going to prevent anyone from shopping} - since lining up is always allowed, just like normal - thus guaranteeing goals \texttt{G7}, \texttt{G9} and \texttt{G10}; at the same time though, it helps the booking feature works at its best by reducing disruptions, possibly increasing the overall stores' throughput.
 
-\subsection{Product Functions}
+\subsection{\sffamily Product Functions}
 CLup has NNNN main functionalities, each one of them is essential to reach the goals of the application.\\
 
-\subsubsection{Virtually queue in stores}
+\subsubsection{\sffamily Virtually queue in stores}
 This is the core of CLup, this function allows the user to virtually queue with a ticket to enter, as soon as possible, the supermarket he chooses. To do this the user needs to set his starting location, his preferred store chains and the distance range in which the application should look for stores, then CLup will present the stores located inside that range in form of a sorted list or a map with supermarkets highlighted. The list specifies for each store the distance from the starting location, the EWT to enter based on the size of the store and the number of people who already have a ticket for it, the number of people who are already inside and the maximum occupancy. The alternatives sorting system will be discussed later. The information displayed in the list is also visible from the map if the user selects a supermarket. When the user selects a store the application will show him the current EWT to enter and remind him that he has 15 minutes after his turn has come before the ticket definitely expires. Finally it will ask him if he is sure to reserve the entrance. This confirmation dialog is mainly useful to make sure that the user is aware of the timings and he can organize his commitments to go shopping in time. On the other hand, having a confirmation dialog is useful to prevent unintentional reservations by distracted or non-techy users. After the reservation is done, the user can follow the evolution of the line from the application which will give him real time information: the numbers of the tickets that are supposed to enter, the number of people ahead of the user and the estimated wait time. At this point the user should have enough information to arrive at the supermarket neither too early nor too late: in the first case he must wait in the car or away from the store, in the second one his ticket could expire and he would have to get a new one and wait again for his turn. When the time comes, CLup notifies the user that he should enter within 15 minutes. At the entrance the customer scans his QR code, or inserts the code of his ticket, and the turnstile lets him in. Obviously, if the store is not full and it is the turn of many customers to enter CLup allows them to access in any order, if a customer tries to scan the QR at the wrong time, ticket expired or that ticket has not been called yet, the turnstile won’t let him pass. When the shopping is finished the customer scans again his QR code, or inserts the code, notifying the CLup system that there is one more entrance available in that store.
 People who do not have the app can still virtually queue by getting a ticket printed from the physical totems near CLup powered stores where there is also a big screen showing the entering ticket numbers. On the printed ticket it is specified the EWT but of course they will miss the possibility to be updated on the queue status because it is forbidden to wait in front of the store, also the totems give tickets only for the store where they are located.
 To get more accurate estimations, through the entering and exiting turnstiles, the system stores the shopping time of each user in order to build statistics. 
 To avoid abuses of this function, it is not possible to reserve more than one entrance at the same time, the user will be able to reserve another entrance on the same day only after he left the first store. For the same reasons it will be later described that the store managers can prevent users from making new reservations if they let too many tickets expire..
 
 
-\subsubsection{Book entrance}
+\subsubsection{\sffamily Book entrance}
 This feature allows the user to book a ticket to enter in a specific time slot of a specific day, it is available in the mobile app and targets users who want to schedule their shopping time instead of just going as soon as possible. Just as for the previous function, the user needs a little setup for the starting location and eventually other filters, then he can visualize the matching solutions starting either from a list or a map, or starting from a calendar., Either of the starting views then takes the user to the other one (general calendar -> map/list for that day,  general map/list -> calendar for that store) and after selecting both the store and the day a list of time slots for that day will be shown. Once the user decides the combination of store, day and time he can go on with the booking procedure and book his slot by giving confirmation. The application will process his request and, when the time comes, the application will generate the QR code (and notify the user) one hour in advance, from there the user will have 1:15 hours to enter the store before the ticket expires. If the user arrives early, even if the store is empty, the QR will only be valid for the chosen time. From this point on, the functioning is just as in the previous feature.\\
 Also in this case abuses are discouraged: it is not possible to book more than an entrance per day and a ban mechanism is implemented, Clup counts the number of times a user reserves an entrance and then does not go to the store, if this value exceeds a threshold selected by the supermarket the user can not book an entrance to that supermarket until the number of booking absence is reset two weeks after  .
 
-\subsubsection{Suggestions among different stores and times}
+\subsubsection{\sffamily Suggestions among different stores and times}
 This function was actually anticipated in the previous ones and aims at balancing the flux of people between stores and between different hours but, while the previous ones had a dedicated interface button, this one works in background: when the user wants to book or reserve an entrance, if he chooses to visualize stores in list mode, the list is accurately sorted with the purpose of putting in first place the least crowded stores and those with fewer probability of being chosen by other customers based on the statistics. If the user chooses the map visualization each store will have associated a color that indicates its crowdedness. In any case CLup will notify the user if there is a better solution outside of the set filters. 
 
-\subsubsection{Store management} 
+\subsubsection{\sffamily Store management} 
 This function is only for the store managers, it allows them to:
 \begin{itemize}
 	\item
@@ -290,7 +290,7 @@ This function is only for the store managers, it allows them to:
 \end{itemize}
 
 
-\subsection{User Characteristics}
+\subsection{\sffamily User Characteristics}
 The application targets two different entities: users and store managers.
 \begin{itemize}
 	\item
@@ -301,8 +301,8 @@ The application targets two different entities: users and store managers.
 
 
 
-\subsection{Assumptions, Dependencies and Constraints}
-\subsubsection{Domain Assumptions}
+\subsection{\sffamily Assumptions, Dependencies and Constraints}
+\subsubsection{\sffamily Domain Assumptions}
 Follows a list of assumptions made about the domain CLup focuses on.\newline\newline
 \begin{tabular}{l|l}
 	D1 & Accesses to the store can be monitored\\
