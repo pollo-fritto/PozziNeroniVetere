@@ -1,21 +1,21 @@
 Organize this section according to the rules defined in the project description. \\ 
 
-\subsection{\sffamily External Interface Requirements}
+\subsection{External Interface Requirements}
 
-\subsubsection{\sffamily User Interfaces}
+\subsubsection{User Interfaces}
 Here will go wireframes
-\subsubsection{\sffamily Hardware Interfaces}
+\subsubsection{Hardware Interfaces}
 Both users and store managers can use the application through a mobile phone or a personal computer. Users unable to do so will use totems provided by stores.
-\subsubsection{\sffamily Software Interfaces}
+\subsubsection{Software Interfaces}
 map API\\
 send ticket/booking requests to CLup\\
 send turnstile entrances/exits to CLup\\
 query automatically generated reports and obtain their statistics\\
-\subsubsection{\sffamily Communication Interfaces}
+\subsubsection{Communication Interfaces}
 The only type of communication required by CLup is a stable internet connection.
-\subsection{\sffamily Functional Requirements}
+\subsection{Functional Requirements}
 
-\subsubsection{\sffamily List of requirements}
+\subsubsection{List of requirements}
 \begin{table}[H]
 \label{tab: ReqList}
 \begin{tabular}{l|l}
@@ -47,7 +47,7 @@ The only type of communication required by CLup is a stable internet connection.
 \caption{Requirements list}
 \end{table}
 
-\subsubsection{\sffamily Mapping}
+\subsubsection{Mapping}
 \begin{table} [H]
 	\begin{tabular}{c|c|c}
 		\textbf{Goals} & \textbf{Requirements} & \textbf{Domain Assumptions}\\
@@ -216,7 +216,7 @@ The only type of communication required by CLup is a stable internet connection.
 		\hline
 		\cellcolor{YellowGreen} R1 & Every user can generate a quick ticket for any store\\
 		\hline
-		\cellcolor{YellowGreen} R2 & Whenever user makes initiates a booking procedure, CLup must be able to compute a suggested least crowded time slot based on historical data  \\
+		\cellcolor{YellowGreen} R2 & \pbox{15cm}{Whenever user makes initiates a booking procedure, CLup must be able to compute a suggested least crowded time slot based on historical data}  \\
 		\hline
 		\cellcolor{YellowGreen} R5 & CLup must allow users to know current queue status\\
 		\hline
@@ -364,7 +364,7 @@ The only type of communication required by CLup is a stable internet connection.
 	\caption{G10 Mapping}
 \end{table}
 
-\subsubsection{\sffamily Use cases}
+\subsubsection{Use cases}
 
 \begin{enumerate}
 	
@@ -1093,15 +1093,21 @@ The only type of communication required by CLup is a stable internet connection.
 
 
 \end{enumerate}
-\subsection{\sffamily Performance Requirements}
+\subsection{Performance Requirements}
 
-\subsection{\sffamily Design Constraints}
+\subsection{Design Constraints}
 Follows a set of constraints on the system design imposed by external standards, regulatory requirements, or project
 limitations.
 
-\subsubsection{\sffamily Standards compliance}
-The application only requires adhesion to the Transport Layer Security standard (TLS) version 1.2 (or higher), \href{https://tools.ietf.org/html/rfc5246}{RFC 5246}
-\subsubsection{\sffamily Hardware limitations}
+\subsubsection{Standards compliance}
+\label{standards}
+The application requires adhesion to the following security standards:\newline 
+\begin{itemize}
+    \item Transport Layer Security standard (TLS) version 1.2 (or higher), \href{https://tools.ietf.org/html/rfc5246}{RFC 5246}
+    \item Advanced Encryption Standard with a 128-bit key or more, \href{http://www.networksorcery.com/enp/rfc/rfc3394.txt}{RFC 3394}
+\end{itemize}
+
+\subsubsection{Hardware limitations}
 As far as the app version is concerned, CLup \textbf{requires} a device with the following hardware to be operational:\newline
 \begin{itemize}
     \item GNSS (any)
@@ -1127,37 +1133,74 @@ As far as the app version is concerned, CLup \textbf{requires} a device with the
 \end{itemize}
 
 
-\subsubsection{\sffamily Any other constraint}
+\subsubsection{Any other constraint}
 There are no other constraints.
 
-\subsection{\sffamily Software System Attributes}
+\subsection{Software System Attributes}
 
-\subsubsection{\sffamily Reliability}
+\subsubsection{Reliability}
 Given the presence of 24/7 stores, as additionally specified inside the Alloy Specification sect. (\ref{sect:alloy}), the system must have a guaranteed uptime of 24 hours a day, 7 days a week.
-\subsubsection{\sffamily Availability}
+\subsubsection{Availability}
 CLup targets the broadest group of individuals possible, given it's aimed at use for everyone as in depth explained in the previous sections. This indeed strains the availability constraints over the application which must be:\newline
 \begin{itemize}
     \item available to people living inside slow connection areas, thus requiring a minimum 100Kb/s bandwidth to be operational
     \item available to old and/or low-end devices, being operational on a minimum configuration of:
     \begin{itemize}
-        \item Android version 5.0 and higher
+        \item Android version 5.0 or higher
         \item 1.5 GHz dual core CPUs for Android devices
-        \item 100 MBytes of minimum available storage memory for Android devices
-        \item 512 MBytes of system memory for Android devices
+        \item 50 MBytes of minimum available storage memory for Android devices
+        \item 512 MBytes of minimum system memory for Android devices
         \item iOS version 8.0 or higher
     \end{itemize}
+    \item The staff-operations web application must be able to operate on any modern, HTML5 compliant web-browser, OS-independently 
 \end{itemize}
+{\color{gray}
+\fbox{%
+    \parbox {\textwidth}{%
+        \small
+        No support for deprecated, unsupported operating system (such as Microsoft\textregistered \space Windows Phone\textregistered) is being required as the market share of those system is well below 0.1\%
 
-\subsubsection{\sffamily Security}
+    }%
+}}
+
+
+\subsubsection{Security}
 CLup does not require best-in-class security measures given the mainstream nature of its main objectives, yet requires standard security measures to guarantee the following requirements:\newline
 \begin{itemize}
-    \item User data encryption inside the main Database
+    \item User data AES-128 (or stronger) encryption over the entire user database, as per sect. \ref{standards}
     \item Connection encryption between clients and servers to guarantee authentication and integrity 
     \begin{itemize}
-        \item Transport Layer Security version 1.2 or higher
+        \item Transport Layer Security version 1.2 or higher, as per sect. \ref{standards}
     \end{itemize}
+    \item Strong 2-factor authentication (or stronger) must be required for Staff operations, which imply non-negligible consequences on store operativeness and availability to end users.
+    \item Keep 6+ months old logs about staff related operations and related authentication sessions.
+    \item Application-level (or more) firewall over database and staff-operations related applications.
+    \item Implementation or outsource use of \textit{anti-DoS} (Denial of Service) techniques/software components.
 \end{itemize}
 
-\subsubsection{\sffamily Maintainability}
+\subsubsection{Maintainability}
+CLup is inevitably open to great expansion and innovation opportunities due to its potential broad use, hence the need for a highly maintainable and scalable system.
+The following aspects are necessarily required:\newline
+\begin{itemize}
+    \item Code modularity
+    \item Manual code writing privileging over automated generation, eventually privileging code maintainability and stability over eye-candiness and \textit{nice-to-haves} richness.
+    \item Accurate and up-to-date documentation, with a maximum 5\% of already implemented,undocumented code rate over total
+    \item Long term support software development kits usage
+    \item Long term support external services usage
+\end{itemize}
 
-\subsubsection{\sffamily Portability}
+
+\subsubsection{Portability}
+Given its broad spectrum target, CLup needs to be operational on the largest number of device/operating system configurations possible. Virtually no device should be eligible for no support by CLup, however this would potentially lead to infeasibility issues, ultimately slowing down or inhibiting CLup development. \newline
+Therefore, the following minimum requirements are requested for maximised portability:\newline
+\begin{itemize}
+    \item A maximum of 10\% host-dependant code
+    \item A maximum of 20\% elements based on host-dependant code
+    \item Use of HTML5 for static web content
+    \item Use of CSS for web styling
+    \item Use of Java or C++ or C for core application functionalities
+    \item Use of PHP for web application backends
+    \item Use of Linux/Unix based OSs on all servers and end-user totems
+    \item No use of Adobe\textregistered \space Flash\textregistered \space technologies
+\end{itemize}
+

@@ -1,5 +1,10 @@
 \input{commandsFile}
-
+\titleformat{\section}
+{\sffamily\LARGE\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\sffamily\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\sffamily\normalsize\bfseries}{\thesubsubsection}{1em}{}
 \begin{document}
 \sffamily
     
@@ -53,7 +58,6 @@
     
     %------------------------------------------------------------------------------------------------------------------------------------------------
     \newpage
-    \sffamily
     \addcontentsline{toc}{section}{Table of Contents}
     \tableofcontents
     \newpage
@@ -64,31 +68,26 @@
     
     %------------------------------------------------------------------------------------------------------------------------------------------------
     \clearpage
-    {\color{Blue}{\section{\textsf{Introduction}}}}
-    \label{sect:introduction} 
+    {\color{Blue}{\section{Introduction \label{sect:introduction}}}}
     \input{Files/introduction}
     %------------------------------------------------------------------------------------------------------------------------------------------------
     \clearpage
-    {\color{Blue}{\section{\sffamily Overall Description}}}
-    \label{sect:overview} 
+    {\color{Blue}{\section{Overall Description \label{sect:overview}}}}
     \input{Files/overview}  
     
     %-----------------------------------------------------------------------------------------------------------------------------------------------
     \clearpage 
-    {\color{Blue}{\section{Specific Requirements}}}
-    \label{sect:requirements}
+    {\color{Blue}{\section{Specific Requirements \label{sect:requirements}}}}
     \input{Files/requirements}
     
     %------------------------------------------------------------------------------------------------------------------------------------------------
     \clearpage
-    {\color{Blue}{\section{Formal Analysis Using Alloy}}}
-    \label{sect:alloy}
+    {\color{Blue}{\section{Formal Analysis Using Alloy \label{sect:alloy}}}}
     \input{Files/alloy}
     
     %------------------------------------------------------------------------------------------------------------------------------------------------
     \clearpage
-    {\color{Blue}{\section{Effort Spent}}}
-    \label{sect:effort}
+    {\color{Blue}{\section{Effort Spent \label{sect:effort}}}}
     \input{Files/effort}
     
     
