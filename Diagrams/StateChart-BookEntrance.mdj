@@ -4,25 +4,6 @@
 	"name": "Untitled",
 	"ownedElements": [
 		{
-			"_type": "UMLModel",
-			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				}
-			]
-		},
-		{
 			"_type": "UMLStateMachine",
 			"_id": "AAAAAAF2Ckd07M3/i+Q=",
 			"_parent": {
@@ -411,6 +392,23 @@
 									"subViews": [
 										{
 											"_type": "UMLInternalActivityView",
+											"_id": "AAAAAAF2ijbBnda7sB8=",
+											"_parent": {
+												"$ref": "AAAAAAF2CkonE87XQw8="
+											},
+											"model": {
+												"$ref": "AAAAAAF2ijYuW9auK/8="
+											},
+											"font": "Arial;13;0",
+											"left": 509,
+											"top": 230,
+											"width": 264.494140625,
+											"height": 13,
+											"text": "entry/Ask shopping duration",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLInternalActivityView",
 											"_id": "AAAAAAF2Ck1LEM8St1I=",
 											"_parent": {
 												"$ref": "AAAAAAF2CkonE87XQw8="
@@ -420,7 +418,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 509,
-											"top": 230,
+											"top": 245,
 											"width": 264.494140625,
 											"height": 13,
 											"text": "do/Show supermarkets inside a defined range",
@@ -431,7 +429,7 @@
 									"left": 504,
 									"top": 225,
 									"width": 274.494140625,
-									"height": 23
+									"height": 38
 								},
 								{
 									"_type": "UMLInternalTransitionCompartmentView",
@@ -460,7 +458,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 504,
-									"top": 248,
+									"top": 263,
 									"width": 274.494140625
 								}
 							],
@@ -2605,6 +2603,16 @@
 								"$ref": "AAAAAAF2Ckd07s4Ax6c="
 							},
 							"name": "Stores",
+							"entryActivities": [
+								{
+									"_type": "UMLActivity",
+									"_id": "AAAAAAF2ijYuW9auK/8=",
+									"_parent": {
+										"$ref": "AAAAAAF2CkonEs7QhnQ="
+									},
+									"name": "Ask shopping duration"
+								}
+							],
 							"doActivities": [
 								{
 									"_type": "UMLActivity",
