@@ -4,25 +4,6 @@
 	"name": "Untitled",
 	"ownedElements": [
 		{
-			"_type": "UMLModel",
-			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				}
-			]
-		},
-		{
 			"_type": "UMLStateMachine",
 			"_id": "AAAAAAF1/xv2ZVvipPE=",
 			"_parent": {
@@ -249,30 +230,13 @@
 											"height": 13,
 											"text": "do/Show main menu",
 											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLInternalActivityView",
-											"_id": "AAAAAAF1/6nZcD9YdY0=",
-											"_parent": {
-												"$ref": "AAAAAAF1/x1aQ1wC6fc="
-											},
-											"model": {
-												"$ref": "AAAAAAF1/6nZLj9VNO0="
-											},
-											"font": "Arial;13;0",
-											"left": 205,
-											"top": 204,
-											"width": 118.5107421875,
-											"height": 13,
-											"text": "exit/ExitActivity1",
-											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 200,
 									"top": 169,
 									"width": 128.5107421875,
-									"height": 53
+									"height": 38
 								},
 								{
 									"_type": "UMLInternalTransitionCompartmentView",
@@ -300,7 +264,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 200,
-									"top": 222,
+									"top": 207,
 									"width": 128.5107421875
 								}
 							],
@@ -521,6 +485,23 @@
 									"subViews": [
 										{
 											"_type": "UMLInternalActivityView",
+											"_id": "AAAAAAF2ijd61K0dZ8A=",
+											"_parent": {
+												"$ref": "AAAAAAF1/yU4klxF6Eo="
+											},
+											"model": {
+												"$ref": "AAAAAAF2ijd6uK0aPPQ="
+											},
+											"font": "Arial;13;0",
+											"left": 469,
+											"top": 174,
+											"width": 255.7978515625,
+											"height": 13,
+											"text": "entry/Ask shopping duration",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLInternalActivityView",
 											"_id": "AAAAAAF1/63rWT9nW/o=",
 											"_parent": {
 												"$ref": "AAAAAAF1/yU4klxF6Eo="
@@ -530,7 +511,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 469,
-											"top": 174,
+											"top": 189,
 											"width": 255.7978515625,
 											"height": 13,
 											"text": "do/Show local supermarkets and their status",
@@ -547,10 +528,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 469,
-											"top": 189,
+											"top": 204,
 											"width": 255.7978515625,
 											"height": 13,
-											"text": "exit/Confirm reservation dialog",
+											"text": "exit/Confirm dialog",
 											"horizontalAlignment": 0
 										}
 									],
@@ -558,7 +539,7 @@
 									"left": 464,
 									"top": 169,
 									"width": 265.7978515625,
-									"height": 38
+									"height": 53
 								},
 								{
 									"_type": "UMLInternalTransitionCompartmentView",
@@ -587,7 +568,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 464,
-									"top": 207,
+									"top": 222,
 									"width": 265.7978515625
 								}
 							],
@@ -596,7 +577,7 @@
 							"left": 464,
 							"top": 144,
 							"width": 265.7978515625,
-							"height": 63,
+							"height": 78,
 							"nameCompartment": {
 								"$ref": "AAAAAAF1/yU4kVxAZZ8="
 							},
@@ -640,7 +621,7 @@
 										"$ref": "AAAAAAF1/yd84FxsotY="
 									},
 									"edgePosition": 1,
-									"text": "reserve entrance"
+									"text": "Virtually queue"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -748,7 +729,7 @@
 											"top": 375,
 											"width": 188.5380859375,
 											"height": 13,
-											"text": "Line evolution and reservation"
+											"text": "Line evolution and ticket"
 										},
 										{
 											"_type": "LabelView",
@@ -820,7 +801,7 @@
 											"top": 398,
 											"width": 188.5380859375,
 											"height": 13,
-											"text": "entry/Reservation confirmed",
+											"text": "entry/Ticket confirmed",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1320,7 +1301,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 599,
-									"top": 228,
+									"top": 235,
 									"width": 68.63720703125,
 									"height": 13,
 									"alpha": 1.5971056799845482,
@@ -1343,7 +1324,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"left": 624,
-									"top": 228,
+									"top": 235,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1364,7 +1345,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 580,
-									"top": 229,
+									"top": 236,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1382,7 +1363,7 @@
 								"$ref": "AAAAAAF1/yU4kVw/xuk="
 							},
 							"lineStyle": 1,
-							"points": "596:207;595:263",
+							"points": "596:222;595:263",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF1/8VyCUKUELA="
@@ -1570,7 +1551,7 @@
 							"tail": {
 								"$ref": "AAAAAAF1/8VxX0KCuwg="
 							},
-							"points": "584:273;552:273;552:206",
+							"points": "584:273;552:273;552:221",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF1/8fG7kRDmPY="
@@ -1690,7 +1671,7 @@
 										"$ref": "AAAAAAF1/8oWf0R8wao="
 									},
 									"edgePosition": 1,
-									"text": "Show reservation"
+									"text": "Show tickets"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1798,7 +1779,7 @@
 											"top": 399,
 											"width": 113.4326171875,
 											"height": 13,
-											"text": "Empty reservation"
+											"text": "Empty ticket"
 										},
 										{
 											"_type": "LabelView",
@@ -1942,7 +1923,7 @@
 										"$ref": "AAAAAAF1/8oXhkSy2ys="
 									},
 									"edgePosition": 1,
-									"text": "No reservations"
+									"text": "No tickets"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2026,17 +2007,17 @@
 										"$ref": "AAAAAAF1/8oYxETn7rA="
 									},
 									"font": "Arial;13;0",
-									"left": 295,
+									"left": 271,
 									"top": 328,
 									"width": 98.26806640625,
 									"height": 13,
-									"alpha": 1.2669343346973043,
-									"distance": 63.071388124885914,
+									"alpha": 1.6319441544154225,
+									"distance": 49.09175083453431,
 									"hostEdge": {
 										"$ref": "AAAAAAF1/8oYxETofNE="
 									},
 									"edgePosition": 1,
-									"text": "Already reserved"
+									"text": "Has tickets"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2049,8 +2030,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 309,
-									"top": 320,
+									"left": 300,
+									"top": 330,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -2070,8 +2051,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 266,
-									"top": 336,
+									"left": 256,
+									"top": 331,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -2088,8 +2069,7 @@
 							"tail": {
 								"$ref": "AAAAAAF1/8oV1URrNwI="
 							},
-							"lineStyle": 3,
-							"points": "271:307;292:367",
+							"points": "271:306;271:368",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF1/8oYxETp8F4="
@@ -2380,16 +2360,6 @@
 									},
 									"name": "Show main menu"
 								}
-							],
-							"exitActivities": [
-								{
-									"_type": "UMLActivity",
-									"_id": "AAAAAAF1/6nZLj9VNO0=",
-									"_parent": {
-										"$ref": "AAAAAAF1/x1aQlv7NlM="
-									},
-									"name": "ExitActivity1"
-								}
 							]
 						},
 						{
@@ -2399,6 +2369,16 @@
 								"$ref": "AAAAAAF1/xv2ZlvjsRA="
 							},
 							"name": "Local stores",
+							"entryActivities": [
+								{
+									"_type": "UMLActivity",
+									"_id": "AAAAAAF2ijd6uK0aPPQ=",
+									"_parent": {
+										"$ref": "AAAAAAF1/yU4kFw+oKE="
+									},
+									"name": "Ask shopping duration"
+								}
+							],
 							"doActivities": [
 								{
 									"_type": "UMLActivity",
@@ -2416,7 +2396,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF1/yU4kFw+oKE="
 									},
-									"name": "Confirm reservation dialog"
+									"name": "Confirm dialog"
 								}
 							]
 						},
@@ -2426,7 +2406,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1/xv2ZlvjsRA="
 							},
-							"name": "Line evolution and reservation",
+							"name": "Line evolution and ticket",
 							"entryActivities": [
 								{
 									"_type": "UMLActivity",
@@ -2434,7 +2414,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF1/zM8h10KUB8="
 									},
-									"name": "Reservation confirmed"
+									"name": "Ticket confirmed"
 								}
 							],
 							"doActivities": [
@@ -2532,7 +2512,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1/xv2ZlvjsRA="
 							},
-							"name": "Empty reservation"
+							"name": "Empty ticket"
 						},
 						{
 							"_type": "UMLFinalState",
@@ -2576,7 +2556,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF1/yd84FxraTs="
 									},
-									"name": "reserve entrance"
+									"name": "Virtually queue"
 								}
 							]
 						},
@@ -2714,7 +2694,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF1/8oWf0R7E5U="
 									},
-									"name": "Show reservation"
+									"name": "Show tickets"
 								}
 							]
 						},
@@ -2737,7 +2717,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF1/8oXhkSxM9M="
 									},
-									"name": "No reservations"
+									"name": "No tickets"
 								}
 							]
 						},
@@ -2760,7 +2740,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF1/8oYxETn7rA="
 									},
-									"name": "Already reserved"
+									"name": "Has tickets"
 								}
 							]
 						},
