@@ -26,71 +26,72 @@ This also means some less relevant factors may have been left uncovered whereas 
 
 \lstinputlisting[language=alloy]{../Alloy/alloy_model_2.0.als}
 
-\lstinputlisting[language=alloy]{../Alloy/alloy_model_2.0.als}
+\subsection{Alloy generated worlds}
+Follows a list of the most relevant, automatically generated worlds by using the Alloy Tool. First of the list is the \textit{Metamodel}.
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/metamodel.png}
+	\caption{The Alloy Metamodel}
+	\label{fig:AlloyMainModel}
+\end{figure}
 
 \begin{figure} [H]
 	\includegraphics[width=\linewidth]{../Alloy/allowedInStaff.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag1}
+	\caption{A staff member is allowed inside the store for shopping, hence being treated as a customer}
+	\label{fig:allowedInStaff}
 \end{figure}
 
 \begin{figure} [H]
 	\includegraphics[width=\linewidth]{../Alloy/book.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag2}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/exitStore.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag3}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/getQuickTicket.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag4}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/hasTicketForThisStore.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag5}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/isCustomer.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag6}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/isStaff.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag7}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/maxOccupantsNotExceeded.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag8}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/metamodel.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag9}
-\end{figure}
-
-\begin{figure} [H]
-	\includegraphics[width=\linewidth]{../Alloy/temporaryStopStore.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag10}
+	\caption{A booking procedure takes place}
+	\label{fig:alloyBook}
 \end{figure}
 
 \begin{figure} [H]
 	\includegraphics[width=\linewidth]{../Alloy/userHasBooked.png}
-	\caption{Descrizione diagramma alloy}
-	\label{fig:AlloyTag11}
+	\caption{User has made a reservation}
+	\label{fig:userHasBooked}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/exitStore.png}
+	\caption{User exits the store after shopping, causing ticket deletion}
+	\label{fig:alloyExitStore}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/getQuickTicket.png}
+	\caption{User gets a new quick ticket by using the mobile application}
+	\label{fig:exitStore}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/hasTicketForThisStore.png}
+	\caption{User has a valid ticket for entrance}
+	\label{fig:hasTicketForThisStore}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/isCustomer.png}
+	\caption{A new customer}
+	\label{fig:alloyIsCustomer}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/isStaff.png}
+	\caption{A new staff member}
+	\label{fig:alloyIsStaff}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/maxOccupantsNotExceeded.png}
+	\caption{Showing it is possible not to exceed the max capacity of a store}
+	\label{fig:maxOccupantsNotExceeded}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=\linewidth]{../Alloy/temporaryStopStore.png}
+	\caption{Demonstrating the possibility of temporary interrupting store public access by the staff}
+	\label{fig:temporaryStopStore}
 \end{figure}
 
