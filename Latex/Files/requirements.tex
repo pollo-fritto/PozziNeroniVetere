@@ -398,7 +398,10 @@ The only type of communication required by CLup is a stable internet connection.
 	\hline
 \end{tabular}
 }
+	\label{tab:UCRegister}
+	\caption{Use case: User registration}
 \end{table}
+
 %TABELLA 2
 \item \textbf{User login}
 	
@@ -434,6 +437,8 @@ The only type of communication required by CLup is a stable internet connection.
 		\hline
 	\end{tabular}
 }
+	\label{tab:UCLogin}
+	\caption{Use case: User login}
 \end{table}
 
 %TABELLA 3
@@ -481,6 +486,8 @@ The only type of communication required by CLup is a stable internet connection.
 		\hline
 	\end{tabular}
 }
+	\label{tab:UCQuick}
+	\caption{Use case: Quick ticket request}
 \end{table}
 
 %TABELLA 4
@@ -518,6 +525,8 @@ The only type of communication required by CLup is a stable internet connection.
 		\hline
 	\end{tabular}
 }
+	\label{tab:UCTotem}
+	\caption{Use case: Quick ticket at physical totem}
 \end{table}
 
 %TABELLA 5
@@ -565,6 +574,8 @@ The only type of communication required by CLup is a stable internet connection.
 		\hline
 	\end{tabular}
 }
+	\label{tab:UCEdit}
+	\caption{Use case: Edit filters}
 \end{table}
 
 %TABELLA 6 
@@ -617,9 +628,11 @@ The only type of communication required by CLup is a stable internet connection.
 		\hline
 	\end{tabular}
 }
+	\label{tab:UCPlan}
+	\caption{Use case: Plan visit}
 \end{table}
 
-%TABELLA 7 TODO da copiare/incollare i vari campi!
+%TABELLA 7
 \item \textbf{Enter store}
 
 \begin{table}[H]
@@ -656,6 +669,8 @@ The only type of communication required by CLup is a stable internet connection.
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCEnter}
+	\caption{Use case: Enter store}
 \end{table}
 
 %TABELLA 8
@@ -693,10 +708,12 @@ The only type of communication required by CLup is a stable internet connection.
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCExit}
+	\caption{Use case: Exit store}
 \end{table}
 
 %TABELLA 9
-\item \textbf{Store staff stops new entrances}
+\item \textbf{Store manager stops new entrances}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
@@ -710,9 +727,9 @@ The only type of communication required by CLup is a stable internet connection.
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item Staff clicks on stop new entrances
-				\item Staff is asked to insert admin password
-				\item Staff is asked to confirm and he does
+				\item Manager clicks on stop new entrances
+				\item Manager is asked to insert admin password
+				\item Manager is asked to confirm and he does
 				
 			\end{enumerate}\\
 			
@@ -726,10 +743,12 @@ The only type of communication required by CLup is a stable internet connection.
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCManStop}
+	\caption{Use case: Store manager stops new entrances}
 \end{table}
 
 %TABELLA 10
-\item \textbf{Store manager view affluence statistics}
+\item \textbf{Store manager views affluence statistics}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
@@ -760,194 +779,170 @@ The only type of communication required by CLup is a stable internet connection.
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCStatistic}
+	\caption{Use case: Store manager views affluence statistics}
 \end{table}
 
 %TABELLA 11
-\item \textbf{Edit filters}
+\item \textbf{Store manager changes store capacity}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
 		\begin{tabular}{|c|p{14cm}|}
 			\hline
-			Name & Edit filters\\
+			Name & Change store capacity\\
 			\hline
-			Actors & User\\
+			Actors & Store manager\\
 			\hline
-			Entry Condition & User pressed filter button from main screen\\
+			Entry Condition & Manager is in management web page\\
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
+				\item Staff clicks on “Change people capacity”
+				\item A screen which contains a text box to input the people number for store capacity is shown
+				\item Staff inputs the new number and clicks confirm
+				\item Admin password is asked to proceed
+				\item Confirmation is asked and done
 				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
 				
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
+			Exit Conditions & The number of people that can be let in the store after scanning their code is now set to the amount desired by the store staff\\
 			\hline
 			
-			Exception & \begin{enumerate}
-				\item User closes the app without saving the filters\newline
-				Filter modifications are lost
+			Exception & if more people than store capacity are inside no new people will be let in until the store doesn’t empty below the limit, possibly clearing the store is outside of the scope of this project\newline
+			\begin{enumerate}
+				\item Password is wrong\newline
+				no changes are allowed, password is asked again
 				
 			\end{enumerate}\\
 			
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCManCap}
+	\caption{Use case: Store manager changes store capacity}
 \end{table}
 
 %TABELLA 12
-\item \textbf{Edit filters}
+\item \textbf{Store manager inspect reports}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
 		\begin{tabular}{|c|p{14cm}|}
 			\hline
-			Name & Edit filters\\
+			Name & Store manager inspect reports\\
 			\hline
-			Actors & User\\
+			Actors & Manager\\
 			\hline
-			Entry Condition & User pressed filter button from main screen\\
+			Entry Condition & Manager is in management webpage\\
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
-				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
+				\item Manager clicks on “Inspect reports”
+				\item Reports page is shown
+				\item Manager can navigate the complete list of reports, if complying per store, and can filter or search them 
 				
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
+			Exit Conditions & Manager now knows the users infringements and can take informed actions on blocking or unblocking them from queuing in the stores\\
 			\hline
 			
-			Exception & \begin{enumerate}
-				\item User closes the app without saving the filters\newline
-				Filter modifications are lost
-				
-			\end{enumerate}\\
+			Exception & None (if more people than store capacity are inside no new people will be let in until the store doesn’t empty below the limit)\\
 			
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCManReport}
+	\caption{Use case: Store manager inspects report}
 \end{table}
 
 %TABELLA 13
-\item \textbf{Edit filters}
+\item \textbf{Store manager blocks/unblocks user}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
 		\begin{tabular}{|c|p{14cm}|}
 			\hline
-			Name & Edit filters\\
+			Name & Store manager blocks/unblocks user\\
 			\hline
-			Actors & User\\
+			Actors & Manager\\
 			\hline
-			Entry Condition & User pressed filter button from main screen\\
+			Entry Condition & Manager is in management web page \\
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
-				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
+				\item Store staff clicks on “block/unblock user”
+				\item Admin password is asked to proceed
+				\item A screen with a search box to look for a user and navigate blocked users is shown
+				\item Staff looks for the user on which they want to take action
+				\item Staff clicks “block” or “unblock” button near the username of the user in question
+				\item Admin password is asked to proceed
 				
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
+			Exit Conditions & Chosen user is now blocked or unblocked for queuing at the store\\
 			\hline
 			
 			Exception & \begin{enumerate}
-				\item User closes the app without saving the filters\newline
-				Filter modifications are lost
+				\item The user doesn’t exist (anymore)\newline
+				an error message informs that the action cannot be completed
+				
+				\item The user is already blocked / unblocked\newline
+				an error message informs that the user is already blocked / unblocked
+				
+				\item Password is wrong\newline
+				no changes are allowed, password is asked again
 				
 			\end{enumerate}\\
 			
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCManBlock}
+	\caption{Use case: Store manager (un)blocks user}
 \end{table}
 
 %TABELLA 14
-\item \textbf{Edit filters}
+\item \textbf{Store manager login}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
 		\begin{tabular}{|c|p{14cm}|}
 			\hline
-			Name & Edit filters\\
+			Name & Store manager login\\
 			\hline
-			Actors & User\\
+			Actors & Manager\\
 			\hline
-			Entry Condition & User pressed filter button from main screen\\
+			Entry Condition & Manager is in management web page\\
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
-				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
+				\item Staff opens the CLup website
+				\item Staff inserts login store code and password and clicks login button
 				
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
+			Exit Conditions & Staff is now in the management web page main screen\\
 			\hline
 			
 			Exception & \begin{enumerate}
-				\item User closes the app without saving the filters\newline
-				Filter modifications are lost
+				\item Credentials are wrong\newline
+				Error message is shown, it is asked to re insert the credentials
+				\item Too many login attempts\newline
+				After 3 failed login attempts the login-attempting ip is blocked for some time from trying other logins and if the store code was valid its staff will be notified of the attempt
 				
 			\end{enumerate}\\
 			
 			\hline
 		\end{tabular}
 	}
+	\label{tab:UCManLog}
+	\caption{Use case: Store manager login}
 \end{table}
 
 %TABELLA 15
@@ -997,99 +992,107 @@ The only type of communication required by CLup is a stable internet connection.
 	}
 \end{table}
 
-%TABELLA 16
-\item \textbf{Edit filters}
+\end{enumerate}
 
-\begin{table}[H]
-	{\rowcolors{1}{white}{white}
-		\begin{tabular}{|c|p{14cm}|}
-			\hline
-			Name & Edit filters\\
-			\hline
-			Actors & User\\
-			\hline
-			Entry Condition & User pressed filter button from main screen\\
-			\hline
-			
-			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
-				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
-				
-			\end{enumerate}\\
-			
-			\hline
-			Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
-			\hline
-			
-			Exception & \begin{enumerate}
-				\item User closes the app without saving the filters\newline
-				Filter modifications are lost
-				
-			\end{enumerate}\\
-			
-			\hline
-		\end{tabular}
-	}
-\end{table}
+\subsubsection{Sequence diagrams}
+%SEQUENCE 1
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/BlockUser.png}
+	\caption{Sequence diagram: Manager (un)block user}
+	\label{fig:BlockUser}
+\end{figure}
 
-%TABELLA 17
-\item \textbf{Edit filters}
+%SEQUENCE 2
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/ChangeCapacity.png}
+	\caption{Sequence diagram: Manager changes capacity}
+	\label{fig:ChangeCap}
+\end{figure} 
 
-\begin{table}[H]
-	{\rowcolors{1}{white}{white}
-		\begin{tabular}{|c|p{14cm}|}
-			\hline
-			Name & Edit filters\\
-			\hline
-			Actors & User\\
-			\hline
-			Entry Condition & User pressed filter button from main screen\\
-			\hline
-			
-			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
-				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
-				
-			\end{enumerate}\\
-			
-			\hline
-			Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
-			\hline
-			
-			Exception & \begin{enumerate}
-				\item User closes the app without saving the filters\newline
-				Filter modifications are lost
-				
-			\end{enumerate}\\
-			
-			\hline
-		\end{tabular}
-	}
-\end{table}
+%SEQUENCE 3
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/EnterStore.png}
+	\caption{Sequence diagram: Enter store}
+	\label{fig:EnterStore}
+\end{figure} 
+
+%SEQUENCE 4
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/ExitStore.png}
+	\caption{Sequence diagram: Exit store}
+	\label{fig:ExitStore}
+\end{figure} 
+
+%SEQUENCE 5
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/InspectReports.png}
+	\caption{Sequence diagram: Manager inspects report}
+	\label{fig:InspectRep}
+\end{figure} 
+
+%SEQUENCE 6
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/ManagerLogin.png}
+	\caption{Sequence diagram: Manager logs in}
+	\label{fig:ManagerLog}
+\end{figure} 
+
+%SEQUENCE 7
+\begin{figure}[H]
+	\includegraphics[width=\linewidth, height=22cm]{../Diagrams/PlanVisit.png}
+	\caption{Sequence diagram: User plans visit}
+	\label{fig:PlanVisit}
+	%CERCA \scale
+\end{figure} 
+
+%SEQUENCE 8
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/StopEntrances.png}
+	\caption{Sequence diagram: Manager stops entrances}
+	\label{fig:StopEntr}
+\end{figure} 
+
+%SEQUENCE 9
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/StoreRegistration.png}
+	\caption{Sequence diagram: Manager registers}
+	\label{fig:StoreReg}
+\end{figure} 
+
+%SEQUENCE 10
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/TicketRequest.png}
+	\caption{Sequence diagram: Quick ticket request}
+	\label{fig:TicketReq}
+\end{figure} 
+
+%SEQUENCE 11
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/UserLogin.png}
+	\caption{Sequence diagram: User logs in}
+	\label{fig:UserLog}
+\end{figure} 
+
+%SEQUENCE 12
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/UserRegistration.png}
+	\caption{Sequence diagram: User registration}
+	\label{fig:UserReg}
+\end{figure} 
+
+%SEQUENCE 13
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/ViewStatistics.png}
+	\caption{Sequence diagram: Manager views customers statistics}
+	\label{fig:Stat}
+\end{figure} 
+
+%SEQUENCE 14
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/Totem.png}
+	\caption{Sequence diagram: Quick ticket at physical totem}
+	\label{fig:Totem}
+\end{figure} 
 
 
 \end{enumerate}
