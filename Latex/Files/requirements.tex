@@ -1095,7 +1095,7 @@ The only type of communication required by CLup is a stable internet connection.
 \end{figure} 
 
 
-\end{enumerate}
+%\end{enumerate}
 \subsection{Performance Requirements}
 
 \subsection{Design Constraints}
@@ -1161,7 +1161,7 @@ CLup targets the broadest group of individuals possible, given it's aimed at use
 \fbox{%
     \parbox {\textwidth}{%
         \small
-        No support for deprecated, unsupported operating system (such as Microsoft\textregistered \space Windows Phone\textregistered) is being required as the market share of those system is well below 0.1\%
+        No support for deprecated, unsupported operating system (such as Microsoft \textregistered \space Windows Phone \textregistered) is being required as the overall market share of those system is below 0.1\%
 
     }%
 }}
@@ -1175,8 +1175,8 @@ CLup does not require best-in-class security measures given the mainstream natur
     \begin{itemize}
         \item Transport Layer Security version 1.2 or higher, as per sect. \ref{standards}
     \end{itemize}
-    \item Strong 2-factor authentication (or stronger) must be required for Staff operations, which imply non-negligible consequences on store operativeness and availability to end users.
-    \item Keep 6+ months old logs about staff related operations and related authentication sessions.
+    \item Strong 2-factor authentication (or stronger) must be required for Staff operations, as they imply non-negligible consequences on store operativeness and availability to end users.
+    \item Keep 6+ months old logs about internal staff operations and related authentication sessions.
     \item Application-level (or more) firewall over database and staff-operations related applications.
     \item Implementation or outsource use of \textit{anti-DoS} (Denial of Service) techniques/software components.
 \end{itemize}
