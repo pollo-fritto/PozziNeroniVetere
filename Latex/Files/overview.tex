@@ -8,7 +8,6 @@
 	\caption{UML: class diagram.}
 	\label{fig:UML}
 \end{figure}
-CLup is an application aimed at decreasing the probability of contracting COVID-19 (diseases in general) when going shopping to a supermarket. There are two fundamental components: the main one targets customers of supermarkets while the second one is available for store managers.\newline
 \paragraph{Primary components overview}
 By first glance at Figure \ref{fig:UML} you may see in light coloured shade the main components of the CLup application. In particular:\newline
 \begin{itemize}
@@ -18,14 +17,6 @@ By first glance at Figure \ref{fig:UML} you may see in light coloured shade the 
     \item Ticket class, referring to the so called QuickTicket \ref{subsub:definitions} entity, which collects every useful piece of information to enqueue, track and allow users inside the stores.
 \end{itemize}
 In light gray shade, you may then notice the database classes,  which provides a hint on a possible database displacement for storing the aforementioned classes.
-
-
-\paragraph{More on end user functionalities}
-Regarding the first target - customers - they will be required to register to the service the first time they use it by inserting their full name, email address, ID card, phone number and a password. The customer will also be requested to specify his physical address, or to enable the GPS, in order to allow CLup to find stores nearby; this last information can be changed anytime the user needs. If the customer is not willing to register or share his address, the service will not be available.
-
-Once the setup is done, customers will be able to access the homepage of the application, where they can tap on a “Virtually queue” button that will allow them to see a list of stores inside a specified range from their current location: for each store a distance in kilometers from the user position will be outlined, as well as the number of people inside the store and its maximum capacity; whenever a store is full, the current number of people in line and an \textit{EWT} are displayed.\newline  
-It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialog specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from a home button. The process is shown in Figure ~\ref{fig:VirtuallyQ}.\\
-The distance range in which CLup will look for supermarkets is specified by the user through the filter button in the homepage, this button will in fact open the filter screen in which, among other parameters, a sliding bar controls the distance and a drop-down list allows the user to filter the chains of supermarkets.\\
 
 \subsubsection{State charts}
 In this section some state diagrams are being used to better model and visualize the core functionalities of the application.\\
@@ -47,13 +38,6 @@ Assuming the process successful, in average the reservation will be at least a d
 	\caption{Statechart diagram: Book Entrance.}
 	\label{fig:BookEntr}
 \end{figure} 
-
-The access at the supermarket is restricted by turnstiles with QR code readers, a staff member is expected to verify that nobody waits his turn in front of the entrance, jumps the turnstile or does anything irresponsible.\\
-Customers which, for any reason, don’t use the app will still be able to queue in CLup supermarkets by obtaining a printed ticket from a physical totem located near such stores; the functioning of the application will be similar to the “Quick ticket” app function with the difference that the user can only obtain a ticket for the totem’s store. \\
-The tickets consist of a QR code and an easy to remember alphanumeric code alternative to enter the store. There will also be monitors that show the numbers allowed to enter and, eventually, delays.\\
-
-\paragraph{Internal use functionalities}
-Another component of CLup targets store managers: when the store decides to join the CLup network, ad-hoc credentials to access the web app will be given. Special staff-only functions will then be achieved by the use of a web application, accessible via internal-use terminals.
 
 \subsubsection{Scenarios}
 \paragraph{Scenario 1}
