@@ -1100,20 +1100,25 @@ Follows a list of critical performance conditions and their associated capabilit
 
 \paragraph{Dynamic actions}
 \label{par:dynamicActions}
-Dynamic actions or changes that occur (e.g., rates, velocities, movements, and noise levels).
+Dynamic actions or changes that occur (e.g., rates, velocities, movements, and noise levels).\newline
+
 \begin{itemize}[leftmargin=+.8in]
-    \item [\ref{par:dynamicActions}.1.1] CLup totems shall handle multi-touch recognition with a minimum of 2 concurrent points
+    \item [\ref{par:dynamicActions}.1.1] CLup totems shall handle multi-touch recognition by a minimum of 2 concurrent touches
+    \item [\ref{par:dynamicActions}.1.2] Upon incorrect user data submission, CLup totems must provide user with re-submission prompt in 5 seconds maximum time
+    \item [\ref{par:dynamicActions}.1.3] Upon incorrect user data submission, CLup mobile application must provide user with re-submission prompt in 1 second maximum time
+    \item [\ref{par:dynamicActions}.1.4] Upon incorrect user data submission, CLup web application must provide staff member with re-submission prompt in 3 seconds maximum time
+    
 \end{itemize}
 
 \paragraph{Endurance capabilities}
 \label{par:endurance}
 
 Quantitative criteria covering endurance capabilities of the equipment required to meet the user needs
-under stipulated environmental and other conditions, including minimum total life expectancy. Indicate
-required operational session duration and planned utilization rate.
+under stipulated environmental and other conditions, including minimum total life expectancy, required operational session duration and planned utilization rate.\newline
+
 \begin{itemize}[leftmargin=+.8in]
     \item [\ref{par:endurance}.2.1] CLup totems shall run a minimum of 240 hours sessions between successive reboots
-    \item [\ref{par:endurance}.2.2] CLup web application backend servers shall process a minimum of 10 requests per minute store-wise or alternative a minimum of 250K requests per minute country-wise
+    \item [\ref{par:endurance}.2.2] CLup web application backend servers shall process a minimum of 10 requests per minute store-wise or alternatively a minimum of 250K requests per minute country-wise
     \item [\ref{par:endurance}.2.3] CLup database servers shall process a minimum of 10K customer sign-up requests per minute, store-wise 
     \item [\ref{par:endurance}.2.4] CLup database servers shall process a minimum of 10 staff member sign-up requests per minute, store-wise
     \item [\ref{par:endurance}.2.5] CLup database servers shall handle a minimum of 100 customer-related queries per minute, store-wise
@@ -1125,13 +1130,20 @@ required operational session duration and planned utilization rate.
     \item [\ref{par:endurance}.2.11] CLup outside totems shall cover a minimum expected lifetime of 2 years each
     \item [\ref{par:endurance}.2.12] CLup outside totems shall withstand a minimum usage rate of 30 quick-ticket generations per hour, or 720 generations per day
     \item [\ref{par:endurance}.2.13] CLup outside totems shall withstand a minimum ticket generation session of 2 minutes
+    \item [\ref{par:endurance}.2.14] Physical turnstiles for access control are requested a minimum throughput of 1 person per second
+    \item [\ref{par:endurance}.2.15] CLup core servers shall process a minimum of 5K queueing requests per hour
     
 \end{itemize}
 
 \paragraph{Performance requirements for operational phases}
 \label{par:operationalPhases}
-
-Performance requirements for the operational phases and modes.
+Performance requirements for the operational phases and modes.\newline
+\begin{itemize}[leftmargin=+.8in]
+    \item [\ref{par:operationalPhases}.3.1] CLup totems shall withstand quick ticket printing mode for a minimum of 33\% out of the overall up-time
+    \item [\ref{par:operationalPhases}.3.2] CLup big screens shall withstand still queue status graphic elements for a minimum of 98\% out of the overall up-time
+    \item [\ref{par:operationalPhases}.3.3] CLup core system functionality shall be guaranteed 99,7\% of the requested available time (equivalent to less than 1.1 days of unavailability per year)
+    \item [\ref{par:operationalPhases}.3.4] CLup complete end user functionality shall be guaranteed 99\% of the requested available time (equivalent to less than 3.6 days of unavailability per year)
+\end{itemize}
 
 \subsection{Design Constraints}
 Follows a set of constraints on the system design imposed by external standards, regulatory requirements, or project
@@ -1139,10 +1151,11 @@ limitations.
 
 \subsubsection{Standards compliance}
 \label{standards}
-The application requires adhesion to the following security standards:\newline 
+The application requires adhesion to the following standards:\newline 
 \begin{itemize}
     \item Transport Layer Security standard (TLS) version 1.2 (or higher), \href{https://tools.ietf.org/html/rfc5246}{RFC 5246}
-    \item Advanced Encryption Standard with a 128-bit key or more, \href{http://www.networksorcery.com/enp/rfc/rfc3394.txt}{RFC 3394}
+    \item Advanced Encryption Standard with a 128-bit key or more, \href{https://tools.ietf.org/html/rfc3394}{RFC 3394}
+    \item 1 February 2015 – Automatic identification and data capture techniques – QR Code barcode symbology specification – \href{http://www.iso.org/iso/catalogue_detail.htm?csnumber=62021}{ISO/IEC 18004:2015}
 \end{itemize}
 
 \subsubsection{Hardware limitations}
@@ -1178,25 +1191,42 @@ As far as the app version is concerned, CLup \textbf{requires} a device with the
     \item[\ref{par:envConstraints}.1.1] CLup totems shall withstand temperatures between -20$^{\circ}$ C and +50$^{\circ}$ C
     \item[\ref{par:envConstraints}.1.2] CLup totems shall withstand winds below 50 km/h
     \item[\ref{par:envConstraints}.1.3] CLup totems shall withstand relative humidity of at least 95\% 
+    \item[\ref{par:envConstraints}.1.4] CLup totems shall withstand solar radiation for a minimum of 1KW per square meter, 4 hours non-stop
+    \item[\ref{par:envConstraints}.1.5] CLup big screens shall withstand temperatures between -20$^{\circ}$ C and +50$^{\circ}$ C
+    \item[\ref{par:envConstraints}.1.6] CLup big screens shall withstand relative humidity of at least 95\%
+    \item[\ref{par:envConstraints}.1.7] CLup big screens shall withstand solar radiation for a minimum of 1KW per square meter, 4 hours non-stop
+\end{itemize}
+
+\paragraph{Power supply constraints}
+\label{par:powerSupply}
+
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{par:powerSupply}.2.1] CLup core system\footnote{See \ref{core_functionality} for details} shall operate in case of power failure
+    \item[\ref{par:powerSupply}.2.2] Backup power systems shall provide sufficient backup power capacity for guaranteeing CLup core system functionality 4 hours and up
 \end{itemize}
 
 \subsection{Software System Attributes}
 
-\subsubsection{Reliability}
-Given the presence of 24/7 stores, as additionally specified inside the Alloy Specification sect. (\ref{sect:alloy}), the system must have a guaranteed uptime of 24 hours a day, 7 days a week.
-\subsubsection{Availability}
+\subsubsection{Reliability \label{subsub:reliability}}
+Given the nature of CLup's primary objectives, implying strong national health concerns, the following requirements have to be fulfilled.\newline
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{subsub:reliability}.1] Turnstile QR scanning hardware must have a sensitivity value such that \textbf{False Acceptance Rate (FAR)} value falls below 5\% (righter than EER)
+\end{itemize}
+
+\subsubsection{Availability \label{subs:availability}}
 CLup targets the broadest group of individuals possible, given it's aimed at use for everyone as in depth explained in the previous sections. This indeed strains the availability constraints over the application which must be:\newline
-\begin{itemize}
-    \item available to people living inside slow connection areas, thus requiring a minimum 100Kb/s bandwidth to be operational
-    \item available to old and/or low-end devices, being operational on a minimum configuration of:
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{subs:availability}.1] Given the presence of 24/7 stores, as additionally specified inside the Alloy Specification sect. (\ref{sect:alloy}), the system must have a guaranteed uptime of 24 hours a day, 7 days a week.
+    \item[\ref{subs:availability}.2] available to people living inside slow connection areas, thus requiring a minimum 100Kb/s bandwidth to be operational
+    \item[\ref{subs:availability}.3] available to old and/or low-end devices, being operational on a minimum configuration of:
     \begin{itemize}
         \item Android version 5.0 or higher
         \item 1.5 GHz dual core CPUs for Android devices
         \item 50 MBytes of minimum available storage memory for Android devices
-        \item 512 MBytes of minimum system memory for Android devices
+        \item 512 MBytes minimum of system memory for Android devices
         \item iOS version 8.0 or higher
     \end{itemize}
-    \item The staff-operations web application must be able to operate on any modern, HTML5 compliant web-browser, OS-independently 
+    \item[\ref{subs:availability}.4] The staff-operations web application must be able to operate on any modern, HTML5 compliant web-browser, OS-independently 
 \end{itemize}
 {\color{gray}
 \fbox{%
@@ -1208,43 +1238,43 @@ CLup targets the broadest group of individuals possible, given it's aimed at use
 }}
 
 
-\subsubsection{Security}
+\subsubsection{Security \label{subsub:security}}
 CLup does not require best-in-class security measures given the mainstream nature of its main objectives, yet requires standard security measures to guarantee the following requirements:\newline
-\begin{itemize}
-    \item User data AES-128 (or stronger) encryption over the entire user database, as per sect. \ref{standards}
-    \item Connection encryption between clients and servers to guarantee authentication and integrity 
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{subsub:security}.1] User data AES-128 (or stronger) encryption over the entire user database, as per sect. \ref{standards}
+    \item[\ref{subsub:security}.2] Connection encryption between clients and servers to guarantee authentication and integrity 
     \begin{itemize}
         \item Transport Layer Security version 1.2 or higher, as per sect. \ref{standards}
     \end{itemize}
-    \item Strong 2-factor authentication (or stronger) must be required for Staff operations, as they imply non-negligible consequences on store operativeness and availability to end users.
-    \item Keep 6+ months old logs about internal staff operations and related authentication sessions.
-    \item Application-level (or more) firewall over database and staff-operations related applications.
-    \item Implementation or outsource use of \textit{anti-DoS} (Denial of Service) techniques/software components.
+    \item[\ref{subsub:security}.3] Strong 2-factor authentication (or stronger) must be required for Staff operations, as they imply non-negligible consequences on store operativeness and availability to end users.
+    \item[\ref{subsub:security}.4] Keep 6+ months old logs about internal staff operations and related authentication sessions.
+    \item[\ref{subsub:security}.5] Application-level (or more) firewall over database and staff-operations related applications.
+    \item[\ref{subsub:security}.6] Implementation or outsource use of \textit{anti-DoS} (Denial of Service) techniques/software components.
 \end{itemize}
 
-\subsubsection{Maintainability}
+\subsubsection{Maintainability \label{subsub:maintainability}}
 CLup is inevitably open to great expansion and innovation opportunities due to its potential broad use, hence the need for a highly maintainable and scalable system.
 The following aspects are necessarily required:\newline
-\begin{itemize}
-    \item Code modularity
-    \item Manual code writing privileging over automated generation, eventually privileging code maintainability and stability over eye-candiness and \textit{nice-to-haves} richness.
-    \item Accurate and up-to-date documentation, with a maximum 5\% of already implemented,undocumented code rate over total
-    \item Long term support software development kits usage
-    \item Long term support external services usage
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{subsub:maintainability}.1] Code modularity
+    \item[\ref{subsub:maintainability}.2] Manual code writing privileging over automated generation, eventually privileging code maintainability and stability over eye-candiness and \textit{nice-to-haves} richness.
+    \item[\ref{subsub:maintainability}.3] Accurate and up-to-date documentation, with a maximum 5\% of already implemented,undocumented code rate over total
+    \item[\ref{subsub:maintainability}.4] Long term support software development kits usage
+    \item[\ref{subsub:maintainability}.5] Long term support external services usage
 \end{itemize}
 
 
-\subsubsection{Portability}
+\subsubsection{Portability \label{subsub:portability}}
 Given its broad spectrum target, CLup needs to be operational on the largest number of device/operating system configurations possible. Virtually no device should be eligible for no support by CLup, however this would potentially lead to infeasibility issues, ultimately slowing down or inhibiting CLup development. \newline
 Therefore, the following minimum requirements are requested for maximised portability:\newline
-\begin{itemize}
-    \item A maximum of 10\% host-dependant code
-    \item A maximum of 20\% elements based on host-dependant code
-    \item Use of HTML5 for static web content
-    \item Use of CSS for web styling
-    \item Use of Java or C++ or C for core application functionalities
-    \item Use of PHP for web application backends
-    \item Use of Linux/Unix based OSs on all servers and end-user totems
-    \item No use of Adobe \textregistered \space Flash \textregistered \space technologies
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{subsub:portability}.1] A maximum of 10\% host-dependant code
+    \item[\ref{subsub:portability}.2] A maximum of 20\% elements based on host-dependant code
+    \item[\ref{subsub:portability}.3] Use of HTML5 for static web content
+    \item[\ref{subsub:portability}.4] Use of CSS for web styling
+    \item[\ref{subsub:portability}.5] Use of Java or C++ or C for core application functionalities
+    \item[\ref{subsub:portability}.6] Use of PHP for web application backends
+    \item[\ref{subsub:portability}.7] Use of Linux/Unix based OSs on all servers and end-user totems
+    \item[\ref{subsub:portability}.8] No use of Adobe \textregistered \space Flash \textregistered \space technologies
 \end{itemize}
 
