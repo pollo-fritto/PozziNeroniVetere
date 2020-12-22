@@ -1,11 +1,14 @@
 \sffamily
 
 \subsection{Product Perspective}
-\begin{figure}
+
+\subsubsection{UML description}
+\begin{figure} [H]
 	\includegraphics[width=\linewidth]{../Diagrams/main_class_diagram.png}
 	\caption{UML: class diagram.}
 	\label{fig:UML}
 \end{figure}
+<<<<<<< HEAD
 CLup is an application aiming to decrease the hazard of contracting COVID-19 (or other contagious diseases) when going shopping to a supermarket. The components are two: the main one targets customers of supermarkets while the second one is available for store managers.\newline
 \paragraph{Primary components overview}
 By first glance at Figure \ref{fig:UML} you may see in light coloured shade the main components of the CLup application. In particular:\newline
@@ -24,16 +27,19 @@ Regarding the first target, customers, they will be required to register to the 
 Once the setup is done, customers will be able to access the homepage of the application, where they can tap on a “Virtually queue” button that will allow them to see a list of stores inside a specified range from their current location: for each store a distance in kilometers from the user position will be outlined, as well as the number of people inside the store and its maximum capacity; whenever a store is full, the current number of people in line and an \textit{EWT} are displayed.\newline  
 It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialog specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from a home button. The process is shown in Figure ~\ref{fig:VirtuallyQ}.\\
 The distance range in which CLup will look for supermarkets is specified by the user through the filter button in the homepage, this button will in fact open the filter screen in which, among other parameters, a sliding bar controls the distance and a dropdown list allows the user to filter the chains of supermarkets.\\
+=======
+>>>>>>> 63c35e9161795bc9dd1825de5ccca1dd0112b623
 
-\begin{figure}
+\subsubsection{State charts}
+Now we are going to describe some state diagrams to better model and understand the core functionalities of the application.\\
+As we can see in Figure~\ref{fig:VirtuallyQ}, the process to virtually get in the queue of a store begins with Clup's home, where the main menu is displayed. When the virtually queue function is selected, the application state become the local store state: in this state Clup ask the customer his expected shopping duration and will consequently show the user all supermarkets nearby and their current status. If the user selects a store a confirmation dialog is prompted and if he confirms, the application will make a transition to the reserving state. This state is the most complex one and it is out of the scope of this document to analyse it, what it is important to know is that in this state Clup is processing the ticket request, generating the QR code and updating the relative store line. Assuming that the process is successful, the application will display the ticket alongside real time information about the supermarket line, this state can also be reached by the home but if and only if there is a valid ticket to display.\\
+\begin{figure} [H]
 	\includegraphics[width=\linewidth]{../Diagrams/VirtuallyQueue.png}
 	\caption{Statechart diagram: Virtually queue.}
 	\label{fig:VirtuallyQ}
 \end{figure}
 
-Another important feature is the possibility to book an entrance later in the day or in another day. The user can specify from the filters whether he prefers to choose the day or the store first and he can set the time range in which he wants to book. 
-There is a dedicated button in the app’s main screen that redirects the user to either the list/map of supermarkets or the calendar, and once the user chooses he will be respectively shown the calendar or the list/map, this time with colours to indicate the average crowdedness of stores/days given the set time range.
-When the user chooses the day and supermarket combination, a timetable spanning the chosen time range is shown, divided in 15 minutes time slots each one having again a colour to indicate the crowdedness. The user will be able to check his reservation on the home page and near the entrance time he will be provided an actual ticket. The process is shown in Figure ~\ref{fig:BookEntr}.\\
+Another important function to describe is the booking of the entrance, despite its similarities with the previous one it is worth to analyse it anyway from Figure~\ref{fig:BookEntr}: from the Clup home, once selected the book entrance function, the application will ask the use for his shopping time and will show supermarkets inside the filter range. When a store is selected, accordingly with the shopping duration, a calendar of the available time slots is displayed. If the calendar shown does not satisfies the user it possible to rollback to the store list and change supermarket. When the user decides a time slot and confirms the pop-up, the processing state for the reservation is reached: also in this case we are not interested in details, Clup processes the reservation and updates the calendar. Assuming the process successful, in average the reservation will be at least a day ahead in time so it would be useless to switch to a state in which the application shows the reservation, instead Clup will return to the home and, if the user wants to see his bookings, assuming that he has at least one, he could reach it from the home.  
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{../Diagrams/BookEntrance.png}
@@ -41,11 +47,14 @@ When the user chooses the day and supermarket combination, a timetable spanning 
 	\label{fig:BookEntr}
 \end{figure} 
 
+<<<<<<< HEAD
 The access at the supermarket is restricted by turnstiles with QR code readers, a staff member is expected to verify that nobody waits his turn in front of the entrance, jumps the turnstile or does anything irresponsible.\\
 Customers which, for any reason, don’t use the app will still be able to queue in CLup supermarkets by obtaining a printed ticket from a physical totem located near such stores; the functioning of the application will be similar to the “Quick ticket” app function with the difference that the user can only obtain a ticket for the totem’s store. \\
 The tickets consist of a QR code and an easy to remember alphanumeric code alternative to enter the store. There will also be monitors that show the numbers allowed to enter and, eventually, delays.\\
 Another component of CLup targets store managers: when the store decides to join the CLup network, ad-hoc credentials to access the web app will be given. Special staff-only functions will then be achieved by the use of a web application, accessible via internal-use terminals.
 
+=======
+>>>>>>> 63c35e9161795bc9dd1825de5ccca1dd0112b623
 \subsubsection{Scenarios}
 \paragraph{Scenario 1}
 
