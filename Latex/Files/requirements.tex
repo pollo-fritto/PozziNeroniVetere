@@ -396,16 +396,19 @@ The only type of communication required by CLup is a stable internet connection.
 		\item User opens the app.
 		\item Login screen loads.
 		\item User taps “Sign up".
-		\item TODO REGISTRATION WIREFRAME.
+		\item User fills all registration fields
+		\item User taps “Create new account”
+		
 		\end{enumerate}\\
 	\hline
-	Exit Conditions & User now has an account with which he can log in\\
+	Exit Conditions & User is back to login screen with the possibility of logging in after confirming his registration by opening the link in the received email	\\
 	\hline
 	Exception & \begin{enumerate}
-		\item There is no internet when the user presses “create account”
-	\end{enumerate}
-	
-	“No internet” popup, the user can either wait for internet to come back or discard the incomplete account creation by going back to main screen\\
+		\item There is no internet when the user presses “create account”\newline
+	“No internet” popup, the user can either wait for internet to come back or discard the incomplete account creation by going back to main screen
+	\item Username or email already in use\newline
+	Already used credentials popup, user has to try with different ones
+\end{enumerate}\\
 	\hline
 \end{tabular}
 }
@@ -429,7 +432,6 @@ The only type of communication required by CLup is a stable internet connection.
 		Event Flow & \begin{enumerate}
 			\item User opens the app.
 			\item Login screen loads.
-			\item User already has an account.
 			\item User inputs his credentials and presses “login”
 			\item Main screen loads
 		\end{enumerate}\\
@@ -470,9 +472,9 @@ The only type of communication required by CLup is a stable internet connection.
 			\item User taps “Show stores”
 			\item User is taken to “Quick results” screen
 			\item IF LIST MODE (from settings)\newline
-			stores with queue time, size and distance are shown in a list according to setted filters, if show more is pressed more stores are loaded and the list is made scrollable, if location button is pressed a map showing the store’s location is shown (TODO browse stores on map)\newline
+			stores with queue time, size and distance are shown in a list according to setted filters, if show more is pressed more stores are loaded and the list is made scrollable, if location button is pressed a map showing the store’s location is shown \newline
 			IF MAP MODE (from settings\newline)
-			stores with queue time, size and distance are shown on a map, if list button is pressed User is taken to the previously descripted “list mode” case
+			stores with queue time, size and distance are shown on a map, if list button is pressed User is taken to the previously described “list mode” case
 			\item User taps on a store
 			\item Confirmation pop up is shown
 			\item If user confirms “Ticket screen” is shown, otherwise he is taken back to 3
@@ -489,8 +491,8 @@ The only type of communication required by CLup is a stable internet connection.
 			\item There is no internet connection\newline
 			after 1 user stays in main screen with a dismissable “no internet” pop up
 			
-			\item User already has an ASAP ticket\newline
-			after 1 user stays in main screen with a dismissable “you can only have one ASAP ticket” 
+			\item User already has a quick ticket\newline
+			after 1 user stays in main screen with a dismissable “you can only have one quick ticket” 
 			
 		\end{enumerate}\\
 		
@@ -512,14 +514,16 @@ The only type of communication required by CLup is a stable internet connection.
 		\hline
 		Actors & User\\
 		\hline
-		Entry Condition & User starts interacting with CLup tablet (?) outside the store\\
+		Entry Condition & User starts interacting with CLup totem outside the store\\
 		\hline
 		
 		Event Flow & \begin{enumerate}
-			\item POSSIBLE IDENTIFICATION (fiscal code or ID card)
-			\item User sees current queue for this store and decides whether to confirm or cancel
-			\item A card ticket with remainder and QR is printed
-			\item User leaves the station with his printed ticket
+			\item User identifies
+			\item CLup validates id code
+			\item User inputs the expected amount of time he will be shopping
+			\item Confirmation for queuing is shown
+			\item If user accepts CLup totem prints a ticket associated to user ID
+			
 			
 		\end{enumerate}\\
 		
@@ -530,6 +534,8 @@ The only type of communication required by CLup is a stable internet connection.
 		Exception & \begin{enumerate}
 			\item The store blocked ticket requests\newline
 			User can’t get a ticket and is asked to come back another time
+			\item ID not valid\newline
+			User is asked to try to identify again
 			
 		\end{enumerate}\\
 		
@@ -564,16 +570,17 @@ The only type of communication required by CLup is a stable internet connection.
 				\item default booking time (ignored by ticket request)
 				\item default calendar or stores first when booking (ignored by ticket request)
 				\item default map or list view when booking (ignored by ticket request)
-				\item ???
+				\item -others-
 			\end{enumerate}
 			
 			\item User presses back to main screen button
-			\item Popup to confirm and save or discard the new filters is shown 
+			\item Popup to confirm and save or discard the new filters is shown
+			\item User presses save
 
 		\end{enumerate}\\
 		
 		\hline
-		Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
+		Exit Conditions & New filters are set and they will affect the next ticket request or visit plan, user is now in main screen\\
 		\hline
 	
 		Exception & \begin{enumerate}
@@ -590,13 +597,13 @@ The only type of communication required by CLup is a stable internet connection.
 \end{table}
 
 %TABELLA 6 
-\item \textbf{Plan visit}
+\item \textbf{Plan shopping}
 
 \begin{table}[H]
 {\rowcolors{1}{white}{white}
 	\begin{tabular}{|c|p{14cm}|}
 		\hline
-		Name & ASAP ticket request\\
+		Name & Plan shopping\\
 		\hline
 		Actors & User\\
 		\hline
@@ -608,17 +615,17 @@ The only type of communication required by CLup is a stable internet connection.
 			\item User is taken to “Quick results”
 			\item User inputs the expected amount of time he will be shopping
 			\item Calendar or store map/list is shown depending on what was loaded given the filter settings
-			\item User chooses date or store (from map/list) 
-			\item Stores map/list or calendar depending on what was shown already
+			\item User chooses date (from calendar) or store (from map/list) 
+			\item Stores map/list or calendar are shown depending on what was shown already
 			\item User chooses the store or the day
 			\item CLup shows time slots for that store on that day
 			\item User taps on a time slot
 			\item Confirmation pop up is shown
-			\item If user confirms “Ticket screen” is shown, otherwise he is taken back to 3			
+			\item If user confirms “Booking receipt screen” is shown, otherwise he is taken back to 3			
 		\end{enumerate}\\
 		
 		\hline
-		Exit Conditions & User has a ticket with updating due time to enter the store\\
+		Exit Conditions & User has a booked slot to go shopping that will result in the generation of a ticket, he can access his booking from the main screen\\
 		\hline
 		
 		Exception & \begin{enumerate}
@@ -628,11 +635,11 @@ The only type of communication required by CLup is a stable internet connection.
 			\item There is no internet connection\newline
 			after 1 user stays in main screen with a dismissable “no internet” pop up
 			
-			\item User already has an ASAP ticket\newline
-			after 1 user stays in main screen with a dismissable “you can only have one ASAP ticket”
+			\item User has already booked a slot\newline
+			after 1 user stays in main screen with a dismissable “you can only have one booking at a time”
 			
 			\item Day/store/time slot is full\newline
-			the choice is refused with a popup and user has to choose an alternative
+			the choice is refused with a pop-up and user has to choose an alternative
 			
 		\end{enumerate}\\
 		
@@ -706,13 +713,12 @@ The only type of communication required by CLup is a stable internet connection.
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & The user is in the store and can start shopping\\
+			Exit Conditions & The user leaves the store\\
 			\hline
 			
 			Exception & \begin{enumerate}
 				\item The code is wrong or no code can be provided or credentials are wrong\newline
-				The turnstile informs the user that he has to try again and after the third try it is unlocked anyway, the user exit won’t be tracked and will cause a report for the misinterpreted long shopping to be generated for him anyway
-				
+				The turnstile informs the user that he has to try again and after the third try it is unlocked anyway, the user exit won’t be tracked and will cause a report for the misinterpreted long shopping to be generated for him
 				
 			\end{enumerate}\\
 			
@@ -745,7 +751,7 @@ The only type of communication required by CLup is a stable internet connection.
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & No new tickets can be issued and currently released tickets are put on hold, meaning that valid tickets won’t be accepted by the turnstiles (queue time replaced with a suspened entrances message)
+			Exit Conditions & No new tickets can be issued and currently released tickets are put on hold, meaning that valid tickets won’t be accepted by the turnstiles (queue time replaced with a suspended entrances message)
 			The page now offers the possibility to allow entrances again\\
 			\hline
 			
@@ -773,7 +779,7 @@ The only type of communication required by CLup is a stable internet connection.
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item Staff clicks on “View affluence statistics”
+				\item Manager clicks on “View affluence statistics”
 				\item A page showing various statistics with customizable filters and options about people affluences is shown
 				
 			\end{enumerate}\\
@@ -809,24 +815,23 @@ The only type of communication required by CLup is a stable internet connection.
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item Staff clicks on “Change people capacity”
+				\item Manager clicks on “Change people capacity”
 				\item A screen which contains a text box to input the people number for store capacity is shown
-				\item Staff inputs the new number and clicks confirm
+				\item Manager inputs the new number and clicks confirm
 				\item Admin password is asked to proceed
 				\item Confirmation is asked and done
-				
 				
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & The number of people that can be let in the store after scanning their code is now set to the amount desired by the store staff\\
+			Exit Conditions & The number of people that can be let in the store after scanning their code is now set to the amount desired by the store Manager.
+			If more people than store capacity are inside no new people will be let in until the store doesn’t empty below the limit; actually clearing the store is outside of the scope of this project\\
 			\hline
 			
-			Exception & if more people than store capacity are inside no new people will be let in until the store doesn’t empty below the limit, possibly clearing the store is outside of the scope of this project\newline
-			\begin{enumerate}
+			Exception & \begin{enumerate}
 				\item Password is wrong\newline
 				no changes are allowed, password is asked again
-				
+		
 			\end{enumerate}\\
 			
 			\hline
@@ -853,7 +858,7 @@ The only type of communication required by CLup is a stable internet connection.
 			Event Flow & \begin{enumerate}
 				\item Manager clicks on “Inspect reports”
 				\item Reports page is shown
-				\item Manager can navigate the complete list of reports, if complying per store, and can filter or search them 
+				\item Manager can navigate the complete list of reports and can filter or search them 
 				
 			\end{enumerate}\\
 			
@@ -861,7 +866,7 @@ The only type of communication required by CLup is a stable internet connection.
 			Exit Conditions & Manager now knows the users infringements and can take informed actions on blocking or unblocking them from queuing in the stores\\
 			\hline
 			
-			Exception & None (if more people than store capacity are inside no new people will be let in until the store doesn’t empty below the limit)\\
+			Exception & None \\
 			
 			\hline
 		\end{tabular}
@@ -871,13 +876,13 @@ The only type of communication required by CLup is a stable internet connection.
 \end{table}
 
 %TABELLA 13
-\item \textbf{Store manager blocks/unblocks user}
+\item \textbf{Store manager blocks/unblocks user and set threshold}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
 		\begin{tabular}{|c|p{14cm}|}
 			\hline
-			Name & Store manager blocks/unblocks user\\
+			Name & Store manager blocks/unblocks user and set threshold\\
 			\hline
 			Actors & Manager\\
 			\hline
@@ -886,16 +891,17 @@ The only type of communication required by CLup is a stable internet connection.
 			
 			Event Flow & \begin{enumerate}
 				\item Store staff clicks on “block/unblock user”
-				\item Admin password is asked to proceed
 				\item A screen with a search box to look for a user and navigate blocked users is shown
-				\item Staff looks for the user on which they want to take action
-				\item Staff clicks “block” or “unblock” button near the username of the user in question
+				\item Manager looks for the user on which they want to take action
+				\item Manager clicks “block” or “unblock” button near the username of the user in question
+				\item Admin password is asked to proceed
+				\item Manager sets threshold (valid for all users) for missed entrances automatic block
 				\item Admin password is asked to proceed
 				
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & Chosen user is now blocked or unblocked for queuing at the store\\
+			Exit Conditions & Chosen user is now blocked or unblocked for queuing at the store and automatic block threshold is set\\
 			\hline
 			
 			Exception & \begin{enumerate}
@@ -903,7 +909,7 @@ The only type of communication required by CLup is a stable internet connection.
 				an error message informs that the action cannot be completed
 				
 				\item The user is already blocked / unblocked\newline
-				an error message informs that the user is already blocked / unblocked
+				an error message informs that the user is already blocked / unblocked and no action is taken
 				
 				\item Password is wrong\newline
 				no changes are allowed, password is asked again
@@ -945,7 +951,7 @@ The only type of communication required by CLup is a stable internet connection.
 				\item Credentials are wrong\newline
 				Error message is shown, it is asked to re insert the credentials
 				\item Too many login attempts\newline
-				After 3 failed login attempts the login-attempting ip is blocked for some time from trying other logins and if the store code was valid its staff will be notified of the attempt
+				After 3 failed login attempts the login-attempting ip is blocked for some time from trying other logins and if the store code was valid its manager will be notified of the attempt
 				
 			\end{enumerate}\\
 			
@@ -957,50 +963,44 @@ The only type of communication required by CLup is a stable internet connection.
 \end{table}
 
 %TABELLA 15
-\item \textbf{Edit filters}
+\item \textbf{Store Manager registration request}
 
 \begin{table}[H]
 	{\rowcolors{1}{white}{white}
 		\begin{tabular}{|c|p{14cm}|}
 			\hline
-			Name & Edit filters\\
+			Name & Store Manager registration\\
 			\hline
-			Actors & User\\
+			Actors & Manager\\
 			\hline
-			Entry Condition & User pressed filter button from main screen\\
+			Entry Condition & Manager is in management web page\\
 			\hline
 			
 			Event Flow & \begin{enumerate}
-				\item User is in main screen and taps the “filters” button
-				\item User is in filters screen
-				\item User changes the filter parameters he wants to change among:
-				\begin{enumerate}
-					\item distance range
-					\item store type
-					\item default booking time (ignored by ticket request)
-					\item default calendar or stores first when booking (ignored by ticket request)
-					\item default map or list view when booking (ignored by ticket request)
-					\item ???
-				\end{enumerate}
-				
-				\item User presses back to main screen button
-				\item Popup to confirm and save or discard the new filters is shown 
+				\item Manager opens the CLup website
+				\item Manager clicks on register new store
+				\item Manager inputs all the information required and confirms
+				\item CLup checks the validity of the data
+				\item CLup gives a confirmation message saying the request will be elaborated
 				
 			\end{enumerate}\\
 			
 			\hline
-			Exit Conditions & New filters are set and they will affect the next ticket request or visit plan\\
+			Exit Conditions & The store is now applying to join CLup network and the applier will be contacted to complete the procedure and install the turnstiles and totems at the store\\
 			\hline
 			
 			Exception & \begin{enumerate}
-				\item User closes the app without saving the filters\newline
-				Filter modifications are lost
+				\item Data is not valid\newline
+				Form not accepted, the Manager can try checking his input again
+				
 				
 			\end{enumerate}\\
 			
 			\hline
 		\end{tabular}
 	}
+	\caption{Use case: Store registration}
+	\label{tab: UCStoreReg}
 \end{table}
 
 \end{enumerate}
