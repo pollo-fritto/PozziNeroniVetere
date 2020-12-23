@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{OSMKTSH}
+Mobile operating systems market share.
+\newblock Technical report, {Statcounter}, 2020.
+\newblock \textsc{url}:
+  \url{https://gs.statcounter.com/os-market-share/mobile/worldwide}.
+
+\bibitem{FEDERDISTR}
+FederDistribuzione.
+\newblock Mappa delle aziende di distribuzione, italia.
+\newblock Technical report, {FEDERDISTRIBUZIONE MILANO}, 2020.
+\newblock \textsc{url}:
+  \url{https://www.federdistribuzione.it/mappa-distributiva/}.
+
+\bibitem{STANDARD}
+Software \& Systems Engineering Standards~Committee of~the IEEE
+  Computer~Society.
+\newblock Iso/iec/ieee 29148:2011(e), systems and software engineering — life
+  cycle processes — requirements engineering.
+\newblock 2011-12-11.
+\newblock \textsc{url}: \url{https://ieeexplore.ieee.org/document/8559686}.
+
+\bibitem{Solar:Radiation}
+{The Woods Hole Oceanographic Institution}.
+\newblock {Solar Radiation}.
+\newblock \textsc{url}:
+  \url{https://www.whoi.edu/science/AOPE/mvco/description/SolRad.html}.
+
+\end{thebibliography}

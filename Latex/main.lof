@@ -1,0 +1,32 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces UML: class diagram.\relax }}{10}{figure.caption.5}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Statechart diagram: Virtually queue.\relax }}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Statechart diagram: Book Entrance.\relax }}{12}{figure.caption.8}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Sequence diagram: Manager (un)block user\relax }}{35}{figure.caption.47}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Sequence diagram: Manager changes capacity\relax }}{36}{figure.caption.48}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Sequence diagram: Enter store\relax }}{36}{figure.caption.49}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Sequence diagram: Exit store\relax }}{37}{figure.caption.50}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Sequence diagram: Manager inspects report\relax }}{37}{figure.caption.51}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Sequence diagram: Manager logs in\relax }}{38}{figure.caption.52}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Sequence diagram: User plans visit\relax }}{39}{figure.caption.53}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Sequence diagram: Manager stops entrances\relax }}{40}{figure.caption.54}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Sequence diagram: Manager registers\relax }}{41}{figure.caption.55}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Sequence diagram: Quick ticket request\relax }}{42}{figure.caption.56}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Sequence diagram: User logs in\relax }}{43}{figure.caption.57}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Sequence diagram: User registration\relax }}{44}{figure.caption.58}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Sequence diagram: Manager views customers statistics\relax }}{45}{figure.caption.59}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Sequence diagram: Quick ticket at physical totem\relax }}{45}{figure.caption.60}%
+\contentsline {figure}{\numberline {18}{\ignorespaces False Acceptance and Rejection rates qualitative plot\relax }}{49}{figure.caption.66}%
+\contentsline {figure}{\numberline {19}{\ignorespaces The Alloy Metamodel\relax }}{59}{figure.caption.68}%
+\contentsline {figure}{\numberline {20}{\ignorespaces A staff member is allowed inside the store for shopping, hence being treated as a customer\relax }}{60}{figure.caption.69}%
+\contentsline {figure}{\numberline {21}{\ignorespaces A booking procedure takes place\relax }}{60}{figure.caption.70}%
+\contentsline {figure}{\numberline {22}{\ignorespaces User has made a reservation\relax }}{61}{figure.caption.71}%
+\contentsline {figure}{\numberline {23}{\ignorespaces User exits the store after shopping, causing ticket deletion\relax }}{61}{figure.caption.72}%
+\contentsline {figure}{\numberline {24}{\ignorespaces User gets a new quick ticket by using the mobile application\relax }}{62}{figure.caption.73}%
+\contentsline {figure}{\numberline {25}{\ignorespaces User has a valid ticket for entrance\relax }}{62}{figure.caption.74}%
+\contentsline {figure}{\numberline {26}{\ignorespaces A new customer\relax }}{63}{figure.caption.75}%
+\contentsline {figure}{\numberline {27}{\ignorespaces A new staff member\relax }}{63}{figure.caption.76}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Showing it is possible not to exceed the max capacity of a store\relax }}{64}{figure.caption.77}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Demonstrating the possibility of temporary interrupting store public access by the staff\relax }}{64}{figure.caption.78}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Test results, part 1\relax }}{65}{figure.caption.79}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Test results, part 2\relax }}{66}{figure.caption.80}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Test results, part 3\relax }}{67}{figure.caption.81}%

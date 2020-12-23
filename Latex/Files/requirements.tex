@@ -1135,7 +1135,7 @@ under stipulated environmental and other conditions, including minimum total lif
 
 \begin{itemize}[leftmargin=+.8in]
     \item [\ref{par:endurance}.2.1] CLup totems shall run a minimum of 240 hours sessions between successive reboots
-    \item [\ref{par:endurance}.2.2] CLup web application backend servers shall process a minimum of 10 requests per minute store-wise or alternatively a minimum of 250K requests per minute country-wise
+    \item [\ref{par:endurance}.2.2] CLup web application backend servers shall process a minimum of 10 requests per minute store-wise or alternatively a minimum of 250K requests per minute country-wise\footnote{Estimated value calculated over FederDistribuzione data \cite{FEDERDISTR}}
     \item [\ref{par:endurance}.2.3] CLup database servers shall process a minimum of 10K customer sign-up requests per minute, store-wise 
     \item [\ref{par:endurance}.2.4] CLup database servers shall process a minimum of 10 staff member sign-up requests per minute, store-wise
     \item [\ref{par:endurance}.2.5] CLup database servers shall handle a minimum of 100 customer-related queries per minute, store-wise
@@ -1208,12 +1208,12 @@ As far as the app version is concerned, CLup \textbf{requires} a device with the
     \item[\ref{par:envConstraints}.1.1] CLup totems shall withstand temperatures between -20$^{\circ}$ C and +50$^{\circ}$ C
     \item[\ref{par:envConstraints}.1.2] CLup totems shall withstand winds below 50 km/h
     \item[\ref{par:envConstraints}.1.3] CLup totems shall withstand relative humidity of at least 95\% 
-    \item[\ref{par:envConstraints}.1.4] CLup totems shall withstand solar radiation for a minimum of 1KW per square meter, 4 hours non-stop
+    \item[\ref{par:envConstraints}.1.4] CLup totems shall withstand solar radiation for a minimum of 1KW\footnote{Calculated by taking into account the Woods Hole O.I. data\cite{Solar:Radiation}} per square meter, 4 hours non-stop
     \item[\ref{par:envConstraints}.1.5] CLup big screens shall withstand temperatures between -20$^{\circ}$ C and +50$^{\circ}$ C
     \item[\ref{par:envConstraints}.1.6] CLup big screens shall withstand relative humidity of at least 95\%
     \item[\ref{par:envConstraints}.1.7] CLup big screens shall withstand solar radiation for a minimum of 1KW per square meter, 4 hours non-stop
 \end{itemize}
-
+\bigskip
 \paragraph{Power supply constraints}
 \label{par:powerSupply}
 
@@ -1225,9 +1225,14 @@ As far as the app version is concerned, CLup \textbf{requires} a device with the
 \subsection{Software System Attributes}
 
 \subsubsection{Reliability \label{subsub:reliability}}
+\begin{figure}
+	\includegraphics[width=\linewidth]{../Diagrams/FAR.png}
+	\caption{False Acceptance and Rejection rates qualitative plot}
+	\label{fig:FAR}
+\end{figure}
 Given the nature of CLup's primary objectives, implying strong national health concerns, the following requirements have to be fulfilled.\newline
 \begin{itemize}[leftmargin=+.8in]
-    \item[\ref{subsub:reliability}.1] Turnstile QR scanning hardware must have a sensitivity value such that \textbf{False Acceptance Rate (FAR)} value falls below 5\% (righter than EER)
+    \item[\ref{subsub:reliability}.1] Turnstile QR scanning hardware must have a sensitivity value such that \textbf{False Acceptance Rate (FAR)} value falls below 5\% (righter than EER treshold on figure \ref{fig:FAR})
 \end{itemize}
 
 \subsubsection{Availability \label{subs:availability}}
@@ -1249,7 +1254,7 @@ CLup targets the broadest group of individuals possible, given it's aimed at use
 \fbox{%
     \parbox {\textwidth}{%
         \small
-        No support for deprecated, unsupported operating system (such as Microsoft \textregistered \space Windows Phone \textregistered) is being required as the overall market share of those system is below 0.1\%
+        No support for deprecated, unsupported operating system (such as Microsoft \textregistered \space Windows Phone \textregistered) is being required as the overall market share of those system is below 0.1\% \cite{OSMKTSH}
 
     }%
 }}
