@@ -1,4 +1,3 @@
-
 enum Day{Monday, Tuesday, Wednesday, Thrusday, Friday, Saturday, Sunday}
 
 abstract sig Bool{}
