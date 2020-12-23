@@ -8,22 +8,45 @@
 	\caption{UML: class diagram.}
 	\label{fig:UML}
 \end{figure}
+\paragraph{Primary components overview}
+By first glance at Figure \ref{fig:UML} you may see in light coloured shade the main components of the CLup application. In particular:\newline
+\begin{itemize}
+    \item Person class, which is abstract, and models the general entity with common characteristics to both customers and staff members
+    \item Store class, modeling a single store facility, with chain attribute.
+    \item BookingReservation class, which models a single reservation instance, including time and store for the reservation as well as - of course - an associated applicant
+    \item Ticket class, referring to the so called QuickTicket \ref{subsub:definitions} entity, which collects every useful piece of information to enqueue, track and allow users inside the stores.
+\end{itemize}
+In light gray shade, you may then notice the database classes,  which provides a hint on a possible database displacement for storing the aforementioned classes.
 
 \subsubsection{State charts}
-Now we are going to describe some state diagrams to better model and understand the core functionalities of the application.\\
-As we can see in Figure~\ref{fig:VirtuallyQ}, the process to virtually get in the queue of a store begins with Clup's home, where the main menu is displayed. When the virtually queue function is selected, the application state become the local store state: in this state Clup ask the customer his expected shopping duration and will consequently show the user all supermarkets nearby and their current status. If the user selects a store a confirmation dialog is prompted and if he confirms, the application will make a transition to the reserving state. This state is the most complex one and it is out of the scope of this document to analyse it, what it is important to know is that in this state Clup is processing the ticket request, generating the QR code and updating the relative store line. Assuming that the process is successful, the application will display the ticket alongside real time information about the supermarket line, this state can also be reached by the home but if and only if there is a valid ticket to display.\\
+In this section some state diagrams are being used to better model and visualize the core functionalities of the application.\\
+As we can see in Figure~\ref{fig:VirtuallyQ}, the process to virtually get in the queue of a store begins with Clup's home, where the main menu is displayed. When the virtually queue function is selected, the application state become the local store state: in this state Clup ask the customer his expected shopping duration and will consequently show the user all supermarkets nearby and their current status. If the user selects a store a confirmation dialog is prompted and if he confirms, the application will make a transition to the reserving state. \newline
+This state is the most complex one and it is out of the scope of this document to analyse it, what it is important to know is that in this state Clup is processing the ticket request, generating the QR code and updating the relative store line. Assuming that the process is successful, the application will display the ticket alongside real time information about the supermarket line, this state can also be reached by the home but if and only if there is a valid ticket to display.\\
 \begin{figure} [H]
 	\includegraphics[width=\linewidth]{../Diagrams/VirtuallyQueue.png}
 	\caption{Statechart diagram: Virtually queue.}
 	\label{fig:VirtuallyQ}
 \end{figure}
 
-Another important function to describe is the booking of the entrance, despite its similarities with the previous one it is worth to analyse it anyway from Figure~\ref{fig:BookEntr}: from the Clup home, once selected the book entrance function, the application will ask the use for his shopping time and will show supermarkets inside the filter range. When a store is selected, accordingly with the shopping duration, a calendar of the available time slots is displayed. If the calendar shown does not satisfies the user it possible to rollback to the store list and change supermarket. When the user decides a time slot and confirms the pop-up, the processing state for the reservation is reached: also in this case we are not interested in details, Clup processes the reservation and updates the calendar. Assuming the process successful, in average the reservation will be at least a day ahead in time so it would be useless to switch to a state in which the application shows the reservation, instead Clup will return to the home and, if the user wants to see his bookings, assuming that he has at least one, he could reach it from the home.  
+Another important function to describe is the booking of the entrance; despite its similarities with the previous one it is worth to analyse it anyway from Figure~\ref{fig:BookEntr}: from the Clup home, once selected the book entrance function, the application will ask the use for his shopping time and will show supermarkets inside the filter range. When a store is selected, in accordance with the shopping duration, a calendar of the available time slots is displayed. \newline 
+If the calendar shown does not satisfies the user it possible to rollback to the store list and change supermarket. When the user decides a time slot and confirms the pop-up, the processing state for the reservation is reached: also in this case we are not interested in details, Clup processes the reservation and updates the calendar. \newline
+
+Assuming the process successful, in average the reservation will be at least a day ahead in time so it would be useless to switch to a state in which the application shows the reservation, instead Clup will return to the home and, if the user wants to see his bookings, assuming that he has at least one, he could reach it from the home.  
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{../Diagrams/BookEntrance.png}
 	\caption{Statechart diagram: Book Entrance.}
 	\label{fig:BookEntr}
+\end{figure} 
+\begin{figure}
+	\includegraphics[width=\linewidth]{../Diagrams/PhysicalTicketing.png}
+	\caption{Statechart diagram: Physical ticketing.}
+	\label{fig:PhysTick}
+\end{figure} 
+\begin{figure}
+	\includegraphics[width=\linewidth]{../Diagrams/StoreBackend.png}
+	\caption{Statechart diagram: Store backend.}
+	\label{fig:StoreBackE}
 \end{figure} 
 
 \subsubsection{Scenarios}

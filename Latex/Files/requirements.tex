@@ -1,18 +1,46 @@
 
 \subsection{External Interface Requirements}
-
+CLup is an application aimed at decreasing the probability of contracting COVID-19 (diseases in general) when going shopping to a supermarket. There are two fundamental components: the main one targets customers of supermarkets while the second one is available for store managers.\newline
 \subsubsection{User Interfaces}
-CLup is an application aiming to decrease the hazard of contracting COVID-19 (or other contagious diseases) when going shopping to a supermarket. The components are two: the main one targets customers of supermarkets while the second one is available for store managers.\newline
-Regarding the first component, customers will be required to register to the service the first time they use it by inserting their full name, email address, ID card, phone number and a password. The customer will also be requested to specify his physical address, or to enable the GPS, in order to allow CLup to find stores nearby; this last information can be changed anytime the user needs. If the customer is not willing to register or share his address, the service will not be available.\newline
-Once the setup is done the customer is now able to access the homepage of the application, here he can tap on the button “Virtually queue” that allows him to see a list of stores inside a specified range from his location: for every store it is also specified the distance in kilometers from the user position, the number of people inside the store and its maximum occupancy, if the store is full it is instead displayed the number of people in line and the EWT.  It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialog specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from a home button.\\
-The distance range in which CLup will look for supermarkets is specified by the user through the filter button in the homepage, this button will in fact open the filter screen in which, among other parameters, a sliding bar controls the distance and a dropdown list allows the user to filter the chains of supermarkets.\\
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\linewidth]{../Diagrams/WireframesCLup/MainScreen.png}
+		\caption{Main screen}
+		\label{fig:WfMain}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\linewidth]{../Diagrams/WireframesCLup/QuickTicket.png}
+		\caption{Store list}
+		\label{fig:WfStoreList}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\linewidth]{../Diagrams/WireframesCLup/Ticket.png}
+		\caption{Your ticket}
+		\label{fig:WfTicket}
+	\end{subfigure}
+	\caption{Clup wireframes}
+	\label{fig:Wireframes}
+\end{figure}
+\paragraph{End user functionalities}
+Regarding the first target - customers - they will be required to register to the service the first time they use it by inserting their full name, email address, ID card, phone number and a password. The customer will also be requested to specify his physical address, or to enable the GPS, in order to allow CLup to find stores nearby; this last information can be changed anytime the user needs. If the customer is not willing to register or share his address, the service will not be available.
+
+Once the setup is done, customers will be able to access the homepage of the application, where they can tap on a “Virtually queue” button that will allow them to see a list of stores inside a specified range from their current location: for each store a distance in kilometers from the user position will be outlined, as well as the number of people inside the store and its maximum capacity; whenever a store is full, the current number of people in line and an \textit{EWT} are displayed.\newline  
+It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialog specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from a home button. The process is shown in Figure ~\ref{fig:VirtuallyQ}.\\
+The distance range in which CLup will look for supermarkets is specified by the user through the filter button in the homepage, this button will in fact open the filter screen in which, among other parameters, a sliding bar controls the distance and a drop-down list allows the user to filter the chains of supermarkets.\newline
+
 Another important feature is the possibility to book an entrance later in the day or in another day. The user can specify from the filters whether he prefers to choose the day or the store first and he can set the time range in which he wants to book. 
 There is a dedicated button in the app’s main screen that redirects the user to either the list/map of supermarkets or the calendar, and once the user chooses he will be respectively shown the calendar or the list/map, this time with colours to indicate the average crowdedness of stores/days given the set time range.
 When the user chooses the day and supermarket combination, a timetable spanning the chosen time range is shown, divided in 15 minutes time slots each one having again a colour to indicate the crowdedness. The user will be able to check his reservation on the home page and near the entrance time he will be provided an actual ticket.\\
-The access at the supermarket is restricted by turnstiles with QR code readers, a staff member is expected to verify that nobody waits his turn in front of the entrance, jumps the turnstile or does anything irresponsible.\\
-Customers which, for any reason, don’t use the app will still be able to queue in CLup supermarkets by obtaining a printed ticket from a physical totem located near such stores; the functioning of the application will be similar to the “Quick ticket” app function with the difference that the user can only obtain a ticket for the totem’s store. \\
-The tickets consist of a QR code and an easy to remember alphanumeric code alternative to enter the store. There will also be monitors that show the numbers allowed to enter and, eventually, delays.\\
-The second component of CLup targets store managers: when the store decides to join the CLup network, the credentials to access the web app will be given. In this way the application will have a dedicated section to display flux data of the store selected
+The access at the supermarket is restricted by turnstiles with QR code readers, a staff member is expected to verify that nobody waits his turn in front of the entrance, jumps the turnstile or does anything irresponsible.
+
+Customers who, for any reason, do not use the app will still be able to queue in CLup supermarkets by obtaining a printed ticket from a physical totem located near such stores; the functioning of the application will be similar to the “Quick ticket” app function with the difference that the user can only obtain a ticket by using a totem. \\
+The tickets consist of a QR code and an easy to remember alphanumeric code alternative to enter the store. There will also be monitors that show the numbers allowed to enter and, eventually, delays.
+\paragraph{Internal use functionalities}
+Another component of CLup targets store managers: when the store decides to join the CLup network, ad-hoc credentials to access the web app will be given. Special staff-only functions will then be achieved by the use of a web application, accessible via internal-use terminals.
+
 \subsubsection{Hardware Interfaces}
 Both users and store managers can use the application through a mobile phone or a personal computer. Users unable to do so will use totems provided by stores.
 \subsubsection{Software Interfaces}
@@ -1050,7 +1078,7 @@ The only type of communication required by CLup is a stable internet connection.
 
 %SEQUENCE 7
 \begin{figure}[H]
-	\includegraphics[width=\linewidth, height=22cm]{../Diagrams/PlanVisit.png}
+	\includegraphics[height=\textheight]{../Diagrams/PlanVisit.png}
 	\caption{Sequence diagram: User plans visit}
 	\label{fig:PlanVisit}
 	%CERCA \scale
@@ -1104,6 +1132,13 @@ The only type of communication required by CLup is a stable internet connection.
 	\caption{Sequence diagram: Quick ticket at physical totem}
 	\label{fig:Totem}
 \end{figure} 
+
+%SEQUENCE 15
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/EditFilters.png}
+	\caption{Sequence diagram: Edit filters}
+	\label{fig:EditFilt}
+\end{figure}
 
 
 \subsection{Performance Requirements \label{subs:performance}}
@@ -1252,15 +1287,22 @@ CLup targets the broadest group of individuals possible, given it's aimed at use
 \subsubsection{Security \label{subsub:security}}
 CLup does not require best-in-class security measures given the mainstream nature of its main objectives, yet requires standard security measures to guarantee the following requirements:\newline
 \begin{itemize}[leftmargin=+.8in]
-    \item[\ref{subsub:security}.1] User data AES-128 (or stronger) encryption over the entire user database, as per sect. \ref{standards}
-    \item[\ref{subsub:security}.2] Connection encryption between clients and servers to guarantee authentication and integrity 
+    \item[\ref{subsub:security}.1.1] User data AES-128 (or stronger) encryption over the entire user database, as per sect. \ref{standards}
+    \item[\ref{subsub:security}.1.2] Connection encryption between clients and servers to guarantee authentication and integrity 
     \begin{itemize}
         \item Transport Layer Security version 1.2 or higher, as per sect. \ref{standards}
     \end{itemize}
-    \item[\ref{subsub:security}.3] Strong 2-factor authentication (or stronger) must be required for Staff operations, as they imply non-negligible consequences on store operativeness and availability to end users.
-    \item[\ref{subsub:security}.4] Keep 6+ months old logs about internal staff operations and related authentication sessions.
-    \item[\ref{subsub:security}.5] Application-level (or more) firewall over database and staff-operations related applications.
-    \item[\ref{subsub:security}.6] Implementation or outsource use of \textit{anti-DoS} (Denial of Service) techniques/software components.
+    \item[\ref{subsub:security}.1.3] Strong 2-factor authentication (or stronger) must be required for Staff operations, as they imply non-negligible consequences on store operativeness and availability to end users.
+    \item[\ref{subsub:security}.1.4] Keep 6+ months old logs about internal staff operations and related authentication sessions.
+    \item[\ref{subsub:security}.1.5] Application-level (or more) firewall over database and staff-operations related applications.
+    \item[\ref{subsub:security}.1.6] Implementation or outsource use of \textit{anti-DoS} (Denial of Service) techniques/software components.
+\end{itemize}
+\paragraph{Physical Security}
+There also are some pretty usual requirements over physical security of the hardware components.
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{subsub:security}.2.1] CLup servers shall be enclosed in a secure facility for authorized personnel only.
+    \item[\ref{subsub:security}.2.2] There shall be validation and authentication upon entering the servers facility.
+    \item[\ref{subsub:security}.2.3] CLup servers facility shall log physical access attempts.
 \end{itemize}
 
 \subsubsection{Maintainability \label{subsub:maintainability}}
@@ -1272,6 +1314,9 @@ The following aspects are necessarily required:\newline
     \item[\ref{subsub:maintainability}.3] Accurate and up-to-date documentation, with a maximum 5\% of already implemented,undocumented code rate over total
     \item[\ref{subsub:maintainability}.4] Long term support software development kits usage
     \item[\ref{subsub:maintainability}.5] Long term support external services usage
+    \item[\ref{subsub:maintainability}.6] CLup core system's hardware Mean Time To Repair (MTTR) shall not exceed 2.0 hours
+    \item[\ref{subsub:maintainability}.7] CLup core system's hardware Mean Time Between Failures (MTBF) shall be greater than 6200 hours (258.3 days)
+
 \end{itemize}
 
 

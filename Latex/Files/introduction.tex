@@ -1,13 +1,10 @@
 
 \subsection{Purpose}
-This document has the purpose to guide the developer in the realization of the software called Clup, an application that aims to manage queues digitally.\newline
-Due to the Coronavirus emergency grocery shopping needs to follow strict rules: supermarkets need to restrict access to their stores
-which typically results in long lines forming outside.The goal of this project is to develop an easy-to-use application that allows store
-managers to regulate the influx of people and that saves people from
-having to crowd outside of stores.\newline
+This document has the purpose of guiding the developer in the realization process of the \textbf{CLup} software, an innovative application to manage queues digitally.\newline
+Due to the Coronavirus emergency grocery shopping needs to follow strict rules: supermarkets need to restrict access to their stores which typically results in long lines forming outside.The goal of this project is to develop an easy-to-use application that allows store managers to regulate the influx of people and that saves people from having to crowd outside of stores.\newline
 The application releases a number that gives the position in the queue and gives information about the time when that number is called, in this way the user is able to arrive to the supermarket and enter immediately. \newline
 Clup allows also the user to book a slot to enter the supermarket indicating the expected time to shop, or alternatively the application itself can infer it.\newline
-Finally the application can suggest different slots to visit the store, based on the influx of people, and slots in alternative stores, based on the day/hour preferences of the user.   
+Finally the application can suggest different slots to visit the store, based on stores crowdedness, and slots in alternative stores, based on the day/hour preferences of the user.   
 
 \subsubsection{Goals}
 
@@ -73,25 +70,35 @@ Finally the application can suggest different slots to visit the store, based on
 \end{table}
 \subsection{Definitions, Acronyms, Abbreviations}
 
-\subsubsection{Definitions}
-Check in procedure:\\
-Reserve entrance:\\
-Malicious user:\\
-Quick ticket:\\
-\textbf{Totem}: a desktop based PC with advanced input functionalities (touchscreen), with external hard shell protection, stand mount, (optional) integrated printer.\\
-\textbf{Big screen}: a huge screen panel to be located outside the store, in visible placement, used for announcements to offline customers.\\
-\textbf{CLup core system \label{core_functionality}}: CLup innermost back-end functionality providing queueing control, access to already enqueued users, access control, big screens operativeness
+\subsubsection{Definitions\label{subsub:definitions}}
+\begin{itemize}
+\item \textbf{Check-in procedure}: the process of getting inside the store. It starts from when the user approaches the entrance, includes the QR ticket scan and ends as soon as the turnstile is passed.
+\item \textbf{Reserve entrance}: the process of booking a future entrance (starting from the day next to the current one)
+\item \textbf{Malicious user}: someone committed for any reason to CLup malfunction and/or unavailability, shopping disservices.
+\item \textbf{Quick ticket}: the actual ticket granting access to the stores. We call it \guillemotleft quick\guillemotright \space to emphasize the difference between booking and lining up.
+\item \textbf{Totem}: a desktop based PC with advanced input functionalities (touchscreen), with external hard shell protection, stand mount, (optional) integrated printer.
+\item \textbf{Big screen}: a huge screen panel to be located outside the store, in visible placement, used for announcements to offline customers.
+\item \textbf{CLup core system\label{core_functionality}}: CLup innermost back-end functionality providing queueing control, access to already enqueued users, access control, big screens operativeness                                                                                                                                                                                                   \end{itemize}
+
 
 \subsubsection{Acronyms}
-\textbf{EWT}: Expected Waiting Time\\
-\textbf{ASAP}: As Soon As Possible\\
+\begin{itemize}
+\item \textbf{EWT}: Expected Waiting Time
+\item \textbf{ASAP}: As Soon As Possible
+\item \textbf{WRT}: With Respect To
+\end{itemize}
+
 \subsubsection{Abbreviations}
 
 
 \subsection{Revision History}
 \begin{itemize}
-	\item
-	\textbf{v1.0}: First version of the document
+	\item \textbf{v1.0}: First version of the document
+	\item \textbf{v1.1}: Section 4 revision
+	\item \textbf{v1.2}: Sections 3.3, 3.4 revision
+	\item \textbf{v1.3}: Section 4.2 revision, sequence diagrams upscaling
+	\item \textbf{v1.4}: Front page addition, minor syntax revisions
+	
 \end{itemize}
 
 
