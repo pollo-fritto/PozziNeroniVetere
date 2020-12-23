@@ -4,7 +4,7 @@ enum Day{Monday, Tuesday, Wednesday, Thrusday, Friday, Saturday, Sunday}
 abstract sig Bool{}
 one sig True extends Bool{}
 one sig False extends Bool{}
-sig Char{} -- using this to be able to write constraints on strings length
+sig Char{} -- using this to comfortably write constraints on strings length
 sig Float{
     integer: Int,
     decimal: Int
@@ -56,7 +56,7 @@ sig RelativeTime{
 sig Location{
     latitude: one Float,
     longitude: one Float
-}/*{ --it'd be nice, but solver doesn't let us
+}/*{ --this section is left commented out to help keeping the Int bitwidth down
     latitude.integer<85
     latitude.integer>-85
     longitude.integer<180
@@ -88,8 +88,6 @@ abstract sig Person {
 }{
     #name>2
     #surname>2
-    //#fc>=11
-    //#customerId=12
 }
 
 one sig Now{
@@ -115,7 +113,7 @@ sig BookingReservation {
     endTime: one Time,
     id: seq Char
 }{
-    //aTimeBeforeB[startTime, endTime]
+    aTimeBeforeB[startTime, endTime]
 }
 
 sig Ticket{
@@ -145,7 +143,7 @@ sig Queue{
     estimatedNextEntrance: lone Time
 }{
     #members>0
-    #this.@id>0 -- TODO
+    #this.@id>0
 }
 
 one sig NotificationsDB{
@@ -185,7 +183,7 @@ fact noDuplicatedCustomers{
     all disj cust,cust1: Person | cust.customerId !=cust1.customerId
 }
 
-fact dayConsistency{ --we should also handle leap years...
+fact dayConsistency{ 
     all date : Date | (date.month=11 ||date.month=4 || date.month=6 || date.month=9) implies date.day<31 && 
     (date.month=2) implies date.day<30   
 }
@@ -205,10 +203,6 @@ fact allStoresBelongToDB{
 fact allNotificationsBelongToDB{
     all n: Notification| n in NotificationsDB.notifications
 }
-
-/*fact allQueuesBelongToDB{
-    all q: Queue | q in Queues.queuesList
-}*/
 
 fact eachStoreOneQueueMax{
     all disj q, q1 : Queue | q.store!=q1.store
@@ -452,19 +446,3 @@ run temporaryStopStore for 7 Int
 run notificationDispatch for 7 Int
 run exitStore for 7 Int
 run deleteQuickTicket for 7 Int 
-
-/* v2.0 Useful additions:
-- bookings constraints and 2-way correspondances with applicant [DONE]
-- no overcrowding: [DONE]
-    - store capacity [DONE]
-    - check when creating new ticket [DONE]
-    - check when booking [DONE]
-- exit from store deactivates ticket [DONE]
-- delete ticket when deactivated [DONE]
-- staff:
-    - temporary deactivate store [DONE]
-- notifications:
-    - add location to the customer [DONE]
-    - add queue estimated next entrance [DONE]
-- goal-related assertions (no overcrowding, no multiple tickets etc) [DONE]
-*/

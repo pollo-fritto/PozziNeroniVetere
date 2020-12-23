@@ -1,0 +1,16 @@
+/* v2.0 Useful additions:
+- bookings constraints and 2-way correspondances with applicant [DONE]
+- no overcrowding: [DONE]
+    - store capacity [DONE]
+    - check when creating new ticket [DONE]
+    - check when booking [DONE]
+- exit from store deactivates ticket [DONE]
+- delete ticket when deactivated [DONE]
+- staff:
+    - temporary deactivate store [DONE]
+- notifications:
+    - add location to the customer [DONE]
+    - add queue estimated next entrance [DONE]
+- goal-related assertions (no overcrowding, no multiple tickets etc) [DONE]
+*/
+ 
