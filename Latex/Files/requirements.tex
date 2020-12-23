@@ -1204,7 +1204,8 @@ The application requires adhesion to the following standards:\newline
     \item 1 February 2015 – Automatic identification and data capture techniques – \textbf{QR Code barcode} symbology specification – \href{http://www.iso.org/iso/catalogue_detail.htm?csnumber=62021}{ISO/IEC 18004:2015}
 \end{itemize}
 
-\subsubsection{Hardware limitations}
+\subsubsection{Hardware limitations \label{subsub:hwLimit}}
+
 As far as the app version is concerned, CLup \textbf{requires} a device with the following hardware to be operational:\newline
 \begin{itemize}
     \item GNSS (any)
@@ -1229,6 +1230,15 @@ As far as the app version is concerned, CLup \textbf{requires} a device with the
     \item internet connectivity
 \end{itemize}
 
+Given the nature of CLup's primary objectives, implying strong national health concerns, the following requirements have to be fulfilled:\newline
+\begin{itemize}[leftmargin=+.8in]
+    \item[\ref{subsub:hwLimit}.1] Turnstile QR scanning hardware must have a sensitivity value such that \textbf{False Acceptance Rate (FAR)} value falls below 5\% (righter than Equal Error Rate treshold on figure \ref{fig:FAR})
+\end{itemize}
+\begin{figure}
+	\includegraphics[width=\linewidth]{../Diagrams/FAR.png}
+	\caption{False Acceptance and Rejection Rates (qualitative plot)}
+	\label{fig:FAR}
+\end{figure}
 
 \subsubsection{Any other constraint}
 \paragraph{Environmental Constraints}
@@ -1254,14 +1264,9 @@ As far as the app version is concerned, CLup \textbf{requires} a device with the
 \subsection{Software System Attributes}
 
 \subsubsection{Reliability \label{subsub:reliability}}
-\begin{figure}
-	\includegraphics[width=\linewidth]{../Diagrams/FAR.png}
-	\caption{False Acceptance and Rejection rates qualitative plot}
-	\label{fig:FAR}
-\end{figure}
 Given the nature of CLup's primary objectives, implying strong national health concerns, the following requirements have to be fulfilled.\newline
 \begin{itemize}[leftmargin=+.8in]
-    \item[\ref{subsub:reliability}.1] Turnstile QR scanning hardware must have a sensitivity value such that \textbf{False Acceptance Rate (FAR)} value falls below 5\% (righter than EER treshold on figure \ref{fig:FAR})
+    \item[\ref{subsub:reliability}.1] CLup shall compute current number of occupants with an accuracy equal or higher than 99.999999\% (equivalent to 1 wrong computation out of 1 million computations total)
 \end{itemize}
 
 \subsubsection{Availability \label{subs:availability}}
@@ -1303,7 +1308,7 @@ CLup does not require best-in-class security measures given the mainstream natur
     \item[\ref{subsub:security}.1.6] Implementation or outsource use of \textit{anti-DoS} (Denial of Service) techniques/software components.
 \end{itemize}
 \paragraph{Physical Security}
-There also are some pretty usual requirements over physical security of the hardware components.
+There also are some pretty usual requirements over physical security of the hardware components hosting the CLup software.
 \begin{itemize}[leftmargin=+.8in]
     \item[\ref{subsub:security}.2.1] CLup servers shall be enclosed in a secure facility for authorized personnel only.
     \item[\ref{subsub:security}.2.2] There shall be validation and authentication upon entering the servers facility.
