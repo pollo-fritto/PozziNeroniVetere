@@ -1,4 +1,16 @@
 \subsection{Overview}
+The architecture of the application is structured according to three logic layers:
+\begin{itemize}
+	\item Presentation level (P) handles the interaction with users. It contains the interfaces able tocommunicate with them and it is responsible for rendering of the information. Its scope is to make
+	understandable the functions of the application to the customers.
+	\item Business logic or Application layer (A) takes care of the functions to be provided for the users. It also coordinates the work of the application, making logical decisions and moving data between
+	the other two layers.
+	\item Data access layer (D) cares for the management of the information, with the corresponding accessto the databases. It picks up useful information for the users in the database and passes them alongthe other layers.
+\end{itemize} 
+The architecture has to be made in client-server style. Client and server are being allocated into different
+physical machines and their communication takes place via other components and interfaces located in the
+middle of the structure, composed by hardware and software modules.
+The process begins with the invocation of a method to provide any functionality to the client, like sending areport or requiring some information about violation or accidents. Then, the invocation of a specificmethod is caught by the server and its behaviour depends on the required function.
 \subsection{Component view}
 \subsection{Deployment view}
 \subsection{Runtime view}

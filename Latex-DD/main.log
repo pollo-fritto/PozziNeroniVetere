@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.12)  28 DEC 2020 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.12)  28 DEC 2020 17:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,22 +888,22 @@ This may cause the page layout to be inconsistent, however.
 \tf@lof=\write6
  (./main.lot)
 \tf@lot=\write7
- [4] (./Files/introduction.tex)
+ [4] (./Files/introduction.tex
 [5
 
-] (./Files/architectural.tex) [6
+]) [6] (./Files/architectural.tex) [7
 
-] (./Files/user.tex) [7
-
-]
-(./Files/requirements.tex) [8
-
-] (./Files/implementation.tex) [9
+] (./Files/user.tex) [8
 
 ]
-(./Files/effort.tex) [10
+(./Files/requirements.tex) [9
 
-] (./main.bbl) [11
+] (./Files/implementation.tex) [10
+
+]
+(./Files/effort.tex) [11
+
+] (./main.bbl) [12
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 112.
@@ -912,24 +912,24 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 112.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 112.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 112.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DBDF3E3C8F7AD9F76CD9DBE7EDEB4F32;1614.
+(rerunfilecheck)             Checksum: 3ED8BD77BE959E3BF96A798B33C179A7;1826.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 112.
  ) 
 Here is how much of TeX's memory you used:
- 20867 strings out of 480478
- 384005 string characters out of 5905958
- 634012 words of memory out of 5000000
- 36367 multiletter control sequences out of 15000+600000
+ 20876 strings out of 480478
+ 384168 string characters out of 5905958
+ 635013 words of memory out of 5000000
+ 36372 multiletter control sequences out of 15000+600000
  565638 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,20n,69p,429b,600s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,20n,69p,512b,600s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (11 pages, 59742 bytes).
+Output written on main.pdf (12 pages, 65384 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 238 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 250 words of extra memory for PDF output out of 10000 (max. 10000000)
 
