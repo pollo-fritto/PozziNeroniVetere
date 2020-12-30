@@ -1,16 +1,32 @@
 \subsection{Overview}
-The architecture of the application is structured according to three logic layers:
+CLup's architecture is layered as follows:
 \begin{itemize}
-	\item Presentation level (P) handles the interaction with users. It contains the interfaces able tocommunicate with them and it is responsible for rendering of the information. Its scope is to make
-	understandable the functions of the application to the customers.
-	\item Business logic or Application layer (A) takes care of the functions to be provided for the users. It also coordinates the work of the application, making logical decisions and moving data between
-	the other two layers.
-	\item Data access layer (D) cares for the management of the information, with the corresponding accessto the databases. It picks up useful information for the users in the database and passes them alongthe other layers.
-\end{itemize} 
-The architecture has to be made in client-server style. Client and server are being allocated into different
-physical machines and their communication takes place via other components and interfaces located in the
-middle of the structure, composed by hardware and software modules.
-The process begins with the invocation of a method to provide any functionality to the client, like sending areport or requiring some information about violation or accidents. Then, the invocation of a specificmethod is caught by the server and its behaviour depends on the required function.
+	\item \textbf{Presentation layer} (P) handles the interaction with users. It contains the interfaces able to communicate with them and it is responsible for rendering of the information. Its scope is to make understandable the functions of the application to the customers.
+	\item \textbf{Application layer} (A) takes care of the functions to be provided for the users. It also coordinates the work of the application, making logical decisions and moving data between	the other two layers.
+	\item \textbf{Data access layer }(D) which takes care of the information management, database access control. It also handles data retrieval and passes them to upper level layers.
+\end{itemize}
+ 
+The architecture style chosen for CLup is the \textbf{multi-tier} one.
+As previously anticipated in the Requirements Analysis and Specifications Document, there will be at least one server for each one of the following interest areas:
+\begin{itemize}
+    \item Bookings
+    \item Queues
+    \item Notifications
+    \item Stores
+    \item Staff members
+    \item Customers
+\end{itemize}
+
+This is mainly done to distribute workload as well as making the overall system more robust.
+
+There will be also at least two servers for the two following functionalities:
+\begin{itemize}
+    \item Customer related functionalities
+    \item Staff related functionalities
+\end{itemize}
+
+The bookings, queue and notifications databases will be distributed and replicated all over the entire store list. Each store will have its own instance of bookings, queue and notifications database while a central logic server will act as a request redirector towards them whenever needed.
+
 \subsection{Component view}
 \subsection{Deployment view}
 \subsection{Runtime view}
