@@ -1,4 +1,5 @@
 \subsection{Overview}
+
 CLup is an application aimed at decreasing the probability of contracting COVID-19 (diseases in general) when going shopping to a supermarket. There are two fundamental components: the main one targets customers of supermarkets while the second one is available for store managers.\newline
 \subsubsection{User Interfaces}
 \paragraph{End user functionalities}
@@ -17,10 +18,10 @@ Regarding the first target - customers - they will be required to register to th
 		\label{fig:WfMain}
 	\end{subfigure}
 	\caption{App startup}
-	\label{fig:Wireframes}
+	\label{fig:WireframesStartup}
 \end{figure}
-Once the setup is done, customers will be able to access the homepage of the application, where they can tap on a “Virtually queue” button that will allow them to see a list of stores inside a specified range from their current location: for each store a distance in kilometers from the user position will be outlined, as well as the number of people inside the store and its maximum capacity; whenever a store is full, the current number of people in line and an \textit{EWT} are displayed.\newline  
-It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialog specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from the home screen. The process is shown in Figure ~\ref{fig:VirtuallyQ}.\\
+\\Once the setup is done, customers will be able to access the homepage of the application, where they can tap on the “Quick ticket” button that will allow them to see a list of stores inside a specified range from their current location: for each store a distance in kilometers from the user position will be outlined, as well as the number of people inside the store and its maximum capacity; whenever a store is full, the current number of people in line and an \textit{EWT} are displayed.\newline  
+It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialog specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from the home screen.\\
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -41,9 +42,9 @@ It is also possible to visualize stores on a map and, by tapping on one of them,
 		\label{fig:WfTicket}
 	\end{subfigure}
 	\caption{Quick ticket procedure}
-	\label{fig:Wireframes}
+	\label{fig:WireframesQuickTicket}
 \end{figure}
-The tickets consist of a QR code and an easy to remember alphanumeric code alternative to enter the store. There will also be monitors that show the numbers allowed to enter and, eventually, delays.\newline
+The tickets consist of a QR code and an easy to remember alphanumeric code alternative to enter the store. At the stores entrances there will also be monitors that show the numbers allowed to enter and, eventually, delays.\newline
 The distance range in which CLup will look for supermarkets is specified by the user through the filter button in the homepage, this button will in fact open the filter screen in which, among other parameters, a sliding bar controls the distance and a drop-down list allows the user to filter the chains of supermarkets.\newline
 \begin{figure}[h!]
 	\centering
@@ -53,11 +54,11 @@ The distance range in which CLup will look for supermarkets is specified by the 
 		\label{fig:WfFilters}
 	\end{subfigure}
 	\caption{Filters}
-	\label{fig:Wireframes}
+	\label{fig:WireframesFilters}
 \end{figure}
 Another important feature is the possibility to book an entrance later in the day or in another day. The user can specify from the filters whether he prefers to choose the day or the store first and he can set the time range in which he wants to book. 
 There is a dedicated button in the app’s main screen that redirects the user to either the list/map of supermarkets or the calendar, and once the user chooses he will be respectively shown the calendar or the list/map, this time with colours to indicate the average crowdedness of stores/days given the set time range.
-When the user chooses the day and supermarket combination, a timetable spanning the chosen time range is shown, divided in 15 minutes time slots each one having again a colour to indicate the crowdedness. The user will be able to check his reservation on the home page and near the entrance time he will be provided an actual ticket.\\
+When the user chooses the day and supermarket combination, a timetable spanning the chosen time range is shown, divided in 15 minutes time slots each one marked to show its availability. The user will be able to check his reservation on the home page exactly like previously for the quick ticket, and near the entrance time he will be provided an actual ticket.\\
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -78,9 +79,9 @@ When the user chooses the day and supermarket combination, a timetable spanning 
 		\label{fig:WfTimeSlots}
 	\end{subfigure}
 	\caption{Booking procedure}
-	\label{fig:Wireframes}
+	\label{fig:WireframesBooking}
 \end{figure}
-The access at the supermarket is restricted by turnstiles with QR code readers, a staff member is expected to verify that nobody waits his turn in front of the entrance, jumps the turnstile or does anything irresponsible.
+\\The access at the supermarket is restricted by turnstiles with QR code readers, a staff member is expected to verify that nobody waits his turn in front of the entrance, jumps the turnstile or does anything irresponsible. During the shopping the user will still be able to view his ticket in order to use it to unlock the turnstile upon exiting the store.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -95,9 +96,9 @@ The access at the supermarket is restricted by turnstiles with QR code readers, 
 		\label{fig:WfFinishNoRating}
 	\end{subfigure}
 	\caption{Shop and exit}
-	\label{fig:Wireframes}
+	\label{fig:WireframesExit}
 \end{figure}
-Customers who, for any reason, do not use the app will still be able to queue in CLup supermarkets by obtaining a printed ticket from a physical totem located near such stores; the functioning of the application will be similar to the “Quick ticket” app function with the difference that the user can only obtain a ticket by using a totem. \\
+\pagebreak Customers who, for any reason, do not use the app will still be able to queue in CLup supermarkets by obtaining a printed ticket from a physical totem located near such stores; the functioning of the application will be similar to the “Quick ticket” app function with the difference that the user can only obtain a ticket for the current totem's store. \\
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -118,9 +119,9 @@ Customers who, for any reason, do not use the app will still be able to queue in
 		\label{fig:WfTotemPrint}
 	\end{subfigure}
 	\caption{Totem ticket procedure}
-	\label{fig:Wireframes}
+	\label{fig:WireframesTotem}
 \end{figure}
-
+\pagebreak
 \paragraph{Internal use functionalities}
 Another component of CLup targets store managers: when the store decides to join the CLup network, ad-hoc credentials to access the web app will be given. Special staff-only functions will then be achieved by the use of a web application, accessible via internal-use terminals.
 \begin{figure}[h!]
@@ -143,5 +144,5 @@ Another component of CLup targets store managers: when the store decides to join
 		\label{fig:WfManagerStatistics}
 	\end{subfigure}
 	\caption{Store manager web app}
-	\label{fig:Wireframes}
+	\label{fig:WireframesManager}
 \end{figure}
