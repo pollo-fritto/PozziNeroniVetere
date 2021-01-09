@@ -38943,6 +38943,24 @@
 					},
 					"name": "Reports",
 					"stereotype": "component"
+				},
+				{
+					"_type": "UMLCollaboration",
+					"_id": "AAAAAAF25oDJHqp0I0I=",
+					"_parent": {
+						"$ref": "AAAAAAF2fKlP1+f+J2o="
+					},
+					"name": "Collaboration1",
+					"ownedElements": [
+						{
+							"_type": "UMLInteraction",
+							"_id": "AAAAAAF25oDJH6p1ukw=",
+							"_parent": {
+								"$ref": "AAAAAAF25oDJHqp0I0I="
+							},
+							"name": "Interaction1"
+						}
+					]
 				}
 			]
 		}
