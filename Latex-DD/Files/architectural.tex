@@ -33,9 +33,10 @@ In Figure \ref{fig:HLArch} is represented the high-level architecture of the sys
 	\caption{High-level architecture}
 	\label{fig:HLArch}
 \end{figure}
+\newpage
 \subsection{Component view}
 \begin{landscape}
-\begin{figure}[h!]
+\begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/ComponentDiagram.png}
 	\caption{Component Diagram}
 	\label{fig:CompDgm}
@@ -76,9 +77,23 @@ In Figure \ref{fig:CompDgm} is represented the component diagram of the internal
 \subsection{Deployment view}
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/deployment_diagram.png}
-	\caption{High-level architecture}
-	\label{fig:HLArch}
+	\caption{Deployment Diagram}
+	\label{fig:DEPL}
 \end{figure}
+\textbf{CLup} is designed according to a \textbf{multi-tier architecture} approach, which is represented by figure \ref{fig:DEPL}. Given the heavy distribution adopted for the logical layer of the application, a simplified view is depicted.
+\begin{itemize}
+    \item \textbf{Tier 1}: the \textit{client tier} includes everything from a smartphone to a desktop computer, mobile devices being the target for end-users while desktop/office PCs for stores staff members. 
+    \begin{itemize}
+        \item Mobile CLup applications connect to the main application servers via RMI
+        \item Desktops/office PCs use a standard web application, which offers mainly static content.
+    \end{itemize}
+    \item \textbf{Tier 2:} the \textit{web tier} offer standard web server functionality. An Apache HTTP Server takes care of the HTTP requests from the staff's office computers. It then forwards them to application servers by using the \textbf{Apache JServ Protocol} (AJP)
+    \item \textbf{Tier 3:} the \textit{operations tier} serves as main interface between the outer levels and the inner ones, by accepting incoming requests and redirecting them to the appropriate inner components when necessary. This layer is staff-operations only, and is particularly aimed at reducing main servers' workload by further distributing tasks. A \textit{JBoss EAP server} is run to accomplish this tier's tasks, and it communicates with inner level servers via RMI.
+    \item \textbf{Tier 4}: the application tier is the core of CLup functionality. It includes the greatest majority of logical functionality (customer functionalities for the most part) and - architecturally wise - it's distributed across multiple servers: some centralized, some others distributed as one per each physical store. Each of those runs a JBoss EAP server. 
+    \item \textbf{Tier 5}: the last and innermost tier, the \textit{data tier}, handles data management and retrieval. It's controlled by tiers 3 and 4, and it's invoked by use of the J\textbf{ava DataBase Connectivity} APIs (JDBC).
+
+\end{itemize}
+
 \subsection{Runtime view}
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_customer_book.png}
