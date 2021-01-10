@@ -54628,7 +54628,7 @@
 											"_parent": {
 												"$ref": "AAAAAAF27F5UM6AAZLY="
 											},
-											"font": "Helvetica;13;1",
+											"font": "Helvetica;13;3",
 											"left": 1509,
 											"top": 1294,
 											"width": 81,
@@ -64371,7 +64371,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF2fKlP1+f+J2o="
 					},
-					"name": "StaffOverride"
+					"name": "StaffOverride",
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",
