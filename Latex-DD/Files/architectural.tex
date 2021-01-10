@@ -27,20 +27,20 @@ There will be also at least two servers for the two following functionalities:
 The bookings, queue and notifications databases will be distributed and replicated all over the entire store list. Each store will have its own instance of bookings, queue and notifications database while a central logic server will act as a request redirector towards them whenever needed.\\
 
 In Figure \ref{fig:HLArch} is represented the high-level architecture of the system: customers clients, through an internet connection, can connect to Clup's App Servers, which represent the A layer of the Clup customer side. Client's operations store o retrieve information from People DB Servers or directly from the Local DB of the store, depending by the kind of information. Staff clients instead are connected through a LAN connection to their Local Web Server, who will redirect their requests to the Staff Operations Manager server. This machine is expected to process the logic of requests and then submit them to the Local Application server who also store or retrieve the information from the Local DB or People DB server depending by the situation. Local Application Server is fundamental also for Totem users, in fact the Totem rely on this server for its requests. Staff clients may need to connect to Clup Centralized Hardware, to do this they need an internet connection to get in contact with the dedicated Central Web server, the P layer who then send the request to the Store Operations Manager, the A layer. This server stores and retrieves information from Stores DB servers
+
 \begin{figure}[h!]
 	\includegraphics[width=\linewidth]{../Diagrams/Archtecture/Architecture_diagram.png}
 	\caption{High-level architecture}
 	\label{fig:HLArch}
 \end{figure}
-
 \subsection{Component view}
-
+\begin{landscape}
 \begin{figure}[h!]
 	\includegraphics[width=\linewidth]{../Diagrams/ComponentDiagram.png}
 	\caption{Component Diagram}
 	\label{fig:CompDgm}
 \end{figure}
-
+\end{landscape}
 In Figure \ref{fig:CompDgm} is represented the component diagram of the internal structure Application layer, showing how its components and subsystems interact. As previously said, the A layer contains Clup's functional business logic which drives the application’s core capabilities, it builds  a bridge between the presentation layer and the data layer. What follows is a brief description of every component and subsystem:
 \begin{itemize}
 	\item \textbf{Staff Operation Services}: This subsystem contains 2 components:
@@ -74,6 +74,11 @@ In Figure \ref{fig:CompDgm} is represented the component diagram of the internal
 \end{itemize}
 
 \subsection{Deployment view}
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/deployment_diagram.png}
+	\caption{High-level architecture}
+	\label{fig:HLArch}
+\end{figure}
 \subsection{Runtime view}
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_customer_book.png}
@@ -105,34 +110,38 @@ In Figure \ref{fig:CompDgm} is represented the component diagram of the internal
 	\label{fig:sStaffEn}
 \end{figure}
 \begin{figure}[H]
-	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_store_resume.png}
-	\caption{Sequence Diagram: Store Resume}
-	\label{fig:sStoreRes}
-\end{figure}
-\begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_totem_enqueue.png}
 	\caption{Sequence Diagram: Totem Enqueue}
 	\label{fig:sTotemEnq}
 \end{figure}
 
-\begin{sidewaysfigure}
+\begin{landscape}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_store_resume.png}
+	\caption{Sequence Diagram: Store Resume}
+	\label{fig:sStoreRes}
+\end{figure}
+
+\begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_store_override.png}
 	\caption{Sequence Diagram: Stopping the Store}
 	\label{fig:sStoreOver}
-\end{sidewaysfigure}
+\end{figure}
 
-\begin{sidewaysfigure}
-	\includegraphics[width=\textwidth]{../Diagrams/Sequence/sequence_user_report.png}
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_user_report.png}
 	\caption{Sequence Diagram: Reporting a User}
 	\label{fig:sUserRep}
-\end{sidewaysfigure}
+\end{figure}
 
-\begin{sidewaysfigure}
-	\includegraphics[width=\textwidth]{../Diagrams/Sequence/sequence_user_warn.png}
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_user_warn.png}
 	\caption{Sequence Diagram: User Warning}
 	\label{fig:sUserWarn}
-\end{sidewaysfigure}
+\end{figure}
 
+\end{landscape}
 \subsection{Component interfaces}
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Component Interface.png}
