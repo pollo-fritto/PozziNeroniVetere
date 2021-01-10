@@ -1,7 +1,15 @@
 \input{commandsFile}
+\titleformat{\section}
+{\sffamily\LARGE\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\sffamily\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\sffamily\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+{\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
 
 \begin{document}
-
+\sffamily
 %TITLE PAGE
 
 \begin{titlepage}
@@ -32,15 +40,17 @@
 %Define deliverable specific info
 %Replace cell contents where needed
 \begin{table}[h!]
+\sffamily
+
 \begin{tabu} to \textwidth { X[0.3,r,p] X[0.7,l,p] }
 \hline
 
 \textbf{Deliverable:} & DD\\
 \textbf{Title:} & Design Document \\
 \textbf{Authors:} & Cristiano Neroni, Davide Pozzi, Maurizio Vetere \\
-\textbf{Version:} & 1.0 \\ 
+\textbf{Version:} & 1.4 \\ 
 \textbf{Date:} & 10-January-2021 \\
-\textbf{Download page:} & https://github.com/pollo-fritto/PozziNeroniVetere \\
+\textbf{Download page:} & \small \url{https://github.com/pollo-fritto/PozziNeroniVetere.git} \\
 \textbf{Copyright:} & Copyright © 2021, Neroni| Pozzi| Vetere – All rights reserved \\
 \hline
 \end{tabu}
