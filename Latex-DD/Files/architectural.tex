@@ -58,8 +58,8 @@ In Figure \ref{fig:CompDgm} is represented the component diagram of the internal
 	\item \textbf{Customer Operation Services}: This subsystem has 2 subcomponents
 	\begin{itemize}
 		\item \textbf{People Management}: This component is responsible for customers subscription, login t CLup and, thanks to the association device-person, notifications by CLup and Supermarkets
-		\item \textbf{Data Processing}: As says the name, the Data Processing component takes care of data about availability of stores, time slots and queues status. It also evaluate time slots, days and store crowdness level and infer better solutions.
-		\item \textbf{Store Connector}:TODO
+		\item \textbf{Data Processing}: As the name suggests, the Data Processing component takes care of data about availability of stores, time slots and queues status. It also evaluate time slots, days and store crowdness level and infer better solutions.
+		\item \textbf{Store Connector}:this component acts as an interface towards the distributed part of the application and its components. It allows the reaching of and use of store-hosted components such as Bookings, Queues.
 	\end{itemize}
 
 	\item \textbf{Local Application }:

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.11)  10 JAN 2021 22:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.11)  10 JAN 2021 22:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -840,7 +840,11 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count306
 \l__pdf_internal_box=\box75
 )
-(./main.aux)
+(./main.aux
+
+LaTeX Warning: Label `fig:HLArch' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -955,7 +959,7 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Files/frontespizio1.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<Files/frontespizio1.pdf, id=133, 597.53236pt x 845.05714pt>
+<Files/frontespizio1.pdf, id=137, 597.53236pt x 845.05714pt>
 File: Files/frontespizio1.pdf Graphic file (type pdf)
 <use Files/frontespizio1.pdf>
 Package pdftex.def Info: Files/frontespizio1.pdf  used on input line 14.
@@ -976,7 +980,7 @@ on: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Files/frontespizio1.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<Files/frontespizio1.pdf, id=136, page=1, 597.53236pt x 845.05714pt>
+<Files/frontespizio1.pdf, id=140, page=1, 597.53236pt x 845.05714pt>
 File: Files/frontespizio1.pdf Graphic file (type pdf)
 <use Files/frontespizio1.pdf, page 1>
 Package pdftex.def Info: Files/frontespizio1.pdf , page1 used on input line 14.
@@ -1060,154 +1064,165 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
-<../Diagrams/Archtecture/Architecture_diagram.png, id=294, 1250.271pt x 1154.87
-46pt>
+<../Diagrams/Archtecture/Architecture_diagram.png, id=300, 1404.2061pt x 1237.9
+851pt>
 File: ../Diagrams/Archtecture/Architecture_diagram.png Graphic file (type png)
 <use ../Diagrams/Archtecture/Architecture_diagram.png>
 Package pdftex.def Info: ../Diagrams/Archtecture/Architecture_diagram.png  used
- on input line 31.
-(pdftex.def)             Requested size: 455.24411pt x 420.51247pt.
+ on input line 32.
+(pdftex.def)             Requested size: 455.24411pt x 401.35811pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../Diagrams/ComponentDiagram.png, id=296, 1190.94937pt x 714.41907pt>
+[8
+
+] [9 <../Diagrams/Archtecture/Architecture_diagram.png>]
+<../Diagrams/ComponentDiagram.png, id=311, 1190.94937pt x 714.41907pt>
 File: ../Diagrams/ComponentDiagram.png Graphic file (type png)
 <use ../Diagrams/ComponentDiagram.png>
 Package pdftex.def Info: ../Diagrams/ComponentDiagram.png  used on input line 3
 9.
-(pdftex.def)             Requested size: 455.24411pt x 273.08453pt.
-[8
+(pdftex.def)             Requested size: 688.5567pt x 413.04431pt.
+ [10
+
+ <../Diagrams/ComponentDiagram.png (PNG copy)>]
+<../Diagrams/deployment_diagram.png, id=317, 1288.815pt x 653.44125pt>
+File: ../Diagrams/deployment_diagram.png Graphic file (type png)
+<use ../Diagrams/deployment_diagram.png>
+Package pdftex.def Info: ../Diagrams/deployment_diagram.png  used on input line
+ 78.
+(pdftex.def)             Requested size: 455.24411pt x 230.81168pt.
+ [11
 
 ]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[9 <../Diagrams/Archtecture/Architecture_diagram.png>]
-<../Diagrams/Sequence/sequence_customer_book.png, id=308, 782.6841pt x 917.1063
+<../Diagrams/Sequence/sequence_customer_book.png, id=323, 782.6841pt x 917.1063
 pt>
 File: ../Diagrams/Sequence/sequence_customer_book.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_customer_book.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_customer_book.png  used 
-on input line 79.
+on input line 84.
 (pdftex.def)             Requested size: 455.24411pt x 533.44736pt.
- [10 <../Diagrams/ComponentDiagram.png (PNG copy)>]
-<../Diagrams/Sequence/sequence_customer_enqueue.png, id=313, 781.9614pt x 533.3
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <../Diagrams/deployment_diagram.png (PNG copy)>]
+<../Diagrams/Sequence/sequence_customer_enqueue.png, id=329, 781.9614pt x 533.3
 526pt>
 File: ../Diagrams/Sequence/sequence_customer_enqueue.png Graphic file (type png
 )
 <use ../Diagrams/Sequence/sequence_customer_enqueue.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_customer_enqueue.png  us
-ed on input line 85.
+ed on input line 90.
 (pdftex.def)             Requested size: 455.24411pt x 310.51663pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11 <../Diagrams/Sequence/sequence_customer_book.png>]
-<../Diagrams/Sequence/sequence_customer_signup.png, id=319, 724.1454pt x 544.91
+ [13 <../Diagrams/Sequence/sequence_customer_book.png>]
+<../Diagrams/Sequence/sequence_customer_signup.png, id=336, 724.1454pt x 544.91
 58pt>
 File: ../Diagrams/Sequence/sequence_customer_signup.png Graphic file (type png)
 
 <use ../Diagrams/Sequence/sequence_customer_signup.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_customer_signup.png  use
-d on input line 91.
+d on input line 96.
 (pdftex.def)             Requested size: 455.24411pt x 342.57538pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12 <../Diagrams/Sequence/sequence_customer_enqueue.png>]
-<../Diagrams/Sequence/sequence_store_enroll.png, id=326, 749.4399pt x 328.1058p
+ [14 <../Diagrams/Sequence/sequence_customer_enqueue.png>]
+<../Diagrams/Sequence/sequence_store_enroll.png, id=342, 749.4399pt x 328.1058p
 t>
 File: ../Diagrams/Sequence/sequence_store_enroll.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_store_enroll.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_store_enroll.png  used o
-n input line 97.
+n input line 102.
 (pdftex.def)             Requested size: 455.24411pt x 199.30315pt.
-<../Diagrams/Sequence/sequence_staff_enroll.png, id=327, 718.3638pt x 453.1329p
+<../Diagrams/Sequence/sequence_staff_enroll.png, id=343, 718.3638pt x 453.1329p
 t>
 File: ../Diagrams/Sequence/sequence_staff_enroll.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_staff_enroll.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_staff_enroll.png  used o
-n input line 103.
+n input line 108.
 (pdftex.def)             Requested size: 455.24411pt x 287.16231pt.
-<../Diagrams/Sequence/sequence_totem_enqueue.png, id=328, 721.9773pt x 533.3526
+<../Diagrams/Sequence/sequence_totem_enqueue.png, id=344, 721.9773pt x 533.3526
 pt>
 File: ../Diagrams/Sequence/sequence_totem_enqueue.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_totem_enqueue.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_totem_enqueue.png  used 
-on input line 108.
+on input line 113.
 (pdftex.def)             Requested size: 455.24411pt x 336.30688pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13 <../Diagrams/Sequence/sequence_customer_signup.png> <../Diagrams/Sequence/
+ [15 <../Diagrams/Sequence/sequence_customer_signup.png> <../Diagrams/Sequence/
 sequence_store_enroll.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14 <../Diagrams/Sequence/sequence_staff_enroll.png>] [15 <../Diagrams/Sequenc
+ [16 <../Diagrams/Sequence/sequence_staff_enroll.png>] [17 <../Diagrams/Sequenc
 e/sequence_totem_enqueue.png>]
-<../Diagrams/Sequence/sequence_store_resume.png, id=346, 1081.1592pt x 533.3526
+<../Diagrams/Sequence/sequence_store_resume.png, id=361, 1081.1592pt x 533.3526
 pt>
 File: ../Diagrams/Sequence/sequence_store_resume.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_store_resume.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_store_resume.png  used o
-n input line 116.
+n input line 121.
 (pdftex.def)             Requested size: 688.5567pt x 339.68428pt.
-<../Diagrams/Sequence/sequence_store_override.png, id=347, 1081.1592pt x 533.35
+<../Diagrams/Sequence/sequence_store_override.png, id=362, 1081.1592pt x 533.35
 26pt>
 File: ../Diagrams/Sequence/sequence_store_override.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_store_override.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_store_override.png  used
- on input line 122.
+ on input line 127.
 (pdftex.def)             Requested size: 688.5567pt x 339.68428pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16
+ [18
 
  <../Diagrams/Sequence/sequence_store_resume.png>]
-<../Diagrams/Sequence/sequence_user_report.png, id=353, 1054.4193pt x 533.3526p
+<../Diagrams/Sequence/sequence_user_report.png, id=368, 1054.4193pt x 533.3526p
 t>
 File: ../Diagrams/Sequence/sequence_user_report.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_user_report.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_user_report.png  used on
- input line 128.
+ input line 133.
 (pdftex.def)             Requested size: 688.5567pt x 348.30273pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17 <../Diagrams/Sequence/sequence_store_override.png>]
-<../Diagrams/Sequence/sequence_user_warn.png, id=359, 1019.7297pt x 533.3526pt>
+ [19 <../Diagrams/Sequence/sequence_store_override.png>]
+<../Diagrams/Sequence/sequence_user_warn.png, id=375, 1019.7297pt x 533.3526pt>
 
 File: ../Diagrams/Sequence/sequence_user_warn.png Graphic file (type png)
 <use ../Diagrams/Sequence/sequence_user_warn.png>
 Package pdftex.def Info: ../Diagrams/Sequence/sequence_user_warn.png  used on i
-nput line 134.
+nput line 139.
 (pdftex.def)             Requested size: 688.5567pt x 360.15208pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18 <../Diagrams/Sequence/sequence_user_report.png>] [19 <../Diagrams/Sequence
+ [20 <../Diagrams/Sequence/sequence_user_report.png>] [21 <../Diagrams/Sequence
 /sequence_user_warn.png>]
-<../Diagrams/Component Interface.png, id=371, 1551.7975pt x 1459.4525pt>
+<../Diagrams/Component Interface.png, id=386, 1551.7975pt x 1459.4525pt>
 File: ../Diagrams/Component Interface.png Graphic file (type png)
 <use ../Diagrams/Component Interface.png>
 Package pdftex.def Info: ../Diagrams/Component Interface.png  used on input lin
-e 142.
+e 147.
 (pdftex.def)             Requested size: 455.24411pt x 428.15193pt.
-) [20
+) [22
 
  <../Diagrams/Component Interface.png>] (./Files/user.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-<../Diagrams/WireframesCLup/Login.png, id=377, 430.60875pt x 794.97pt>
+<../Diagrams/WireframesCLup/Login.png, id=392, 430.60875pt x 794.97pt>
 File: ../Diagrams/WireframesCLup/Login.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/Login.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/Login.png  used on input li
 ne 10.
 (pdftex.def)             Requested size: 136.57462pt x 252.13937pt.
-<../Diagrams/WireframesCLup/MainScreen.png, id=378, 288.3272pt x 529.22719pt>
+<../Diagrams/WireframesCLup/MainScreen.png, id=393, 288.3272pt x 529.22719pt>
 File: ../Diagrams/WireframesCLup/MainScreen.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/MainScreen.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/MainScreen.png  used on inp
@@ -1215,81 +1230,81 @@ ut line 16.
 (pdftex.def)             Requested size: 136.57462pt x 250.69104pt.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 23.
-<../Diagrams/WireframesCLup/ShoppingTime.png, id=379, 391.4625pt x 716.6775pt>
+<../Diagrams/WireframesCLup/ShoppingTime.png, id=394, 391.4625pt x 716.6775pt>
 File: ../Diagrams/WireframesCLup/ShoppingTime.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/ShoppingTime.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/ShoppingTime.png  used on i
 nput line 28.
 (pdftex.def)             Requested size: 136.57462pt x 250.03165pt.
-<../Diagrams/WireframesCLup/QuickTicket.png, id=380, 394.47375pt x 718.18312pt>
+<../Diagrams/WireframesCLup/QuickTicket.png, id=395, 394.47375pt x 718.18312pt>
 
 File: ../Diagrams/WireframesCLup/QuickTicket.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/QuickTicket.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/QuickTicket.png  used on in
 put line 34.
 (pdftex.def)             Requested size: 136.57462pt x 248.65013pt.
-<../Diagrams/WireframesCLup/Ticket.png, id=381, 292.09125pt x 528.47438pt>
+<../Diagrams/WireframesCLup/Ticket.png, id=396, 292.09125pt x 528.47438pt>
 File: ../Diagrams/WireframesCLup/Ticket.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/Ticket.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/Ticket.png  used on input l
 ine 40.
 (pdftex.def)             Requested size: 136.57462pt x 247.1089pt.
-<../Diagrams/WireframesCLup/Filters.png, id=382, 392.96812pt x 716.6775pt>
+<../Diagrams/WireframesCLup/Filters.png, id=397, 392.96812pt x 716.6775pt>
 File: ../Diagrams/WireframesCLup/Filters.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/Filters.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/Filters.png  used on input 
 line 52.
 (pdftex.def)             Requested size: 136.57462pt x 249.08025pt.
-<../Diagrams/WireframesCLup/StoreMap.png, id=383, 261.22594pt x 478.78876pt>
+<../Diagrams/WireframesCLup/StoreMap.png, id=398, 261.22594pt x 478.78876pt>
 File: ../Diagrams/WireframesCLup/StoreMap.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/StoreMap.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/StoreMap.png  used on input
  line 65.
 (pdftex.def)             Requested size: 136.57462pt x 250.32314pt.
-<../Diagrams/WireframesCLup/Calendar.png, id=384, 290.58563pt x 526.21594pt>
+<../Diagrams/WireframesCLup/Calendar.png, id=399, 290.58563pt x 526.21594pt>
 File: ../Diagrams/WireframesCLup/Calendar.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/Calendar.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/Calendar.png  used on input
  line 71.
 (pdftex.def)             Requested size: 136.57462pt x 247.32152pt.
-<../Diagrams/WireframesCLup/TimeSlots.png, id=385, 283.81032pt x 526.21594pt>
+<../Diagrams/WireframesCLup/TimeSlots.png, id=400, 283.81032pt x 526.21594pt>
 File: ../Diagrams/WireframesCLup/TimeSlots.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/TimeSlots.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/TimeSlots.png  used on inpu
 t line 77.
 (pdftex.def)             Requested size: 136.57462pt x 253.23116pt.
-<../Diagrams/WireframesCLup/Exit.png, id=386, 261.22594pt x 477.28313pt>
+<../Diagrams/WireframesCLup/Exit.png, id=401, 261.22594pt x 477.28313pt>
 File: ../Diagrams/WireframesCLup/Exit.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/Exit.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/Exit.png  used on input lin
 e 88.
 (pdftex.def)             Requested size: 136.57462pt x 249.53595pt.
-<../Diagrams/WireframesCLup/FinishNoRating.png, id=387, 260.47313pt x 479.54156
+<../Diagrams/WireframesCLup/FinishNoRating.png, id=402, 260.47313pt x 479.54156
 pt>
 File: ../Diagrams/WireframesCLup/FinishNoRating.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/FinishNoRating.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/FinishNoRating.png  used on
  input line 94.
 (pdftex.def)             Requested size: 136.57462pt x 251.44113pt.
-<../Diagrams/WireframesCLup/TotemStart.png, id=388, 329.73187pt x 442.65375pt>
+<../Diagrams/WireframesCLup/TotemStart.png, id=403, 329.73187pt x 442.65375pt>
 File: ../Diagrams/WireframesCLup/TotemStart.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/TotemStart.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/TotemStart.png  used on inp
 ut line 105.
 (pdftex.def)             Requested size: 136.57462pt x 183.3534pt.
-<../Diagrams/WireframesCLup/TotemTime.png, id=389, 331.2375pt x 440.39531pt>
+<../Diagrams/WireframesCLup/TotemTime.png, id=404, 331.2375pt x 440.39531pt>
 File: ../Diagrams/WireframesCLup/TotemTime.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/TotemTime.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/TotemTime.png  used on inpu
 t line 111.
 (pdftex.def)             Requested size: 136.57462pt x 181.57794pt.
-<../Diagrams/WireframesCLup/TotemPrint.png, id=390, 331.99031pt x 443.40656pt>
+<../Diagrams/WireframesCLup/TotemPrint.png, id=405, 331.99031pt x 443.40656pt>
 File: ../Diagrams/WireframesCLup/TotemPrint.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/TotemPrint.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/TotemPrint.png  used on inp
 ut line 117.
 (pdftex.def)             Requested size: 136.57462pt x 182.40678pt.
-[21
+[23
 
  <../Diagrams/WireframesCLup/Login.png> <../Diagrams/WireframesCLup/MainScreen.
 png>]
@@ -1305,28 +1320,28 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22 <../Diagrams/WireframesCLup/ShoppingTime.png> <../Diagrams/WireframesCLup/
+ [24 <../Diagrams/WireframesCLup/ShoppingTime.png> <../Diagrams/WireframesCLup/
 QuickTicket.png> <../Diagrams/WireframesCLup/Ticket.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23 <../Diagrams/WireframesCLup/Filters.png> <../Diagrams/WireframesCLup/StoreM
+[25 <../Diagrams/WireframesCLup/Filters.png> <../Diagrams/WireframesCLup/StoreM
 ap.png> <../Diagrams/WireframesCLup/Calendar.png> <../Diagrams/WireframesCLup/T
 imeSlots.png>]
-<../Diagrams/WireframesCLup/ManagerMain.png, id=414, 776.9025pt x 482.55281pt>
+<../Diagrams/WireframesCLup/ManagerMain.png, id=430, 776.9025pt x 482.55281pt>
 File: ../Diagrams/WireframesCLup/ManagerMain.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/ManagerMain.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/ManagerMain.png  used on in
 put line 130.
 (pdftex.def)             Requested size: 318.66948pt x 197.93628pt.
-<../Diagrams/WireframesCLup/ManagerLogin.png, id=415, 774.64406pt x 479.54156pt
+<../Diagrams/WireframesCLup/ManagerLogin.png, id=431, 774.64406pt x 479.54156pt
 >
 File: ../Diagrams/WireframesCLup/ManagerLogin.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/ManagerLogin.png>
 Package pdftex.def Info: ../Diagrams/WireframesCLup/ManagerLogin.png  used on i
 nput line 136.
 (pdftex.def)             Requested size: 318.66948pt x 197.27185pt.
-<../Diagrams/WireframesCLup/ManagerStatistics.png, id=416, 774.64406pt x 479.54
+<../Diagrams/WireframesCLup/ManagerStatistics.png, id=432, 774.64406pt x 479.54
 156pt>
 File: ../Diagrams/WireframesCLup/ManagerStatistics.png Graphic file (type png)
 <use ../Diagrams/WireframesCLup/ManagerStatistics.png>
@@ -1337,26 +1352,26 @@ Package pdftex.def Info: ../Diagrams/WireframesCLup/ManagerStatistics.png  used
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24 <../Diagrams/WireframesCLup/Exit.png> <../Diagrams/WireframesCLup/FinishNoR
+[26 <../Diagrams/WireframesCLup/Exit.png> <../Diagrams/WireframesCLup/FinishNoR
 ating.png> <../Diagrams/WireframesCLup/TotemStart.png> <../Diagrams/WireframesC
-Lup/TotemTime.png> <../Diagrams/WireframesCLup/TotemPrint.png>] [25 <../Diagram
+Lup/TotemTime.png> <../Diagrams/WireframesCLup/TotemPrint.png>] [27 <../Diagram
 s/WireframesCLup/ManagerMain.png> <../Diagrams/WireframesCLup/ManagerLogin.png>
  <../Diagrams/WireframesCLup/ManagerStatistics.png>] (./Files/requirements.tex
-[26
+[28
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
+ [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
+ [30]
 Overfull \hbox (26.8723pt too wide) in paragraph at lines 177--203
 [][] 
  []
 
-) [29] (./Files/implementation.tex
-<../Diagrams/Implementation.png, id=443, 1284.8pt x 837.1275pt>
+) [31] (./Files/implementation.tex
+<../Diagrams/Implementation.png, id=460, 1284.8pt x 837.1275pt>
 File: ../Diagrams/Implementation.png Graphic file (type png)
 <use ../Diagrams/Implementation.png>
 Package pdftex.def Info: ../Diagrams/Implementation.png  used on input line 3.
@@ -1371,7 +1386,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
-[30
+[32
 
  <../Diagrams/Implementation.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
@@ -1383,7 +1398,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
-[31]
+[33]
 File: ../Diagrams/Implementation.png Graphic file (type png)
 <use ../Diagrams/Implementation.png>
 Package pdftex.def Info: ../Diagrams/Implementation.png  used on input line 38.
@@ -1397,7 +1412,7 @@ Package pdftex.def Info: ../Diagrams/Implementation.png  used on input line 44.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32]
+ [34]
 File: ../Diagrams/Implementation.png Graphic file (type png)
 <use ../Diagrams/Implementation.png>
 Package pdftex.def Info: ../Diagrams/Implementation.png  used on input line 50.
@@ -1406,14 +1421,14 @@ Package pdftex.def Info: ../Diagrams/Implementation.png  used on input line 50.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33])
-[34] (./Files/effort.tex) [35
+ [35])
+[36] (./Files/effort.tex) [37
 
 ] (./main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [36
+) [38
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
@@ -1421,22 +1436,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 43965430F1CFBEDCC6A56A314670869D;2138.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 473723FE81E3A02A2F71FAECD8F982C9;2085
-(rerunfilecheck)             After:  C4F33EDC15AE20898C685AF84B48094F;2138.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
  ) 
 Here is how much of TeX's memory you used:
- 22414 strings out of 482555
- 414818 string characters out of 5952144
- 662087 words of memory out of 5000000
- 37375 multiletter control sequences out of 15000+600000
+ 22424 strings out of 482555
+ 415078 string characters out of 5952144
+ 662129 words of memory out of 5000000
+ 37381 multiletter control sequences out of 15000+600000
  571737 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  66i,18n,69p,1253b,757s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1447,10 +1459,10 @@ tic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (36 pages, 3867750 bytes).
+Output written on main.pdf (38 pages, 3980052 bytes).
 PDF statistics:
- 530 PDF objects out of 1000 (max. 8388607)
- 418 compressed objects within 5 object streams
- 111 named destinations out of 1000 (max. 500000)
- 444 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 548 PDF objects out of 1000 (max. 8388607)
+ 433 compressed objects within 5 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 457 words of extra memory for PDF output out of 10000 (max. 10000000)
 
