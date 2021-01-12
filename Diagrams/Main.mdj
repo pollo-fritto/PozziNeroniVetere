@@ -61245,7 +61245,7 @@
 											"top": 190,
 											"width": 91.03515625,
 											"height": 13,
-											"text": "APACHE HTTP"
+											"text": "Nginx 1.18"
 										},
 										{
 											"_type": "LabelView",
@@ -66493,7 +66493,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF2fKlP1+f+J2o="
 					},
-					"name": "APACHE HTTP",
+					"name": "Nginx 1.18",
 					"stereotype": "web server"
 				},
 				{

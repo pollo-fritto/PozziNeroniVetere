@@ -87,15 +87,15 @@ In Figure \ref{fig:CompDgm} is represented the component diagram of the internal
         \item Mobile CLup applications connect to the main application servers via RMI
         \item Desktops/office PCs use a standard web application, which offers mainly static content.
     \end{itemize}
-    \item \textbf{Tier 2:} the \textit{web tier} offer standard web server functionality. An Apache HTTP Server takes care of the HTTP requests from the staff's office computers. It then forwards them to application servers by using the \textbf{Apache JServ Protocol} (AJP)
+    \item \textbf{Tier 2:} the \textit{web tier} offer standard web server functionality. An \textbf{Nginx} Server takes care of the HTTP requests from the staff's office computers. It then forwards them to application servers by using the \textbf{Apache JServ Protocol} (AJP)
     \item \textbf{Tier 3:} the \textit{operations tier} serves as main interface between the outer levels and the inner ones, by accepting incoming requests and redirecting them to the appropriate inner components when necessary. This layer is staff-operations only, and is particularly aimed at reducing main servers' workload by further distributing tasks. A \textit{JBoss EAP server} is run to accomplish this tier's tasks, and it communicates with inner level servers via RMI.
     \item \textbf{Tier 4}: the application tier is the core of CLup functionality. It includes the greatest majority of logical functionality (customer functionalities for the most part) and - architecturally wise - it's distributed across multiple servers: some centralized, some others distributed as one per each physical store. Each of those runs a JBoss EAP server. 
-    \item \textbf{Tier 5}: the last and innermost tier, the \textit{data tier}, handles data management and retrieval. It's controlled by tiers 3 and 4, and it's invoked by use of the J\textbf{ava DataBase Connectivity} APIs (JDBC).
+    \item \textbf{Tier 5}: the last and innermost tier, the \textit{data tier}, handles data management and retrieval. It's controlled by tiers 3 and 4, and it's invoked by use of the J\textbf{ava DataBase Connectivity} APIs (JDBC). \textbf{MySQL} has been choosen for this Tier.
 
 \end{itemize}
 
 \subsection{Runtime view}
-The following diagrams (\textit{UML sequence\footnote{See \cite{UML:ref}}}) aim at giving an overall view about the main components interactions in the real world. Side-interest, particular cases or situations have been left uncovered for clarity and focus reasons.\newline
+The following diagrams (\textit{UML sequence\footnote{See \cite{UML:ref}}}) aim at giving an overall view about the main components interactions in the real world. Side-interest, particular cases or situations have been left uncovered for clarity and focus reasons. For the same reasons, some \textit{notation abuses} may have been made regarding the main component in each diagram and its lifeline/messages back to the requester.\newline
 
 
 \noindent{\color{gray}
@@ -114,38 +114,45 @@ We can see in these diagrams the whole CLup architecture at work. A qualified me
 \paragraph{Registration and sign-up Diagrams}
 Here we can see the different components involved in the signing up process of customer as opposed to stores' staff members, or store themselves. Different components at different locations are used in each case. See figures \ref{fig:sStoreEn}, \ref{fig:sStaffEn} and \ref{fig:sCusSign}
 
+\paragraph{Tickets \& Booking}
+The core of CLup's functionality. We can see how these features involve both centralised and remote (localized) servers to work. See figures \ref{fig:sCusBook} \space and \ref{fig:sCusEnq}. \newline
+See also \ref{fig:sTotemEnq} regarding offline, physical tickets issuing.
+
+\paragraph{Registration and sign-up Diagrams}
+Finally, the reporting \& warning functionalities of CLup. They allow CLup (automatically) and stores' staff to inform users about relevant events, or even reporting them for misbehaviours. See figures \ref{fig:sUserRep}, \ref{fig:sUserWarn}.
+
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_customer_book.png}
-	\caption{Sequence Diagram: Customer Booking}
+	\caption{Sequence Diagram: Customer Booking procedure}
 	\label{fig:sCusBook}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_customer_enqueue.png}
-	\caption{Sequence Diagram: Customer Enqueue}
+	\caption{Sequence Diagram: Customer Enqueue (virtual ticket) procedure}
 	\label{fig:sCusEnq}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_customer_signup.png}
-	\caption{Sequence Diagram: Customer Signup}
+	\caption{Sequence Diagram: Customer Sign-up procedure}
 	\label{fig:sCusSign}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_store_enroll.png}
-	\caption{Sequence Diagram: Store Enroll}
+	\caption{Sequence Diagram: Store Enrollment procedure}
 	\label{fig:sStoreEn}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_staff_enroll.png}
-	\caption{Sequence Diagram: Staff Enroll}
+	\caption{Sequence Diagram: Staff Enrollment procedure}
 	\label{fig:sStaffEn}
 \end{figure}
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_totem_enqueue.png}
-	\caption{Sequence Diagram: Totem Enqueue}
+	\caption{Sequence Diagram: Totem Queueing (physical ticket)}
 	\label{fig:sTotemEnq}
 \end{figure}
 
@@ -153,7 +160,7 @@ Here we can see the different components involved in the signing up process of c
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_store_resume.png}
-	\caption{Sequence Diagram: Store Resume}
+	\caption{Sequence Diagram: Resuming the Store}
 	\label{fig:sStoreRes}
 \end{figure}
 
@@ -171,7 +178,7 @@ Here we can see the different components involved in the signing up process of c
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{../Diagrams/Sequence/sequence_user_warn.png}
-	\caption{Sequence Diagram: User Warning}
+	\caption{Sequence Diagram: Warning a User}
 	\label{fig:sUserWarn}
 \end{figure}
 
@@ -184,10 +191,58 @@ Here we can see the different components involved in the signing up process of c
 \end{figure}
 \subsection{Selected architectural styles and patterns}
 \subsection{Other design decisions}
-As it is possible to notice by diving through all the diagrams of the previous sections, CLup adopts some particular design decisions worth being discussed. 
-
-One of those decision is the way in which the application is distributed. CLup's functionality may be summarized as follows:
+As all the diagrams of the previous sections outline, CLup adopts some particular design decisions worth being discussed. \newline
+One of those decision is the way in which the application is distributed. According to the aims of this section, CLup's functionality may be summarized as follows:
 \begin{itemize}
-    \item 
+    \item Presentation \& User interaction
+    \item Flow management \& local business functionality.
 \end{itemize}
+Let's discuss them in detail.
+\paragraph{User interaction}
+The \textbf{Presentation \& user interaction} set of functionalities (from now on: PUIF) covers anything from the registration of new components/people (customers, staff members, stores etc.) to the making of a booking, the virtual queueing process and so on. Every single interaction taking place between CLup and its users has to be included here. \newline
+We have chosen for these functionalities a \textbf{cost-saving biased trade-off}. We have decided to sacrifice robustness and - eventually - availability of such functionalities in favour of a more affordable and easy-to-implement architecture: one of CLup's main objectives is to become ubiquitous, so to make  increasing the reach of its very primary goal (safer grocery shopping) possible.\newline
+In particular, the following aspects have been taken into consideration:
+\begin{itemize}
+    \item PUIF usually require a stable, huge \textbf{bandwidth} which would have been difficult to get access to in many locations, in case a distributed approach were chosen instead.
+    \item PUIF, still being one fundamental functionality, is less vital wrt. FMLBF\footnote{Refer to \ref{def:acronyms}} (see next paragraph for more on this)
+    \item A distributed approach for PUIF would require massive infrastructure updates for the majority of stores willing to join the CLup network. This would in turn reduce the number of potential target stores, thus reducing CLup's main goal reach.
+    \item In the event of connection loss between central and remote (localized) servers, new bookings and tickets would not be issued for the affected stores. Still, \textbf{already existing ones would not be affected.}
+    \begin{itemize}
+        \item Similarly, in the event of main servers outage, CLup clients would not be able handle the generation of new booking and tickets, but still, they would be able to serve already generated ones - offline.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Local business}
+Completely opposite considerations have been made for \textbf{FMLBF}. These functionalities are indeed considered of strong, vital importance and have then been qualified eligible for a distributed architecture requirement. A \textbf{robustness/availability biased trade-off} was in fact chosen, also as a consequence of the following aspects:\newline
+\begin{itemize}
+    \item FMLBF mainly involve queue management, physical access control to the store, store control, physical ticketing. 
+    \item Aforementioned functionalities do not require internet access nor communication with the main servers, provided that the necessary local data structures are put in place.
+    \item As a consequence, the communication between main and remote (localized) servers assumes a new less-vital role, in which it allows part of CLup's functionality (booking, virtual queueing...) but \textbf{does not prevent others in the event of failure}.
+    \begin{itemize}
+        \item Customers would still be able to \textbf{access the store with a valid ticket}, even in case of broadband connection failure
+        \item Customers would still be able to \textbf{exit the store scanning} that same ticket
+        \item Customers would still be able to get \textbf{physical tickets} outside the store, even during a broadband connection failure event
+        \begin{itemize}
+            \item This in turns indicates (even though with limitations induced by the number of physical totems present) guarantee of access to the store to a \textbf{non-zero number of people} even during such events.
+        \end{itemize}
+        \item People flows would still be guaranteed to be handled correctly and consistently \textbf{during and after} the event of broadband connection failure.
+        \item Within normal operation conditions, CLup's business logic would require either:
+        \begin{itemize}
+            \item \textbf{Less costs}, in terms of storage (caches would be needed for a centralized approach), or..
+            \item ..\textbf{Less latency} in the processing of customer related events (access, exit etc.).
+        \end{itemize}
+    \end{itemize}
+    \item 
+
+\end{itemize}
+
+\paragraph{Databases}
+
+Given all the considerations above, databases have been split into:
+\begin{itemize}
+    \item \textbf{Central} databases. Those holding information about general facts, such as the \textbf{Stores} Database, or about entities that are not store-specific: like persons (\textbf{People} Database).
+    \item \textbf{Localized} databases. Those holding information about store-specific facts or entities, such as \textbf{Reports, Notifications, Bookings and Tickets} databases.
+\end{itemize}
+
+Each store may \textbf{optionally} hold a \textbf{cache} for most relevant central databases entries. 
 
