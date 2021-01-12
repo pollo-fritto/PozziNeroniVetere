@@ -26,7 +26,7 @@ There will be also at least two servers for the two following functionalities:
 \end{itemize}
 The bookings, queue and notifications databases will be distributed and replicated all over the entire store list. Each store will have its own instance of bookings, queue and notifications database while a central logic server will act as a request redirector towards them whenever needed.\\
 
-In Figure \ref{fig:HLArch} is represented the high-level architecture of the system: customers clients, through an internet connection, can connect to Clup's App Servers, which represent the A layer of the Clup customer side. Client's operations store o retrieve information from People DB Servers or directly from the Local DB of the store, depending by the kind of information. Staff clients instead are connected through a LAN connection to their Local Web Server, who will redirect their requests to the Staff Operations Manager server. This machine is expected to process the logic of requests and then submit them to the Local Application server who also store or retrieve the information from the Local DB or People DB server depending by the situation. Local Application Server is fundamental also for Totem users, in fact the Totem rely on this server for its requests. Staff clients may need to connect to Clup Centralized Hardware, to do this they need an internet connection to get in contact with the dedicated Central Web server, the P layer who then send the request to the Store Operations Manager, the A layer. This server stores and retrieves information from Stores DB servers
+In Figure \ref{fig:HLArch} is represented the high-level architecture of the system: customers clients, through an internet connection, can connect to CLup's App Servers, which represent the A layer of the Clup customer side. Client's operations store o retrieve information from People DB Servers or directly from the Local DB of the store, depending by the kind of information. Staff clients instead are connected through a LAN connection to their Local Web Server, who will redirect their requests to the Staff Operations Manager server. This machine is expected to process the logic of requests and then submit them to the Local Application server who also store or retrieve the information from the Local DB or People DB server depending by the situation. Local Application Server is fundamental also for Totem users, in fact the Totem rely on this server for its requests. Staff clients may need to connect to Clup Centralized Hardware, to do this they need an internet connection to get in contact with the dedicated Central Web server, the P layer who then send the request to the Store Operations Manager, the A layer. This server stores and retrieves information from Stores DB servers
 
 \begin{figure}[h!]
 	\includegraphics[width=\linewidth]{../Diagrams/Archtecture/Architecture_diagram.png}
@@ -90,12 +90,12 @@ In Figure \ref{fig:CompDgm} is represented the component diagram of the internal
     \item \textbf{Tier 2:} the \textit{web tier} offer standard web server functionality. An \textbf{Nginx} Server takes care of the HTTP requests from the staff's office computers. It then forwards them to application servers by using the \textbf{Apache JServ Protocol} (AJP)
     \item \textbf{Tier 3:} the \textit{operations tier} serves as main interface between the outer levels and the inner ones, by accepting incoming requests and redirecting them to the appropriate inner components when necessary. This layer is staff-operations only, and is particularly aimed at reducing main servers' workload by further distributing tasks. A \textit{JBoss EAP server} is run to accomplish this tier's tasks, and it communicates with inner level servers via RMI.
     \item \textbf{Tier 4}: the application tier is the core of CLup functionality. It includes the greatest majority of logical functionality (customer functionalities for the most part) and - architecturally wise - it's distributed across multiple servers: some centralized, some others distributed as one per each physical store. Each of those runs a JBoss EAP server. 
-    \item \textbf{Tier 5}: the last and innermost tier, the \textit{data tier}, handles data management and retrieval. It's controlled by tiers 3 and 4, and it's invoked by use of the J\textbf{ava DataBase Connectivity} APIs (JDBC). \textbf{MySQL} has been choosen for this Tier.
+    \item \textbf{Tier 5}: the last and innermost tier, the \textit{data tier}, handles data management and retrieval. It's controlled by tiers 3 and 4, and it's invoked by use of the \textbf{Java DataBase Connectivity} APIs (JDBC). \textbf{MySQL} has been chosen for this Tier.
 
 \end{itemize}
 
 \subsection{Runtime view}
-The following diagrams (\textit{UML sequence\footnote{See \cite{UML:ref}}}) aim at giving an overall view about the main components interactions in the real world. Side-interest, particular cases or situations have been left uncovered for clarity and focus reasons. For the same reasons, some \textit{notation abuses} may have been made regarding the main component in each diagram and its lifeline/messages back to the requester.\newline
+The following diagrams (\textit{UML sequence\footnote{As per \cite{UML:ref}}}) aim at giving an overall view about the main components interactions in the real world. Side-interest, particular cases or situations have been left uncovered for clarity and focus reasons. For the same reasons, some \textit{notation abuses} may have been made regarding the main component in each diagram and its lifeline/messages back to the requester.\newline
 
 
 \noindent{\color{gray}
@@ -108,17 +108,17 @@ The following diagrams (\textit{UML sequence\footnote{See \cite{UML:ref}}}) aim 
 }}
 
 
-\paragraph{Store Operations Diagrams}
-We can see in these diagrams the whole CLup architecture at work. A qualified member of the store's staff can, after strong authentication (not depicted), invoke the stop and resume of the store's operation. The first meaning no more customers allowed inside the store, no more physical tickets being issued at the totems, and eventually notifications being dispatched to the affected customers\footnote{See \ref{affected:def} \space for details}; the second implying correct and complete resuming of the store functionality. See figures \ref{fig:sStoreRes} \space and \ref{fig:sStoreOver}
+\paragraph{Store Operations}
+We can see in these diagrams the whole CLup architecture at work. A qualified member of the store's staff can, after strong authentication (not depicted), invoke the stop and resume of the store's operation. The first meaning no more customers allowed inside the store, no more physical tickets being issued at the totems, and eventually notifications being dispatched to the affected customers\footnote{Refer to \ref{affected:def} \space for details}; the second implying correct and complete resuming of the store functionality. See figures \ref{fig:sStoreRes} and \ref{fig:sStoreOver}.
 
-\paragraph{Registration and sign-up Diagrams}
-Here we can see the different components involved in the signing up process of customer as opposed to stores' staff members, or store themselves. Different components at different locations are used in each case. See figures \ref{fig:sStoreEn}, \ref{fig:sStaffEn} and \ref{fig:sCusSign}
+\paragraph{Registration and sign-up }
+Here we can see the different components involved in the signing up process of customer as opposed to stores' staff members, or store themselves. Different components at different locations are used in each case. See figures \ref{fig:sCusSign}, \ref{fig:sStoreEn} and \ref{fig:sStaffEn}.
 
-\paragraph{Tickets \& Booking}
+\paragraph{Tickets and Booking}
 The core of CLup's functionality. We can see how these features involve both centralised and remote (localized) servers to work. See figures \ref{fig:sCusBook} \space and \ref{fig:sCusEnq}. \newline
 See also \ref{fig:sTotemEnq} regarding offline, physical tickets issuing.
 
-\paragraph{Registration and sign-up Diagrams}
+\paragraph{Reporting and Warning}
 Finally, the reporting \& warning functionalities of CLup. They allow CLup (automatically) and stores' staff to inform users about relevant events, or even reporting them for misbehaviours. See figures \ref{fig:sUserRep}, \ref{fig:sUserWarn}.
 
 \begin{figure}[H]
@@ -190,7 +190,8 @@ Finally, the reporting \& warning functionalities of CLup. They allow CLup (auto
 	\label{fig:CompInt}
 \end{figure}
 \subsection{Selected architectural styles and patterns}
-As previously mentioned, a multi-tier client-server architecture has been used to develop CLup in order to promote a major decoupling of the system and to increase the reusability, scalability andflexibility. CLup servers wait for requests to arrive from clients and then respond to them, server provides clients a standardized transparent interface so that they need not be aware of the specifics of the system that is providing the service.\\
+As previously mentioned, a multi-tier client-server architecture has been used to develop CLup in order to promote a major decoupling of the system and to increase the reusability, scalability and
+flexibility. CLup servers wait for requests to arrive from clients and then respond to them, server provides clients a standardized transparent interface so that they need not be aware of the specifics of the system that is providing the service.\\
 For what concern design patterns, the best suited for this application is MVC: it is a very flexible pattern that massively increase decoupling and simultaneous development through the division of the related program logic into three interconnected elements, Model, View and Controller.
 Briefly: \begin{itemize}
 	\item Model: The central component of the pattern, Model is the application's dynamic data structure, independent of the user interface, it directly manages the data, logic and rules of the application.
