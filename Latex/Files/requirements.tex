@@ -42,14 +42,15 @@ The tickets consist of a QR code and an easy to remember alphanumeric code alter
 Another component of CLup targets store managers: when the store decides to join the CLup network, ad-hoc credentials to access the web app will be given. Special staff-only functions will then be achieved by the use of a web application, accessible via internal-use terminals.
 
 \subsubsection{Hardware Interfaces}
-Both users and store managers can use the application through a mobile phone or a personal computer. Users unable to do so will use totems provided by stores.
+The users can access the application through a \textbf{smartphone} while the store managers can access the web app through a browser on a \textbf{computer}. Users who don’t have a smartphone will be able to queue by using \textbf{physical totems} provided by stores.
+The stores should be equipped with such physical totems which consist in a \textbf{touch screen panel} plus a \textbf{printer} for the paper tickets. The stores also have to install \textbf{turnstiles} capable of scanning QR tickets and that have a keyboard to input the code in case the user doesn’t have such QR.
 \subsubsection{Software Interfaces}
 map API\\
 send ticket/booking requests to CLup\\
 send turnstile entrances/exits to CLup\\
 query automatically generated reports and obtain their statistics\\
 \subsubsection{Communication Interfaces}
-The only type of communication required by CLup is a stable internet connection.
+The type of communication mostly required by CLup is a stable \textbf{internet connection}, stores may also need an internal \textbf{LAN} in order to connect their local components.
 \subsection{Functional Requirements}
 
 \subsubsection{List of requirements}
@@ -404,6 +405,12 @@ The only type of communication required by CLup is a stable internet connection.
 \end{table}
 
 \subsubsection{Use cases}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{../Diagrams/CLup Use Cases Diagram.png}
+	\caption{Use case diagram}
+	\label{fig:UCDiagram}
+\end{figure}
 
 \begin{enumerate}
 	
@@ -1033,11 +1040,7 @@ The only type of communication required by CLup is a stable internet connection.
 
 \end{enumerate}
 
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{../Diagrams/CLup Use Cases Diagram.png}
-	\caption{Use case diagram}
-	\label{fig:UCDiagram}
-\end{figure}
+
 
 \subsubsection{Sequence diagrams}
 %SEQUENCE 1
