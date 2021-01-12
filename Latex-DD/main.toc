@@ -22,9 +22,9 @@
 \contentsline {paragraph}{Registration and sign-up Diagrams}{13}{paragraph*.8}%
 \contentsline {subsection}{\numberline {2.5}Component interfaces}{23}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Selected architectural styles and patterns}{23}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Other design decisions}{23}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.7}Other design decisions}{24}{subsection.2.7}%
 \contentsline {paragraph}{User interaction}{24}{paragraph*.20}%
-\contentsline {paragraph}{Local business}{24}{paragraph*.21}%
+\contentsline {paragraph}{Local business}{25}{paragraph*.21}%
 \contentsline {paragraph}{Databases}{25}{paragraph*.22}%
 \contentsline {section}{\numberline {3}User Interface Design}{26}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Overview}{26}{subsection.3.1}%
