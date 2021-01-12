@@ -45,10 +45,17 @@ Another component of CLup targets store managers: when the store decides to join
 The users can access the application through a \textbf{smartphone} while the store managers can access the web app through a browser on a \textbf{computer}. Users who don’t have a smartphone will be able to queue by using \textbf{physical totems} provided by stores.
 The stores should be equipped with such physical totems which consist in a \textbf{touch screen panel} plus a \textbf{printer} for the paper tickets. The stores also have to install \textbf{turnstiles} capable of scanning QR tickets and that have a keyboard to input the code in case the user doesn’t have such QR.
 \subsubsection{Software Interfaces}
-map API\\
-send ticket/booking requests to CLup\\
-send turnstile entrances/exits to CLup\\
-query automatically generated reports and obtain their statistics\\
+\begin{itemize}
+    \item Data management\\
+The components need a way to communicate with their underlying databases, a DBMS is capable of satisfying such requirement
+    \item Localization and distances\\
+The system will use an API capable of localising the user through GPS and calculating distances to the stores\
+    \item Identity verification\\
+In order to let the users without a registered account require tickets through the totem there will be an API that verifies that the inserted document’s identity (code or scan) is present in the current country’s database
+    \item Communication over the internet\\
+An internet communication protocol will be used to accomplish this task
+\end{itemize}
+
 \subsubsection{Communication Interfaces}
 The type of communication mostly required by CLup is a stable \textbf{internet connection}, stores may also need an internal \textbf{LAN} in order to connect their local components.
 \subsection{Functional Requirements}
