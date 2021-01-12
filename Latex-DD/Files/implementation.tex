@@ -68,3 +68,17 @@ Common practices guide us on the types of tests we have to perform:
 	\item Load testing: identify upper limits for workload and expose possible bugs in memory management and buffer overflows
 	\item Stress testing: reveal how the system recovers from failures such as unexpected shutdowns and disconnections
 \end{enumerate}
+
+\subsection{Additional Specification on Testing}
+Here we will present some guidelines on how to analyse, test, verify and validate the project.
+
+First of all an initial analysis over the RASD and DD documents should be conducted by a quality team.
+The analysis is divided in walkthrough and inspection, the first one should be performed in meetings with experts on the field of this project in order to do an initial check of its correctness for its purpose.
+The second one also has to be performed, it focuses more on the formal aspects and is done by professional inspectors who will follow a checklist of things to be examined.
+The inspection activity must continue during the entire development since it will also check the generated code and it will also consist in meetings where the members of the developer team have to partecipate.
+The job of the quality team is to just report problems in the code while the developers have to be the ones correcting such problems, the fixes then will be checked again by the quality team.
+It is very important that the code is properly commented in a semi-formal way by the developers, so that the quality team can expect standardized work to analyse.
+Apart from the inspection work, in order to find problems with the code, effort must also be done by the developers in the generation of test cases which should cover at least 90\% of the code, since this will help find problems earlier than the inspection.
+As previously mentioned the aim is to have an usable application with basic functionalities as soon as possible, so when it will be ready an additional team of testers will go through it and its next versions to test and evaluate the integrated system.
+The code testing has to be white-box systematic since this is incentivated by the bottom up approach and almost all the components are going to be built from scratch.
+
