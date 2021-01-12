@@ -183,4 +183,18 @@ Here we can see the different components involved in the signing up process of c
 	\label{fig:CompInt}
 \end{figure}
 \subsection{Selected architectural styles and patterns}
+As previously mentioned, a multi-tier client-server architecture has been used to develop CLup in order to promote a major decoupling of the system and to increase the reusability, scalability andflexibility. CLup servers wait for requests to arrive from clients and then respond to them, server provides clients a standardized transparent interface so that they need not be aware of the specifics of the system that is providing the service.\\
+For what concern design patterns, the best suited for this application is MVC: it is a very flexible pattern that massively increase decoupling and simultaneous development through the division of the related program logic into three interconnected elements, Model, View and Controller.
+Briefly: \begin{itemize}
+	\item Model: The central component of the pattern, Model is the application's dynamic data structure, independent of the user interface, it directly manages the data, logic and rules of the application.
+	\item View: This component presents information to the user
+	\item Controller: This component is responsible for interpreting the input and manipulating the model based on that input.
+	\end{itemize}
+A possible way to implement MVC is a combination of Observer, Composite and Strategy patterns:
+\begin{itemize}
+	\item The model implements the Observer pattern to keep interested objects, typically in the View, updated when state changes occur. In this way it is possible to use different views with the same model or even multiple views at once
+	\item GUIs consists of a nested set of a windows, panels and so on. Using Composite, each of those components is a composite or a leaf, when the controller tells the view to update, it only has to tell the top view component and Composite takes care of the rest
+	\item The view and controller implement the classic Strategy Pattern, the view is an object that is configured with a strategy. The controller provides the strategy and the view is concerned only with the visual aspects of the application, it delegates to the controller for any decisions about the interface behavior. Using the Strategy pattern also keeps the view decoupled from the model because it is the controller that is responsible for interacting with the model to carry out user requests 
+\end{itemize}
+
 \subsection{Other design decisions}
