@@ -21,14 +21,14 @@ CLup is an application aimed at decreasing the probability of contracting COVID-
 		\caption{Your ticket}
 		\label{fig:WfTicket}
 	\end{subfigure}
-	\caption{Clup wireframes}
+	\caption{CLup wireframes}
 	\label{fig:Wireframes}
 \end{figure}
 \paragraph{End user functionalities}
 Regarding the first target - customers - they will be required to register to the service the first time they use it by inserting their full name, email address, ID card, phone number and a password. The customer will also be requested to specify his physical address, or to enable the GPS, in order to allow CLup to find stores nearby; this last information can be changed anytime the user needs. If the customer is not willing to register or share his address, the service will not be available.
 
 Once the setup is done, customers will be able to access the homepage of the application, where they can tap on a “Virtually queue” button that will allow them to see a list of stores inside a specified range from their current location: for each store a distance in kilometers from the user position will be outlined, as well as the number of people inside the store and its maximum capacity; whenever a store is full, the current number of people in line and an \textit{EWT} are displayed.\newline  
-It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialog specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from a home button. The process is shown in Figure ~\ref{fig:VirtuallyQ}.\\
+It is also possible to visualize stores on a map and, by tapping on one of them, to see the same information displayed in the list. Now, if the user chooses to reserve a spot in the line, the application will open a confirm dialogue specifying EWT and the expiration of the ticket. If the user refuses nothing happens, if he accepts instead CLup will process the request, show his ticket and the real time evolution of the line; the ticket is also visible from a home button. The process is shown in Figure ~\ref{fig:VirtuallyQ}.\\
 The distance range in which CLup will look for supermarkets is specified by the user through the filter button in the homepage, this button will in fact open the filter screen in which, among other parameters, a sliding bar controls the distance and a drop-down list allows the user to filter the chains of supermarkets.\newline
 
 Another important feature is the possibility to book an entrance later in the day or in another day. The user can specify from the filters whether he prefers to choose the day or the store first and he can set the time range in which he wants to book. 
@@ -42,14 +42,14 @@ The tickets consist of a QR code and an easy to remember alphanumeric code alter
 Another component of CLup targets store managers: when the store decides to join the CLup network, ad-hoc credentials to access the web app will be given. Special staff-only functions will then be achieved by the use of a web application, accessible via internal-use terminals.
 
 \subsubsection{Hardware Interfaces}
-The users can access the application through a \textbf{smartphone} while the store managers can access the web app through a browser on a \textbf{computer}. Users who don’t have a smartphone will be able to queue by using \textbf{physical totems} provided by stores.
-The stores should be equipped with such physical totems which consist in a \textbf{touch screen panel} plus a \textbf{printer} for the paper tickets. The stores also have to install \textbf{turnstiles} capable of scanning QR tickets and that have a keyboard to input the code in case the user doesn’t have such QR.
+The users can access the application through a \textbf{smartphone} while the store managers can access the web app through a browser on a \textbf{computer}. Users who don't have a smartphone will be able to queue by using \textbf{physical totems} provided by stores.
+The stores should be equipped with such physical totems which consist in a \textbf{touch screen panel} plus a \textbf{printer} for the paper tickets. The stores also have to install \textbf{turnstiles} capable of scanning QR tickets and that have a keyboard to input the code in case the user doesn't have such QR.
 \subsubsection{Software Interfaces}
 \begin{itemize}
     \item Data management\\
 The components need a way to communicate with their underlying databases, a DBMS is capable of satisfying such requirement
     \item Localization and distances\\
-The system will use an API capable of localising the user through GPS and calculating distances to the stores\
+The system will use an API capable of localizing the user through GPS and calculating distances to the stores\
     \item Identity verification\\
 In order to let the users without a registered account require tickets through the totem there will be an API that verifies that the inserted document’s identity (code or scan) is present in the current country’s database
     \item Communication over the internet\\
@@ -350,7 +350,7 @@ The type of communication mostly required by CLup is a stable \textbf{internet c
 \begin{table}[H]
 	\rowcolors{1}{white}{white}
 	\begin{tabular}{c|l}
-		\cellcolor{lightgray}\textbf{G9} & \pbox{13cm}{\textbf{Find the best (less crowded, soonest available) alternative among local supermarket stores (of same franchise only?)}}\\
+		\cellcolor{lightgray}\textbf{G9} & \pbox{13cm}{\textbf{Find the best (less crowded, soonest available) alternative among local supermarket stores}}\\
 		\hline
 		\cellcolor{YellowGreen} R3 & CLup must elaborate and upload data about current global customer affluence to the store during use \\
 		\hline
@@ -432,7 +432,7 @@ The type of communication mostly required by CLup is a stable \textbf{internet c
 	\hline
 	Actors & User\\
 	\hline
-	Entry Condition & User installed and opened the app and doesn’t have an account or wants to register another one\\
+	Entry Condition & User installed and opened the app and doesn't have an account or wants to register another one\\
 	\hline
 	Event Flow & \begin{enumerate}
 		\item User opens the app.
@@ -482,7 +482,7 @@ The type of communication mostly required by CLup is a stable \textbf{internet c
 		\hline
 		Exception & \begin{enumerate}
 			\item Credentials are wrong\newline
-			wrong credentials popup, user stays in  login screen
+			wrong credentials pop-up, user stays in  login screen
 			
 			\item There is no internet connection\newline
 			no internet warning pop up, user still logs in if he used previously inserted and saved credentials so he can still edit settings and filters or look at his history 
@@ -1356,7 +1356,7 @@ Therefore, the following minimum requirements are requested for maximised portab
     \item[\ref{subsub:portability}.4] Use of CSS for web styling
     \item[\ref{subsub:portability}.5] Use of Java or C++ or C for core application functionalities
     \item[\ref{subsub:portability}.6] Use of PHP for web application backends
-    \item[\ref{subsub:portability}.7] Use of Linux/Unix based OSs on all servers and end-user totems
+    \item[\ref{subsub:portability}.7] Use of Linux/Unix based OSes on all servers and end-user totems
     \item[\ref{subsub:portability}.8] No use of Adobe \textregistered \space Flash \textregistered \space technologies
 \end{itemize}
 
